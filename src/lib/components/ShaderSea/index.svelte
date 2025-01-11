@@ -18,7 +18,7 @@
 	let heightContainer = $state(0);
 	let windowWidth = $state(0);
 	let width = $derived(widthContainer);
-	let height = $derived(getHeight(width));
+	let height = $derived(heightContainer); // $derived(getHeight(width));
 	let aspect = $derived(width / height);
 
 	// Initialise
@@ -115,7 +115,8 @@
 		 ************** Camera ***************
 		 ************************************/
 		camera = new THREE.PerspectiveCamera(50, aspect, 0.1, 100);
-		camera.position.z = 0;
+		camera.position.y = -0.3;
+		camera.position.z = 1.2;
 		scene.add(camera);
 
 		// Controls
@@ -207,12 +208,14 @@
 		margin: auto;
 		cursor: crosshair;
 		width: 100vw;
+		height: 100vh;
 		position: absolute;
-		bottom: -20px;
+		bottom: -10px;
+		border: 2px solid red;
 	}
 	canvas {
 		width: 100%;
 		height: 100%;
-		background-color: rgb(4, 13, 40);
+		background-color: rgb(1, 7, 22);
 	}
 </style>
