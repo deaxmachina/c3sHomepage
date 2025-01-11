@@ -17,76 +17,73 @@
 		extraCols[4]
 	];
 
+	// Hex color as a string
+	let hexColor = '#02070A';
+
 	const sketch = (p5) => {
 		let colourScheme;
 		let colours;
-		// Bg col
-		let colBg;
-		let randomColBgDots;
 
 		// Dragonflies
 		let ctx;
 		let dragonflies = [];
 		let sampleRotation = Math.PI * 0.1;
 		const rotations = [];
-		let dragonfliesAreOverlapping = false;
 
 		p5.setup = () => {
 			p5.createCanvas(p5.windowWidth, p5.windowHeight);
 			ctx = p5.canvas.getContext('2d');
+			p5.frameRate(20);
 
 			// Initialise the colour scheme on load
 			colourScheme = 1;
 			colours = colourSchemes[colourScheme];
-			randomColBgDots = { colBg: '#1e0c42', colDots: '#f0077b' };
-			colBg = colourScheme === 0 ? p5.color(randomColBgDots.colBg) : p5.color(0, 0, 0);
 
 			// Dragonflies - add the 2 main dragonflies
 			const dragonfly1 = new Dragonfly(
 				colours,
 				ctx,
-				p5.width * 0.35,
-				p5.height * 0.37,
-				Math.min(0.57, 0.0004 * p5.windowWidth),
+				p5.width * 0.38,
+				p5.height * 0.35,
+				Math.min(0.57, 0.00035 * p5.windowWidth),
 				Math.PI * 0.2,
 				0,
-				200,
-				p5.random(colours.filter((d) => d !== randomColBgDots.colBg))
+				300,
+				p5.random(colours)
 			);
 			dragonflies.push(dragonfly1);
 			rotations.push(sampleRotation);
 			const dragonfly2 = new Dragonfly(
 				colours,
 				ctx,
-				p5.width * 0.67,
-				p5.height * 0.56,
-				Math.min(0.4, 0.00025 * p5.windowWidth),
+				p5.width * 0.63,
+				p5.height * 0.45,
+				Math.min(0.4, 0.00015 * p5.windowWidth),
 				-Math.PI * 0.3,
 				0,
-				140,
-				p5.random(colours.filter((d) => d !== randomColBgDots.colBg))
+				240,
+				p5.random(colours)
 			);
 			dragonflies.push(dragonfly2);
 			rotations.push(sampleRotation);
 
 			// Dragonflies - a couple more at the edges
 			const posLookup = [
-				// { x: width - random(50, 300), y: height - random(50, 200) },
-				// { x: width - random(50, 200), y: height - random(50, 300) },
-				{ x: p5.random(20, 200), y: p5.height - p5.random(100, 400) },
+				{ x: p5.random(p5.width * 0.5 - 100, p5.width * 0.5 + 200), y: p5.random(50, 200) },
+				{ x: p5.random(p5.width * 0.5 - 100, p5.width * 0.5 + 400), y: p5.random(50, 200) },
+				{ x: p5.random(p5.width * 0.5, p5.width * 0.5 + 600), y: p5.random(100, 300) },
 				{ x: p5.random(100, 600), y: p5.height - p5.random(50, 200) }
 			];
-			for (const i of [0, 0]) {
+			for (const i of [0, 1, 2]) {
 				const newDragonfly = new Dragonfly(
 					colours,
 					ctx,
 					posLookup[i].x,
 					posLookup[i].y,
-					p5.random(0.00008 * p5.windowWidth, 0.0002 * p5.windowWidth),
+					p5.random(0.00005 * p5.windowWidth, 0.00015 * p5.windowWidth),
 					p5.random(-Math.PI * 0.3, Math.PI * 0.3),
 					p5.random(0, Math.PI),
-					p5.random(20, 50),
-					p5.random(colours.filter((d) => d !== randomColBgDots.colBg))
+					100
 				);
 				dragonflies.push(newDragonfly);
 				rotations.push(sampleRotation);
@@ -94,7 +91,12 @@
 		};
 
 		p5.draw = () => {
-			p5.background(p5.red(colBg), p5.green(colBg), p5.blue(colBg), 60);
+			// Convert hex to a p5 color object and set alpha
+			let bgColor = p5.color(hexColor);
+			bgColor.setAlpha(70); // Set alpha (0-255, where 60 is ~24% opacity)
+			p5.fill(bgColor);
+			p5.noStroke();
+			p5.rect(0, 0, p5.width, p5.height * 0.7);
 
 			// Smooth sine wave wing flapping motion for dragonfly wings
 			if (dragonflies.length > 0) {
@@ -103,6 +105,10 @@
 					dragonfly.drawDragonfly();
 					rotations[i] += p5.sin(p5.frameCount * (i + 1)) * 0.6;
 				});
+			}
+
+			if (p5.frameCount >= 50) {
+				p5.noLoop();
 			}
 		};
 	};

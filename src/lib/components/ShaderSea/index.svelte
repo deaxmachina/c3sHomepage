@@ -7,8 +7,8 @@
 	let canvas: HTMLCanvasElement;
 	// Options -- these will be props
 	const colBg = '#011627';
-	const colHills = '#ebebeb';
-	const hillValue = 0.15;
+	const colHills = '#228dff'; // '#bdbdbd'; //'#f5be58';
+	const hillValue = 0.1;
 
 	// Sizes
 	const getHeight = (width: number) => {
@@ -86,7 +86,7 @@
 		 ************************************/
 		// Geometry
 		geometryPlane = new THREE.PlaneGeometry(3, 3, 1000, 1000);
-		geometryPlane.rotateX(-Math.PI * 0.5);
+		geometryPlane.rotateX(-Math.PI * 0.41);
 
 		// Material
 		materialPlane = new THREE.ShaderMaterial({
@@ -115,7 +115,7 @@
 		 ************** Camera ***************
 		 ************************************/
 		camera = new THREE.PerspectiveCamera(50, aspect, 0.1, 100);
-		camera.position.y = -0.3;
+		// camera.position.y = -0.2;
 		camera.position.z = 1.2;
 		scene.add(camera);
 
@@ -209,13 +209,12 @@
 		cursor: crosshair;
 		width: 100vw;
 		height: 100vh;
-		position: absolute;
-		bottom: -10px;
-		border: 2px solid red;
+		// position: absolute;
+		// bottom: -10px;
 	}
 	canvas {
 		width: 100%;
 		height: 100%;
-		background-color: rgb(1, 7, 22);
+		// background-color: #1e0c42; // rgb(1, 7, 22);
 	}
 </style>

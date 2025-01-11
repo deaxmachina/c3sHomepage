@@ -67,7 +67,7 @@ class Dragonfly {
 		scale = 1,
 		rotate = 0,
 		rotateWing = Math.PI * 0.25,
-		numPoints = 300,
+		numPoints = 600,
 		strokeFill = colours[0],
 		outerStrokeWidth = 5,
 		backgroundFill = 'black',
@@ -148,8 +148,9 @@ class Dragonfly {
 			const fibonacciModified = [
 				...fibonacci.slice(0, 100),
 				...fibonacci.slice(0, 100),
+				...fibonacci.slice(100, 200),
 				...fibonacci.slice(100, 200)
-			]; //.map(d => Math.sqrt(d))
+			]; //.map((d) => Math.sqrt(d));
 			const value = fibonacciModified[i];
 			return {
 				i,
@@ -226,7 +227,7 @@ class Dragonfly {
 					this.ctx.fillStyle = path.fill;
 				}
 			} else {
-				this.ctx.fillStyle = '#000';
+				this.ctx.fillStyle = 'rgba(0,0,0,0)';
 			}
 			this.ctx.strokeStyle = this.strokeFill;
 			this.ctx.lineWidth = path.strokeWidth;
