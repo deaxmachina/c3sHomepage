@@ -7,7 +7,7 @@
 	let canvas: HTMLCanvasElement;
 	// Options -- these will be props
 	const colBg = '#011627';
-	const colHills = '#228dff'; // '#bdbdbd'; //'#f5be58';
+	const colHills = '#fff'; // '#bdbdbd'; //'#f5be58';
 	const hillValue = 0.1;
 
 	// Sizes
@@ -86,7 +86,7 @@
 		 ************************************/
 		// Geometry
 		geometryPlane = new THREE.PlaneGeometry(3, 3, 1000, 1000);
-		geometryPlane.rotateX(-Math.PI * 0.41);
+		geometryPlane.rotateX(-Math.PI * 0.42);
 
 		// Material
 		materialPlane = new THREE.ShaderMaterial({
