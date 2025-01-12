@@ -16,7 +16,7 @@
 		['#079ea6', '#1e0c42', '#f0077b', '#f5be58', '#e3e0b3'],
 		['#ff0092', '#ffca1b', '#b6ff00', '#228dff', '#ba01ff'],
 		['#f3d597', '#b6d89c', '#92ccb6', '#f87887', '#9e6b7c'],
-		['#dae2cb', '#96c3a6', '#6cb6a5', '#221d34', '#54448e']
+		['#dae2cb', '#96c3a6', '#6cb6a5', '#221d34', '#54448e', '#9c75db']
 	];
 
 	// Hex color as a string
@@ -31,6 +31,9 @@
 		let dragonflies = [];
 		let sampleRotation = Math.PI * 0.1;
 		const rotations = [];
+
+		let existsDragonflyHovered = false;
+		let frameCounts = []; // Want to keep track of the current number of frame counts for each dragonfly in motion
 
 		p5.setup = () => {
 			p5.createCanvas(p5.windowWidth, p5.windowHeight);
@@ -94,22 +97,53 @@
 		p5.draw = () => {
 			// Convert hex to a p5 color object and set alpha
 			let bgColor = p5.color(hexColor);
-			bgColor.setAlpha(80); // Set alpha (0-255, where 60 is ~24% opacity)
-			p5.fill(bgColor);
-			p5.noStroke();
-			p5.rect(0, 0, p5.width, p5.height * 0.63);
+			bgColor.setAlpha(100);
+
+			// Check if there exists any dragonfly which is being hovered
+			existsDragonflyHovered = dragonflies
+				.map((d) => d.clicked(p5.mouseX, p5.mouseY, p5.dist))
+				.find((d) => d === true);
 
 			// Smooth sine wave wing flapping motion for dragonfly wings
-			if (dragonflies.length > 0) {
-				dragonflies.forEach((dragonfly, i) => {
-					dragonfly.setRotate(rotations[i]);
-					dragonfly.drawDragonfly();
-					rotations[i] += p5.sin(p5.frameCount * (i + 1)) * 0.6;
-				});
-			}
+			// if (dragonflies.length > 0) {
+			// 	dragonflies.forEach((dragonfly, i) => {
+			// 		dragonfly.setRotate(rotations[i]);
+			// 		dragonfly.drawDragonfly();
+			// 		rotations[i] += p5.sin(p5.frameCount * (i + 1)) * 0.6;
+			// 	});
+			// }
 
-			if (p5.frameCount >= 50) {
-				p5.noLoop();
+			// Draw and aniamte all the dragonflies below a certain number of frames
+			if (p5.frameCount <= 20) {
+				frameCounts = dragonflies.map((d) => p5.frameCount);
+				p5.fill(bgColor);
+				p5.noStroke();
+				p5.rect(0, 0, p5.width, p5.height * 0.63);
+				if (dragonflies.length > 0) {
+					dragonflies.forEach((dragonfly, i) => {
+						dragonfly.setRotate(rotations[i]);
+						dragonfly.drawDragonfly();
+						rotations[i] += p5.sin(frameCounts[i] * (i + 1)) * 0.6;
+					});
+				}
+			}
+			// And above that threshold of frames, only aniamte the dragonfly being hovered
+			// Note that we still need to make sure that we are drawing the other ones, just
+			// not animating them (hence the need for the background etc)
+			else {
+				if (existsDragonflyHovered) {
+					p5.fill(bgColor);
+					p5.noStroke();
+					p5.rect(0, 0, p5.width, p5.height * 0.63);
+					dragonflies.forEach((dragonfly, i) => {
+						dragonfly.drawDragonfly();
+						if (dragonfly.clicked(p5.mouseX, p5.mouseY, p5.dist)) {
+							frameCounts[i] += 1;
+							dragonfly.setRotate(rotations[i]);
+							rotations[i] += p5.sin(frameCounts[i] * (i + 1)) * 0.6;
+						}
+					});
+				}
 			}
 		};
 	};

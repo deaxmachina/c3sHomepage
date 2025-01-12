@@ -7,7 +7,7 @@
 	let canvas: HTMLCanvasElement;
 	// Options -- these will be props
 	const colBg = '#011627';
-	const colHills = '#fff'; // '#bdbdbd'; //'#f5be58';
+	const colHills = '#dae2cb'; // '#bdbdbd'; //'#f5be58';
 	const hillValue = 0.1;
 
 	// Sizes

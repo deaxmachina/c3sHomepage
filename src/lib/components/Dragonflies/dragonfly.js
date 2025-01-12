@@ -69,7 +69,7 @@ class Dragonfly {
 		rotateWing = Math.PI * 0.25,
 		numPoints = 600,
 		strokeFill = colours[0],
-		outerStrokeWidth = 5,
+		outerStrokeWidth = 10,
 		backgroundFill = 'black',
 		opacity = 0.8,
 		widthVoronoi = 550,
@@ -310,7 +310,7 @@ class Dragonfly {
 
 	// Check if the whole dragonfly is 'hovered'
 	// TODO: This can be refactored to use the is point in path api
-	clicked(x, y, dist, distance = 700) {
+	clicked(x, y, dist, distance = 500) {
 		const d = dist(x, y, this.x, this.y);
 		return d < this.scale * distance;
 	}
