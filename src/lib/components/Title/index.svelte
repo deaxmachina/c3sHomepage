@@ -8,6 +8,7 @@
 
 <style lang="scss">
 	$base-font-size-title: min(max(250px, 25vw), 400px);
+	$height-adjusted-font-size-title: min(max(250px, 20vw), 370px);
 
 	.wrapper {
 		display: flex;
@@ -46,6 +47,15 @@
 		}
 		&.background {
 			color: #6cb6a5;
+		}
+	}
+
+	@media (max-height: 800px) {
+		h1 {
+			font-size: $height-adjusted-font-size-title;
+			.num {
+				font-size: calc($height-adjusted-font-size-title * 0.72);
+			}
 		}
 	}
 </style>
