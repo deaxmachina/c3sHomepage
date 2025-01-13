@@ -19,6 +19,7 @@
 		position: relative;
 		width: 100vw;
 		height: 100vh;
+		overflow: hidden;
 	}
 	.wrapper-gradient {
 		position: absolute;
@@ -26,15 +27,12 @@
 		left: 0;
 		width: 100vw;
 		height: 100vh;
-		// background: linear-gradient(rgba(2, 7, 10, 1) 80%, rgba(2, 7, 10, 0) 100%);
-		background: linear-gradient(#221d34 75%, #4a7d6f 85%, #6cb6a5 90%, #96c3a6 100%);
+		background: linear-gradient(#221d34 70%, #4a7d6f 80%, #6cb6a5 90%, #96c3a6 100%);
 	}
 	.wrapper-background-text {
 		position: absolute;
 		top: 0;
 		left: 0;
-		width: 100vw;
-		height: 50vh;
 		opacity: 0.15;
 	}
 	.wrapper-dragonflies {
@@ -46,14 +44,12 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		width: 100%;
-		height: 100%;
 	}
 	.wrapper-title {
 		pointer-events: none;
 		position: absolute;
 		left: 0;
-		bottom: 100px;
+		bottom: 10px;
 		width: 100%;
 	}
 </style>

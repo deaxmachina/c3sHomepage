@@ -7,43 +7,45 @@
 </div>
 
 <style lang="scss">
+	$base-font-size-title: min(max(250px, 25vw), 400px);
+
 	.wrapper {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		position: relative;
 		flex-direction: column;
+		// border: 1px solid red;
 	}
 	.full-name {
 		font-family: 'bitcount-grid-double-circle', sans-serif;
 		font-weight: 400;
 		font-style: normal;
-		font-size: 1.5rem;
+		font-size: calc($base-font-size-title * 0.07);
 		color: #dae2cb;
 		line-height: 1;
 		text-transform: uppercase;
 	}
 	.abbr {
 		position: relative;
-		// border: 2px solid red;
-		margin-top: -50px;
+		margin-top: -20px;
 	}
 	h1 {
-		line-height: 1;
-		font-size: 15rem;
-		font-family: 'lores-9-plus-wide', sans-serif;
+		line-height: 0.7;
+		font-size: $base-font-size-title;
+		font-family: 'sudo', 'lores-9-plus-wide', sans-serif;
 		font-weight: 400;
 		font-style: normal;
 		.num {
-			font-size: 12.5rem;
+			font-size: calc($base-font-size-title * 0.72);
 		}
 		&.foreground {
-			color: #221d34;
-		}
-		&.background {
 			position: absolute;
 			top: -10px;
-			color: #9c75db;
+			color: #dae2cb; // #9c75db; // #221d34; // #dae2cb; // #54448e;
+		}
+		&.background {
+			color: #6cb6a5;
 		}
 	}
 </style>

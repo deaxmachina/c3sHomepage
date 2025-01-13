@@ -1,8 +1,12 @@
-<script>
-	/* Background */
+<!-- 
+Credits
+Animation for the background text is from https://codepen.io/wodniack/pen/gOEbREo 
+-->
+
+<script lang="ts">
 	class Background {
 		constructor() {
-			this.container = document.querySelector('.js-background');
+			this.container = document.querySelector('.js-background')!;
 
 			this.init();
 		}
@@ -57,13 +61,20 @@
 </div>
 
 <style lang="scss">
+	.wrapper {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		width: 100vw;
+		height: 100vh;
+	}
+
 	.background {
 		position: absolute;
 		inset: 0;
 		background-color: none;
-		// z-index: 1;
-
-		// opacity: 0.3;
 
 		@keyframes background {
 			0% {
@@ -121,35 +132,12 @@
 				width: calc(var(--width) * 4);
 				height: 100%;
 
-				background: url('c3s-6.png') 0 50% / contain;
+				background: url('images/c3s-9.png') 0 50% / contain;
 
 				animation: background calc(60s + var(--duration) * 60s) linear infinite;
 
 				content: '';
 			}
 		}
-	}
-
-	/* Body */
-	.wrapper {
-		position: relative;
-
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		overflow: hidden;
-		width: 100vw;
-		height: 100vh;
-
-		// &:before {
-		// 	position: absolute;
-		// 	inset: -100px;
-
-		// 	background: url('https://assets.codepen.io/5817405/noise-light.png') 50% / 256px 256px;
-
-		// 	animation: noise-background 0.5s steps(1) infinite;
-
-		// 	content: '';
-		// }
 	}
 </style>

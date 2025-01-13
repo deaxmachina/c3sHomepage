@@ -120,8 +120,8 @@
 		scene.add(camera);
 
 		// Controls
-		controls = new OrbitControls(camera, canvas);
-		controls.enableDamping = true;
+		// controls = new OrbitControls(camera, canvas);
+		// controls.enableDamping = true;
 
 		/************************************
 		 ************* Renderer **************
@@ -145,10 +145,10 @@
 
 			// Update the material, e.g. the uniforms
 			materialPlane.uniforms.uTime.value = elapsedTime;
-			materialPlane.uniforms.uElevation.value = 1 - Math.sin(elapsedTime) * 0.1;
+			materialPlane.uniforms.uElevation.value = 1 - Math.sin(elapsedTime) * 0.2;
 
 			// Update the controls
-			controls.update();
+			// controls.update();
 
 			// Render
 			renderer.render(scene, camera);

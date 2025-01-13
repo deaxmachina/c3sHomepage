@@ -1,5 +1,19 @@
 @import url("https://use.typekit.net/mjx8fvi.css");
 
+@font-face {
+  font-family: 'sudo';
+  src: url('/fonts/Sudo.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sudo-outlined';
+  src: url('/fonts/Sudo-Outlined.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 *, body {
   margin: 0;
@@ -8,5 +22,5 @@
 }
 
 body {
-   background-color: #9077eb;// #010716;
+   background-color: #fff;// #010716;
 }
