@@ -132,7 +132,7 @@ Animation for the background text is from https://codepen.io/wodniack/pen/gOEbRE
 				width: calc(var(--width) * 4);
 				height: 100%;
 
-				background: url('images/c3s-9.png') 0 50% / contain;
+				background: url('/images/c3s-9.png') 0 50% / contain;
 
 				animation: background calc(60s + var(--duration) * 60s) linear infinite;
 
