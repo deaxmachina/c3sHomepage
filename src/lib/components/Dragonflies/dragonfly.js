@@ -142,15 +142,14 @@ class Dragonfly {
 
 	// Helper function to generate some fake data
 	getDummyData() {
+		const fibonacciModified = [
+			...fibonacci.slice(0, 100),
+			...fibonacci.slice(0, 100),
+			...fibonacci.slice(100, 200),
+			...fibonacci.slice(100, 200)
+		]; //.map((d) => Math.sqrt(d));
+		const fibonacciModifiedScrambled = _.sampleSize(fibonacciModified, fibonacciModified.length);
 		const data = _.range(this.numPoints).map((i) => {
-			// const value = i === 0 ? 700 : i > this.numPoints * 0.5 ? random(5, 20) : i > this.numPoints * 0.75 ? random(20, 40) : random(30, 120)
-			// const value = [...fibonacci.slice(0, 100), ...fibonacci.slice(0, 100)][i]
-			const fibonacciModified = [
-				...fibonacci.slice(0, 100),
-				...fibonacci.slice(0, 100),
-				...fibonacci.slice(100, 200),
-				...fibonacci.slice(100, 200)
-			]; //.map((d) => Math.sqrt(d));
 			const value = fibonacciModified[i];
 			return {
 				i,
