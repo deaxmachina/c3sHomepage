@@ -86,31 +86,31 @@
 				{
 					x: p5.random(p5.width * 0.6, p5.width * 0.8),
 					y: p5.random(p5.height - 80, p5.height - 150),
-					scale: p5.random(0.0001 * p5.windowWidth, 0.00015 * p5.windowWidth),
+					scale: p5.random(0.00013 * p5.windowWidth, 0.00018 * p5.windowWidth),
 					rotate: -Math.PI * 0.3,
 					rotateWing: Math.PI,
 					numPoints: 100,
 					strokeFill: p5.random(coloursForStroke)
-				},
-				{
-					// x: p5.random(p5.width * 0.5, p5.width * 0.5 + 600),
-					x: 130,
-					y: p5.random(100, 300),
-					scale: p5.random(0.00005 * p5.windowWidth, 0.00015 * p5.windowWidth),
-					rotate: Math.PI * 0.65,
-					rotateWing: p5.random(0, Math.PI),
-					numPoints: 100,
-					strokeFill: p5.random(coloursForStroke)
-				},
-				{
-					x: p5.random(p5.width * 0.5, p5.width * 0.5 + 400),
-					y: p5.random(50, 200),
-					scale: p5.random(0.00005 * p5.windowWidth, 0.0001 * p5.windowWidth),
-					rotate: p5.random(-Math.PI * 0.3, Math.PI * 0.3),
-					rotateWing: p5.random(0, Math.PI),
-					numPoints: 50,
-					strokeFill: p5.random(coloursForStroke)
 				}
+				// {
+				// 	// x: p5.random(p5.width * 0.5, p5.width * 0.5 + 600),
+				// 	x: p5.width * 0.6,
+				// 	y: p5.random(50, 100),
+				// 	scale: p5.random(0.00005 * p5.windowWidth, 0.00015 * p5.windowWidth),
+				// 	rotate: p5.random(-Math.PI * 0.3, Math.PI * 0.3),
+				// 	rotateWing: p5.random(0, Math.PI),
+				// 	numPoints: 100,
+				// 	strokeFill: p5.random(coloursForStroke)
+				// },
+				// {
+				// 	x: p5.random(p5.width * 0.5, p5.width * 0.5 + 400),
+				// 	y: p5.random(50, 200),
+				// 	scale: p5.random(0.00005 * p5.windowWidth, 0.0001 * p5.windowWidth),
+				// 	rotate: p5.random(-Math.PI * 0.3, Math.PI * 0.3),
+				// 	rotateWing: p5.random(0, Math.PI),
+				// 	numPoints: 50,
+				// 	strokeFill: p5.random(coloursForStroke)
+				// }
 			];
 			const additionalDragonfliesByViewport =
 				p5.windowWidth >= 1000

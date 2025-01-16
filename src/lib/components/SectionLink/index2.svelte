@@ -1,56 +1,6 @@
 <script lang="ts">
-	import P5 from 'p5-svelte';
 	import * as d3 from 'd3';
 	let { sectionLink, sectionTitle, children, contentSlot, randomOffset = 0, ...props } = $props();
-
-	const sketch = (p5) => {
-		let zoff = 0;
-		let minRadius = 10;
-		let maxRadius = 70;
-		let centerX;
-		let centerY;
-		let col1;
-		let col2;
-
-		const drawBlob = (centerX, centerY, fill = '#dae2cb1b') => {
-			p5.fill(fill);
-			p5.noStroke();
-			p5.beginShape();
-			for (let a = 0; a < p5.TWO_PI; a += 0.1) {
-				let xoff = p5.map(p5.cos(a), -1, 1, 0, 1);
-				let yoff = p5.map(p5.sin(a), -1, 1, 0, 1);
-				let r = p5.map(
-					p5.noise(xoff + randomOffset, yoff + randomOffset, zoff),
-					0,
-					1,
-					minRadius,
-					maxRadius
-				);
-				let x = centerX + r * p5.cos(a);
-				let y = centerY + r * p5.sin(a);
-				p5.vertex(x, y);
-			}
-			p5.endShape(p5.CLOSE);
-		};
-
-		p5.setup = () => {
-			p5.createCanvas(100, 100);
-			centerX = p5.random(p5.width * 0.4, p5.width * 0.6);
-			centerY = p5.height * 0.5;
-			col1 = p5.random(['#96c3a65e', '#6cb6a586', '#9c75db5b', '#9c75db52']);
-			col2 = p5.random(['#96c3a65e', '#6cb6a586', '#9c75db5b', '#9c75db52']);
-			drawBlob(centerX, centerY, col1);
-			drawBlob(centerX + 5, centerY + 3, col2);
-		};
-
-		p5.draw = () => {
-			// p5.fill('#221d34');
-			// p5.circle(p5.width / 2, p5.height / 2, 150);
-			// drawBlob(centerX, centerY, col1);
-			// drawBlob(centerX + 5, centerY + 3, col2);
-			// zoff += 0.01;
-		};
-	};
 
 	/**************************************
 	 * Logic for dragging the item and
@@ -89,11 +39,7 @@
 		</p>
 	{/if}
 
-	<div class="wrapper-p5-sketch">
-		<P5 {sketch} />
-	</div>
-
-	<h2>:: {sectionTitle} ::</h2>
+	<h2>{sectionTitle}</h2>
 </a>
 
 <style lang="scss">
@@ -103,44 +49,44 @@
 		text-decoration: none;
 		color: #dae2cb;
 
-		width: 170px;
-		height: 170px;
-		padding: 15px 5px 10px 5px;
+		width: 150px;
+		height: 150px;
+		padding: 10px;
 		text-align: center;
 		border-radius: 230px;
 
+		border-radius: 51% 49% 48% 52% / 62% 44% 56% 38%;
+		// opacity: 0.8;
 		// background: #54448e49;
 		background: #221d3430;
 		// box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 		backdrop-filter: blur(5px);
 		// -webkit-backdrop-filter: blur(10px); // Safari support
 		// border-top: 2px solid #dae2cb;
-		// border-bottom: 2px solid #dae2cb;
+		// border-bottom: 4px solid #dae2cb;
+		border: 1px solid #dae2cb;
 	}
 
 	h2 {
 		font-family: 'sudo', 'lores-9-plus-wide', sans-serif;
-		// font-family: 'bitcount-grid-double-circle', sans-serif;
+		font-family: 'bitcount-grid-double-circle', sans-serif;
+		font-family: 'Della Respira', serif;
+
 		text-transform: uppercase;
 		font-weight: 400;
 		line-height: 1;
-		font-size: 1.9rem;
+		font-size: 0.9rem;
 		position: absolute;
 		width: 100%;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
+		color: #dae2cb;
 	}
 
 	.section-description {
 		text-align: left;
 		margin-top: 10px;
 		font-family: 'Della Respira', serif;
-	}
-	.wrapper-p5-sketch {
-		position: absolute;
-		top: -10px;
-		left: -10px;
-		// border: 1px solid red;
 	}
 </style>
