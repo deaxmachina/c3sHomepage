@@ -1,6 +1,7 @@
 <script>
 	import P5 from 'p5-svelte';
 	import Dragonfly from './dragonfly';
+	import { colBg, coloursDragonflies } from '$lib/styles/variables';
 
 	const colourSchemes = [
 		['#dae2cb', '#96c3a6', '#6cb6a5', '#221d34', '#54448e', '#9c75db'],
@@ -12,9 +13,10 @@
 		['#452e3c', '#ff3d5a', '#ffb969', '#eaf27e', '#3b8c88'],
 		['#dae2cb', '#96c3a6', '#6cb6a5', '#221d34', '#90425c']
 	];
-	const colours = ['#dae2cb', '#96c3a6', '#6cb6a5', '#221d34', '#54448e', '#9c75db'];
-	const coloursForStroke = colours.filter((d) => d !== '#221d34');
-	const bgColorHex = '#221d34';
+	const colours = coloursDragonflies;
+	const bgColorHex = colBg;
+	const coloursForStroke = colours.filter((d) => d !== bgColorHex);
+
 	const breakpointHeight = 800;
 
 	const sketch = (p5) => {
@@ -91,17 +93,17 @@
 					rotateWing: Math.PI,
 					numPoints: 100,
 					strokeFill: p5.random(coloursForStroke)
+				},
+				{
+					// x: p5.random(p5.width * 0.5, p5.width * 0.5 + 600),
+					x: p5.width * 0.6,
+					y: p5.random(50, 100),
+					scale: p5.random(0.00005 * p5.windowWidth, 0.00015 * p5.windowWidth),
+					rotate: p5.random(-Math.PI * 0.3, Math.PI * 0.3),
+					rotateWing: p5.random(0, Math.PI),
+					numPoints: 100,
+					strokeFill: p5.random(coloursForStroke)
 				}
-				// {
-				// 	// x: p5.random(p5.width * 0.5, p5.width * 0.5 + 600),
-				// 	x: p5.width * 0.6,
-				// 	y: p5.random(50, 100),
-				// 	scale: p5.random(0.00005 * p5.windowWidth, 0.00015 * p5.windowWidth),
-				// 	rotate: p5.random(-Math.PI * 0.3, Math.PI * 0.3),
-				// 	rotateWing: p5.random(0, Math.PI),
-				// 	numPoints: 100,
-				// 	strokeFill: p5.random(coloursForStroke)
-				// },
 				// {
 				// 	x: p5.random(p5.width * 0.5, p5.width * 0.5 + 400),
 				// 	y: p5.random(50, 200),

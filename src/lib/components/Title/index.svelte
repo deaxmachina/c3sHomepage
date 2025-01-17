@@ -1,3 +1,6 @@
+<script lang="ts">
+</script>
+
 <div class="wrapper">
 	<div class="full-name">Creative Coding Crafts Space</div>
 	<div class="abbr">
@@ -7,6 +10,7 @@
 </div>
 
 <style lang="scss">
+	@import '../../styles/variables.scss';
 	$base-font-size-title: min(max(250px, 25vw), 400px);
 	$height-adjusted-font-size-title: min(max(250px, 20vw), 370px);
 
@@ -16,14 +20,13 @@
 		justify-content: center;
 		position: relative;
 		flex-direction: column;
-		// border: 1px solid red;
 	}
 	.full-name {
 		font-family: 'bitcount-grid-double-circle', sans-serif;
 		font-weight: 400;
 		font-style: normal;
 		font-size: calc($base-font-size-title * 0.07);
-		color: #dae2cb;
+		color: $col-text-and-accent;
 		line-height: 1;
 		text-transform: uppercase;
 	}
@@ -43,10 +46,10 @@
 		&.foreground {
 			position: absolute;
 			top: -10px;
-			color: #dae2cb; // #9c75db; // #221d34; // #dae2cb; // #54448e;
+			color: $col-text-and-accent;
 		}
 		&.background {
-			color: #6cb6a5;
+			color: $col-accent-2;
 		}
 	}
 
