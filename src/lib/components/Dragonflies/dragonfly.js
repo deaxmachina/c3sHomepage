@@ -150,7 +150,7 @@ class Dragonfly {
 		]; //.map((d) => Math.sqrt(d));
 		const fibonacciModifiedScrambled = _.sampleSize(fibonacciModified, fibonacciModified.length);
 		const data = _.range(this.numPoints).map((i) => {
-			const value = fibonacciModified[i];
+			const value = fibonacci[i];
 			return {
 				i,
 				type: _.sample(types),
@@ -162,7 +162,7 @@ class Dragonfly {
 
 	// Get the d3 voronoiMap given a clipping shape
 	getVoronoiTreeMap() {
-		const voronoiTreeMap = voronoiTreemap().clip(this.voronoiClipShape).convergenceRatio(0.01);
+		const voronoiTreeMap = voronoiTreemap().clip(this.voronoiClipShape).convergenceRatio(0.1);
 		return voronoiTreeMap;
 	}
 

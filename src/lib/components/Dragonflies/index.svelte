@@ -55,7 +55,7 @@
 				dataDragonfly1.scale,
 				Math.PI * 0.2,
 				0,
-				370,
+				400,
 				p5.random(coloursForStroke)
 			);
 			dragonflies.push(dragonfly1);

@@ -35,7 +35,7 @@ https://codepen.io/t_afif/pen/oNdKYge
 	.wrapper {
 		width: 100vw;
 		height: 100vh;
-		opacity: 0.7;
+		opacity: 0.6;
 	}
 
 	@keyframes b {
