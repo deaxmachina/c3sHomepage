@@ -16,6 +16,7 @@
 		background-color: #c4037aa7;
 		transform: rotate(180deg);
 		backdrop-filter: blur(2px);
+		// border-left: 1px solid #221d34;
 	}
 	.vertical-text {
 		font-family: 'Della Respira', serif;

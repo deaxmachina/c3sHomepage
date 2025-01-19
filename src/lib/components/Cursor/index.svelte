@@ -19,12 +19,6 @@
 
 		let colCircle = p5.color(colDark);
 		// colCircle.setAlpha(250);
-		let col1 = p5.color(colAccent1);
-		col1.setAlpha(150);
-		let col2 = p5.color(colAccent2);
-		col2.setAlpha(150);
-		let col3 = p5.color(colAccent3);
-		col3.setAlpha(128);
 
 		p5.setup = () => {
 			p5.createCanvas(p5.windowWidth, p5.windowHeight);
@@ -34,12 +28,19 @@
 			flower = new Flower(aIncrement, xoffIncrement, p5);
 		};
 
+		let alpha = 0;
 		p5.draw = () => {
 			p5.clear();
 			const x = p5.mouseX;
 			const y = p5.mouseY;
 			const colStroke = p5.color(colBg);
 			colStroke.setAlpha(30);
+			const col1 = p5.color(colAccent1);
+			col1.setAlpha(8);
+			const col2 = p5.color(colAccent2);
+			col2.setAlpha(8);
+			const col3 = p5.color(colAccent3);
+			col3.setAlpha(8);
 
 			// p5.push();
 			// p5.fill(colCircle);
@@ -48,8 +49,14 @@
 			// p5.circle(x, y, 20);
 			// p5.pop();
 
-			const drawBlob = (rMin = 30, rMax = 60, strokeMin = 2, strokeMax = 8) => {
-				p5.stroke(colStroke);
+			const drawBlob = (
+				rMin = 30,
+				rMax = 60,
+				strokeMin = 2,
+				strokeMax = 8,
+				colourStroke = colStroke
+			) => {
+				p5.stroke(colourStroke);
 				p5.noFill();
 
 				let prevX = null;
@@ -83,13 +90,17 @@
 				// Close the loop by connecting the last point to the first point
 				p5.strokeWeight(p5.map(p5.sin(zoff), -1, 1, strokeMin, strokeMax)); // Match stroke weight for smoothness
 				p5.line(prevX, prevY, firstX, firstY);
-				zoff += 0.01;
+				zoff += 0.003;
 			};
 
-			drawBlob(30, p5.mouseY * 0.2, 2, 8);
+			// drawBlob(1, p5.mouseY * 0.03, 18, 20, col3);
+			// drawBlob(1, p5.mouseY * 0.1, 25, 35, p5.mouseX <= p5.width * 0.5 ? col1 : col3);
+			// drawBlob(2, p5.mouseY * 0.2, 35, 45, col2);
+
+			drawBlob(30, p5.mouseY * 0.15, 2, 8);
 			drawBlob(20, p5.mouseY * 0.1, 1, 2);
-			drawBlob(10, 20, 1, 2);
-			drawBlob(10, 30, 1, 2);
+			drawBlob(15, p5.mouseY * 0.05, 1, 2);
+			drawBlob(10, p5.mouseY * 0.02, 1, 2);
 		};
 	};
 </script>
