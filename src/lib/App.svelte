@@ -4,10 +4,11 @@
 	import Dragonflies from '$lib/components/Dragonflies/index.svelte';
 	import BackgroundText from '$lib/components/BackgroundText/index.svelte';
 	import Title from '$lib/components/Title/index.svelte';
-	// import SectionLink from '$lib/components/SectionLink/index3.svelte';
 	import SectionLink from '$lib/components/SectionLink/index3.svelte';
+	// import SectionLink from '$lib/components/SectionLink/index2.svelte';
 	import Announcement from '$lib/components/Announcement/index.svelte';
 	import Noise from '$lib/components/Noise/index.svelte';
+	import Cursor from '$lib/components/Cursor/index.svelte';
 </script>
 
 <div class="wrapper-scenery">
@@ -17,7 +18,7 @@
 	<div class="wrapper-shadersee"><ShaderSee /></div>
 	<div class="wrapper-title"><Title /></div>
 	<div class="wrapper-section-links">
-		<!-- <SectionLink /> -->
+		<SectionLink />
 		<!-- <SectionLink
 			sectionLink="about"
 			sectionTitle="A"
@@ -38,13 +39,13 @@
 			sectionLink="resources"
 			sectionTitle="R"
 			style="top: 330px; left: 130px; border-radius: 51% 49% 48% 52% / 62% 44% 56% 38%; width: 120px; height: 100px;"
-		>
-		</SectionLink> -->
+		></SectionLink> -->
 	</div>
 	<div class="wrapper-announcement">
 		<Announcement>Our next meetup is on Jan 25. Get your tickets now!</Announcement>
 	</div>
 	<div class="wrapper-on-top"><Noise /></div>
+	<div class="wrapper-cursor"><Cursor />Cursor</div>
 </div>
 
 <style lang="scss">
@@ -100,6 +101,11 @@
 		width: 100%;
 	}
 	.wrapper-announcement {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+	.wrapper-cursor {
 		position: absolute;
 		top: 0;
 		right: 0;

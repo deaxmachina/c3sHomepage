@@ -2,7 +2,10 @@
 </script>
 
 <div class="wrapper">
-	<div class="full-name">Creative Coding Crafts Space</div>
+	<div class="full-name">
+		Creative Coding Crafts Space
+		<!-- <div class="full-name-top">Creative Coding Crafts Space</div> -->
+	</div>
 	<div class="abbr">
 		<h1 class="background">c<span class="num">3</span>s</h1>
 		<h1 class="foreground">c<span class="num">3</span>s</h1>
@@ -22,13 +25,24 @@
 		flex-direction: column;
 	}
 	.full-name {
-		font-family: 'bitcount-grid-double-circle', sans-serif;
-		font-weight: 400;
+		// font-family: 'bitcount-grid-double-circle', sans-serif;
+		// font-family: 'bitcount-grid-single-line-ci', sans-serif;
+		// font-family: 'bitcount-grid-single-line-sq', sans-serif;
+		// font-family: 'bitcount-grid-single-square', sans-serif;
+		font-family: 'bitcount-grid-single-circle', sans-serif;
+		font-weight: 500;
 		font-style: normal;
-		font-size: calc($base-font-size-title * 0.07);
+		font-size: calc($base-font-size-title * 0.08);
 		color: $col-text-and-accent;
 		line-height: 1;
 		text-transform: uppercase;
+		position: relative;
+		// .full-name-top {
+		// 	font-family: 'bitcount-grid-single-line-sq', sans-serif;
+		// 	position: absolute;
+		// 	top: 0;
+		// 	font-weight: 500;
+		// }
 	}
 	.abbr {
 		position: relative;
