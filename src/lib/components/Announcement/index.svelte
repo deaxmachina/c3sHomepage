@@ -7,6 +7,8 @@
 </div>
 
 <style lang="scss">
+	@import '../../styles/variables.scss';
+
 	.wrapper {
 		width: 35px;
 		padding: 0.5rem;
@@ -16,7 +18,9 @@
 	}
 	.vertical-text {
 		font-family: 'Della Respira', serif;
-		color: #dae2cb;
+		font-family: 'Funnel Sans', serif;
+
+		color: $col-text-and-accent;
 		width: 100%;
 		height: 100%;
 		writing-mode: vertical-rl;

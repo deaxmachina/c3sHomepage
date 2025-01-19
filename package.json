@@ -39,6 +39,7 @@
 		"lodash": "^4.17.21",
 		"p5": "^1.11.2",
 		"p5-svelte": "^3.1.2",
+		"postprocessing": "^6.36.6",
 		"sass": "^1.83.1",
 		"sass-embedded": "^1.83.1",
 		"three": "^0.172.0",

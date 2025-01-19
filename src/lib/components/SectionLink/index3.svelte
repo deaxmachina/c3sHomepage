@@ -9,6 +9,8 @@
 </div>
 
 <style lang="scss">
+	@import '../../styles/variables.scss';
+
 	.wrapper-section-link {
 		position: absolute;
 		top: 20px;
@@ -23,11 +25,11 @@
 		font-family: 'Funnel Sans', serif;
 		text-transform: uppercase;
 		text-decoration: none;
-		color: #dae2cb;
+		color: $col-text-and-accent;
 		margin-bottom: 10px;
 		font-size: max(0.6770833333vw, 12px);
 		line-height: 1.23;
-		font-weight: 800;
+		font-weight: 600;
 		text-transform: uppercase;
 	}
 </style>

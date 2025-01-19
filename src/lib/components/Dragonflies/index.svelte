@@ -3,16 +3,6 @@
 	import Dragonfly from './dragonfly';
 	import { colBg, coloursDragonflies } from '$lib/styles/variables';
 
-	const colourSchemes = [
-		['#dae2cb', '#96c3a6', '#6cb6a5', '#221d34', '#54448e', '#9c75db'],
-		['#079ea6', '#1e0c42', '#f0077b', '#f5be58', '#e3e0b3'],
-		['#ff0092', '#ffca1b', '#b6ff00', '#228dff', '#ba01ff'],
-		['#ffeec2', '#fe9e8e', '#f80174', '#c4037a', '#322c8e'],
-		['#ffabab', '#ffdaab', '#ddffab', '#abe4ff', '#d9abff'],
-		['#f3d597', '#b6d89c', '#92ccb6', '#f87887', '#9e6b7c'],
-		['#452e3c', '#ff3d5a', '#ffb969', '#eaf27e', '#3b8c88'],
-		['#dae2cb', '#96c3a6', '#6cb6a5', '#221d34', '#90425c']
-	];
 	const colours = coloursDragonflies;
 	const bgColorHex = colBg;
 	const coloursForStroke = colours.filter((d) => d !== bgColorHex);
@@ -33,6 +23,7 @@
 			p5.createCanvas(p5.windowWidth, p5.windowHeight);
 			ctx = p5.canvas.getContext('2d');
 			p5.frameRate(20);
+			p5.pixelDensity(2);
 
 			// Convert hex to a p5 color object and set alpha for the bg col
 			bgColor = p5.color(bgColorHex);
@@ -103,16 +94,16 @@
 					rotateWing: p5.random(0, Math.PI),
 					numPoints: 100,
 					strokeFill: p5.random(coloursForStroke)
+				},
+				{
+					x: p5.random(p5.width * 0.5, p5.width * 0.5 + 400),
+					y: p5.random(50, 200),
+					scale: p5.random(0.00005 * p5.windowWidth, 0.0001 * p5.windowWidth),
+					rotate: p5.random(-Math.PI * 0.3, Math.PI * 0.3),
+					rotateWing: p5.random(0, Math.PI),
+					numPoints: 50,
+					strokeFill: p5.random(coloursForStroke)
 				}
-				// {
-				// 	x: p5.random(p5.width * 0.5, p5.width * 0.5 + 400),
-				// 	y: p5.random(50, 200),
-				// 	scale: p5.random(0.00005 * p5.windowWidth, 0.0001 * p5.windowWidth),
-				// 	rotate: p5.random(-Math.PI * 0.3, Math.PI * 0.3),
-				// 	rotateWing: p5.random(0, Math.PI),
-				// 	numPoints: 50,
-				// 	strokeFill: p5.random(coloursForStroke)
-				// }
 			];
 			const additionalDragonfliesByViewport =
 				p5.windowWidth >= 1000
