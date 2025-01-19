@@ -69,7 +69,7 @@ class Dragonfly {
 		rotateWing = Math.PI * 0.25,
 		numPoints = 600,
 		strokeFill = colours[0],
-		outerStrokeWidth = 13,
+		outerStrokeWidth = 15,
 		backgroundFill = 'black',
 		opacity = 0.85,
 		widthVoronoi = 550,
