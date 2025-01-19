@@ -13,14 +13,16 @@
 		width: 35px;
 		padding: 0.5rem;
 		height: 100vh;
-		background-color: #6cb6a586;
+		background-color: #c4037aa7;
 		transform: rotate(180deg);
+		backdrop-filter: blur(2px);
 	}
 	.vertical-text {
 		font-family: 'Della Respira', serif;
 		font-family: 'Funnel Sans', serif;
+		font-weight: 500;
 
-		color: $col-text-and-accent;
+		color: $col-bg;
 		width: 100%;
 		height: 100%;
 		writing-mode: vertical-rl;

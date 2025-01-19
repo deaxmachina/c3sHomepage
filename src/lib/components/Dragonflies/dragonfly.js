@@ -73,7 +73,7 @@ class Dragonfly {
 		backgroundFill = 'black',
 		opacity = 0.85,
 		widthVoronoi = 550,
-		heightVoronoi = 260,
+		heightVoronoi = 230,
 		clippingPathD = 'M7.49, 18 C1155 -28, 284, 512, 21, 61, 21, 61, 18, 62, 7.5, 18Z'
 	) {
 		this.colours = colours;

@@ -1,7 +1,7 @@
 <script>
 	import P5 from 'p5-svelte';
 	import Dragonfly from './dragonfly';
-	import { colBg, coloursDragonflies } from '$lib/styles/variables';
+	import { colBg, coloursDragonflies, colDark } from '$lib/styles/variables';
 
 	const colours = coloursDragonflies;
 	const bgColorHex = colBg;
@@ -36,7 +36,7 @@
 						? Math.min(0.57, 0.0008 * p5.windowWidth)
 						: Math.min(0.53, 0.0008 * p5.windowWidth),
 				x: p5.windowHeight >= breakpointHeight ? p5.width * 0.38 : p5.width * 0.35,
-				y: p5.windowHeight >= breakpointHeight ? p5.height * 0.3 : p5.height * 0.2
+				y: p5.windowHeight >= breakpointHeight ? p5.height * 0.34 : p5.height * 0.2
 			};
 
 			const dataDragonfly2 = {
@@ -56,7 +56,7 @@
 				Math.PI * 0.2,
 				0,
 				400,
-				p5.random(coloursForStroke)
+				colDark
 			);
 			dragonflies.push(dragonfly1);
 			rotations.push(sampleRotation);
@@ -78,7 +78,7 @@
 			const additionalDragonflies = [
 				{
 					x: p5.random(p5.width * 0.6, p5.width * 0.8),
-					y: p5.random(p5.height - 80, p5.height - 150),
+					y: p5.random(p5.height - 100, p5.height - 160),
 					scale: p5.random(0.00013 * p5.windowWidth, 0.00018 * p5.windowWidth),
 					rotate: -Math.PI * 0.3,
 					rotateWing: Math.PI,
@@ -136,18 +136,10 @@
 				.map((d) => d.clicked(p5.mouseX, p5.mouseY, p5.dist))
 				.find((d) => d === true);
 
-			// Smooth sine wave wing flapping motion for dragonfly wings
-			// if (dragonflies.length > 0) {
-			// 	dragonflies.forEach((dragonfly, i) => {
-			// 		dragonfly.setRotate(rotations[i]);
-			// 		dragonfly.drawDragonfly();
-			// 		rotations[i] += p5.sin(p5.frameCount * (i + 1)) * 0.6;
-			// 	});
-			// }
-
 			// Draw and aniamte all the dragonflies below a certain number of frames
 			if (p5.frameCount <= 50) {
 				ctx.clearRect(0, p5.height * 0.7, p5.width, p5.height * 0.3);
+				//ctx.clearRect(0, 0, p5.width, p5.height);
 
 				frameCounts = dragonflies.map((d) => p5.frameCount);
 

@@ -45,7 +45,7 @@
 			// p5.fill(colCircle);
 			// p5.noStroke();
 			// p5.blendMode(p5.DARKEST);
-			// p5.circle(x, y, 10);
+			// p5.circle(x, y, 20);
 			// p5.pop();
 
 			const drawBlob = (rMin = 30, rMax = 60, strokeMin = 2, strokeMax = 8) => {
@@ -86,8 +86,8 @@
 				zoff += 0.01;
 			};
 
-			drawBlob(30, 50, 2, 8);
-			drawBlob(20, 30, 1, 2);
+			drawBlob(30, p5.mouseY * 0.2, 2, 8);
+			drawBlob(20, p5.mouseY * 0.1, 1, 2);
 			drawBlob(10, 20, 1, 2);
 			drawBlob(10, 30, 1, 2);
 		};

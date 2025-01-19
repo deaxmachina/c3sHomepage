@@ -17,33 +17,12 @@
 	<!-- <div class="wrapper-background-text"><BackgroundText /></div> -->
 	<div class="wrapper-shadersee"><ShaderSee /></div>
 	<div class="wrapper-title"><Title /></div>
-	<div class="wrapper-section-links">
-		<SectionLink />
-		<!-- <SectionLink
-			sectionLink="about"
-			sectionTitle="A"
-			randomOffset={1000}
-			style="top: 200px; left: 150px; border-radius: 31% 49% 56% 52% / 62% 44% 47% 38%; width: 120px; height: 100px;"
-		>
-			This is the default slot
-		</SectionLink>
-		<SectionLink
-			sectionLink="events"
-			sectionTitle="E"
-			randomOffset={10000}
-			style="top: 270px; left: 180px; border-radius: 51% 49% 48% 42% / 62% 44% 56% 48%; width: 130px; height: 100px; "
-		>
-			This is the default slot
-		</SectionLink>
-		<SectionLink
-			sectionLink="resources"
-			sectionTitle="R"
-			style="top: 330px; left: 130px; border-radius: 51% 49% 48% 52% / 62% 44% 56% 38%; width: 120px; height: 100px;"
-		></SectionLink> -->
-	</div>
+
 	<div class="wrapper-announcement">
 		<Announcement>Our next meetup is on Jan 25. Get your tickets now!</Announcement>
 	</div>
+	<div class="wrapper-section-links"><SectionLink /></div>
+
 	<div class="wrapper-on-top"><Noise /></div>
 	<div class="wrapper-cursor"><Cursor />Cursor</div>
 </div>
@@ -51,10 +30,15 @@
 <style lang="scss">
 	@import './styles/variables.scss';
 	.wrapper-scenery {
+		cursor: none;
 		position: relative;
 		width: 100vw;
 		height: 100vh;
 		overflow: hidden;
+		// border-top: 40px solid #6cb6a5;
+		// border-top: 40px solid #221d34;
+		border: 15px solid #221d34;
+		border-radius: 40px;
 	}
 	.wrapper-gradient {
 		position: absolute;
@@ -97,13 +81,13 @@
 		pointer-events: none;
 		position: absolute;
 		left: 0;
-		bottom: 10px;
+		bottom: 30px;
 		width: 100%;
 	}
 	.wrapper-announcement {
 		position: absolute;
 		top: 0;
-		right: 0;
+		left: 0;
 	}
 	.wrapper-cursor {
 		position: absolute;

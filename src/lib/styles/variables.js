@@ -10,6 +10,8 @@ export const colAccent4 = '#dae2cb';
 
 export const coloursDragonflies = ['#dae2cb', '#96c39f', '#6cb6a5', '#221d34', '#c4037a'];
 
+// #e91e63 #fa008a
+
 // export const coloursDragonflies = ['#6C47DC', '#BA80CB', '#3E8DDF', '#221d34', '#dae2cb'];
 
 const colourSchemes = [

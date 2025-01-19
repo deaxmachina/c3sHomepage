@@ -10,10 +10,10 @@ https://codepen.io/t_afif/pen/oNdKYge
 				<animate attributeName="seed" from="0" to="100" dur="2s" repeatCount="indefinite" />
 			</feTurbulence>
 			<feComponentTransfer>
-				<feFuncR type="linear" slope="0.2" />
-				<feFuncG type="linear" slope="0.2" />
-				<feFuncB type="linear" slope="0.2" />
-				<feFuncA type="linear" slope="0.8" />
+				<feFuncR type="linear" slope="0.5" />
+				<feFuncG type="linear" slope="0.5" />
+				<feFuncB type="linear" slope="0.5" />
+				<feFuncA type="linear" slope="1" />
 			</feComponentTransfer>
 		</filter>
 		<rect width="100%" height="100%" filter="url(#noiseFilter)" />
@@ -35,7 +35,7 @@ https://codepen.io/t_afif/pen/oNdKYge
 	.wrapper {
 		width: 100vw;
 		height: 100vh;
-		opacity: 0.6;
+		opacity: 0.5;
 	}
 
 	@keyframes b {
