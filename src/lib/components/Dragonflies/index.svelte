@@ -55,7 +55,7 @@
 				dataDragonfly1.scale,
 				Math.PI * 0.2,
 				0,
-				400,
+				300,
 				colDark
 			);
 			dragonflies.push(dragonfly1);
@@ -68,7 +68,7 @@
 				dataDragonfly2.scale,
 				-Math.PI * 0.3,
 				0,
-				200,
+				180,
 				p5.random(coloursForStroke)
 			);
 			dragonflies.push(dragonfly2);
@@ -82,7 +82,7 @@
 					scale: p5.random(0.00013 * p5.windowWidth, 0.00018 * p5.windowWidth),
 					rotate: -Math.PI * 0.3,
 					rotateWing: Math.PI,
-					numPoints: 100,
+					numPoints: 60,
 					strokeFill: p5.random(coloursForStroke)
 				},
 				{
@@ -92,7 +92,7 @@
 					scale: p5.random(0.00005 * p5.windowWidth, 0.00015 * p5.windowWidth),
 					rotate: p5.random(-Math.PI * 0.3, Math.PI * 0.3),
 					rotateWing: p5.random(0, Math.PI),
-					numPoints: 100,
+					numPoints: 70,
 					strokeFill: p5.random(coloursForStroke)
 				},
 				{

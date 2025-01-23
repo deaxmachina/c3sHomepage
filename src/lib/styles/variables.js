@@ -1,16 +1,26 @@
-export const colBg = '#dae2cb'; // '#221d34';
-export const colTextAndAccent = '#dae2cb';
+export const colBg = '#eaeace'; // '#dae2cb'; // '#221d34';
+export const colTextAndAccent = '#eaeace'; // '#dae2cb';
 export const colDark = '#221d34';
 
 export const colAccent1 = '#96c39f';
 export const colAccent2 = '#6cb6a5';
 export const colAccent2darker = '#4a7d6f';
-export const colAccent3 = '#c4037a';
+export const colAccent3 = '#b4679f'; // '#c4037a';
 export const colAccent4 = '#dae2cb';
 
-export const coloursDragonflies = ['#dae2cb', '#96c39f', '#6cb6a5', '#221d34', '#c4037a'];
+export const coloursDragonflies = [
+	'#eaeace',
+	'#96c39f',
+	'#6cb6a5',
+	'#221d34',
+	'#b4679f',
+	'#96c39f',
+	'#6cb6a5',
+	'#221d34',
+	'#b4679f'
+];
 
-// #e91e63 #fa008a
+// #e91e63 #fa008a #c97da6 #d1291a #d5518b  #b4679f #b11868
 
 // export const coloursDragonflies = ['#6C47DC', '#BA80CB', '#3E8DDF', '#221d34', '#dae2cb'];
 

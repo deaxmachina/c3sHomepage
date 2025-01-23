@@ -13,7 +13,7 @@
 		width: 35px;
 		padding: 0.5rem;
 		height: 100vh;
-		background-color: #c4037aa7;
+		background-color: #b4679fcb;
 		transform: rotate(180deg);
 		backdrop-filter: blur(2px);
 		// border-left: 1px solid #221d34;

@@ -145,9 +145,10 @@ class Dragonfly {
 		const fibonacciModified = [
 			...fibonacci.slice(0, 100),
 			...fibonacci.slice(0, 100),
+			...fibonacci.slice(0, 100),
 			...fibonacci.slice(100, 200),
 			...fibonacci.slice(100, 200)
-		]; //.map((d) => Math.sqrt(d));
+		].map((d) => Math.sqrt(d));
 		const fibonacciModifiedScrambled = _.sampleSize(fibonacciModified, fibonacciModified.length);
 		const data = _.range(this.numPoints).map((i) => {
 			const value = fibonacci[i];

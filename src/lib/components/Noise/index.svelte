@@ -13,8 +13,9 @@ https://codepen.io/t_afif/pen/oNdKYge
 				<feFuncR type="linear" slope="0.5" />
 				<feFuncG type="linear" slope="0.5" />
 				<feFuncB type="linear" slope="0.5" />
-				<feFuncA type="linear" slope="1" />
+				<feFuncA type="linear" slope="0.65" />
 			</feComponentTransfer>
+			<feColorMatrix type="saturate" values="0" />
 		</filter>
 		<rect width="100%" height="100%" filter="url(#noiseFilter)" />
 	</svg>
@@ -35,7 +36,7 @@ https://codepen.io/t_afif/pen/oNdKYge
 	.wrapper {
 		width: 100vw;
 		height: 100vh;
-		opacity: 0.5;
+		opacity: 0.7;
 	}
 
 	@keyframes b {
