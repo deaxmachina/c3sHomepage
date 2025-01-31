@@ -35,19 +35,19 @@
 	.wrapper-scenery {
 		cursor: none;
 		position: relative;
-		width: 100vw;
+		width: 100%;
 		height: 100vh;
 		overflow: hidden;
 		// border-top: 40px solid #6cb6a5;
 		// border-top: 40px solid #221d34;
-		border: 15px solid #221d34;
-		border-radius: 40px;
+		// border: 20px double #6cb6a5;
+		// border-radius: 30px;
 	}
 	.wrapper-gradient {
 		position: absolute;
 		top: 0;
 		left: 0;
-		width: 100vw;
+		width: 100%;
 		height: 100vh;
 		// background: linear-gradient(
 		// 	$col-bg 70%,
@@ -55,7 +55,7 @@
 		// 	$col-accent-2 90%,
 		// 	$col-accent-1 100%
 		// );
-		background: linear-gradient($col-bg 70%, $col-accent-1 80%, $col-accent-2 100%);
+		background: linear-gradient($col-bg 68%, $col-accent-1 80%, $col-accent-2 92%);
 	}
 
 	.wrapper-on-top {
