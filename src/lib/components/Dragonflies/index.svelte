@@ -6,6 +6,7 @@
 	const colours = coloursDragonflies;
 	const bgColorHex = colBg;
 	const coloursForStroke = colours.filter((d) => d !== bgColorHex);
+	const coloursForStrokeSmallDragonflies = colours.filter((d) => d !== bgColorHex);
 
 	const breakpointHeight = 800;
 
@@ -83,7 +84,8 @@
 					rotate: -Math.PI * 0.3,
 					rotateWing: Math.PI,
 					numPoints: 60,
-					strokeFill: p5.random(coloursForStroke)
+					strokeFill: p5.random(coloursForStroke),
+					fillTopWings: true
 				},
 				{
 					// x: p5.random(p5.width * 0.5, p5.width * 0.5 + 600),
@@ -93,7 +95,8 @@
 					rotate: p5.random(-Math.PI * 0.3, Math.PI * 0.3),
 					rotateWing: p5.random(0, Math.PI),
 					numPoints: 70,
-					strokeFill: p5.random(coloursForStroke)
+					strokeFill: p5.random(coloursForStrokeSmallDragonflies),
+					fillTopWings: false
 				},
 				{
 					x: p5.random(p5.width * 0.5, p5.width * 0.5 + 400),
@@ -102,7 +105,8 @@
 					rotate: p5.random(-Math.PI * 0.3, Math.PI * 0.3),
 					rotateWing: p5.random(0, Math.PI),
 					numPoints: 50,
-					strokeFill: p5.random(coloursForStroke)
+					strokeFill: p5.random(coloursForStrokeSmallDragonflies),
+					fillTopWings: false
 				}
 			];
 			const additionalDragonfliesByViewport =
@@ -122,7 +126,8 @@
 						d.rotate,
 						d.rotateWing,
 						d.numPoints,
-						d.strokeFill
+						d.strokeFill,
+						d.fillTopWings
 					);
 					dragonflies.push(newDragonfly);
 					rotations.push(sampleRotation);
@@ -138,14 +143,14 @@
 
 			// Draw and aniamte all the dragonflies below a certain number of frames
 			if (p5.frameCount <= 50) {
-				ctx.clearRect(0, p5.height * 0.7, p5.width, p5.height * 0.3);
+				ctx.clearRect(0, p5.height * 0.68, p5.width, p5.height * 0.3);
 				//ctx.clearRect(0, 0, p5.width, p5.height);
 
 				frameCounts = dragonflies.map((d) => p5.frameCount);
 
 				p5.stroke(bgColor);
 				p5.fill(bgColor);
-				p5.rect(0, 0, p5.width, p5.height * 0.7);
+				p5.rect(0, 0, p5.width, p5.height * 0.68);
 
 				if (dragonflies.length > 0) {
 					dragonflies.forEach((dragonfly, i) => {
@@ -160,10 +165,10 @@
 			// not animating them (hence the need for the background etc)
 			else {
 				if (existsDragonflyHovered) {
-					ctx.clearRect(0, p5.height * 0.7, p5.width, p5.height * 0.3);
+					ctx.clearRect(0, p5.height * 0.68, p5.width, p5.height * 0.3);
 					p5.fill(bgColor);
 					p5.stroke(bgColor);
-					p5.rect(0, 0, p5.width, p5.height * 0.7);
+					p5.rect(0, 0, p5.width, p5.height * 0.68);
 					dragonflies.forEach((dragonfly, i) => {
 						dragonfly.drawDragonfly();
 						if (dragonfly.clicked(p5.mouseX, p5.mouseY, p5.dist)) {

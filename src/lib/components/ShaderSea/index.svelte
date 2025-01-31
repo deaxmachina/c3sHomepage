@@ -87,7 +87,7 @@
 		 ************************************/
 		// Geometry
 		geometryPlane = new THREE.PlaneGeometry(3, 3, 1000, 1000);
-		geometryPlane.rotateX(-Math.PI * 0.42);
+		geometryPlane.rotateX(-Math.PI * 0.43);
 
 		// Material
 		materialPlane = new THREE.ShaderMaterial({

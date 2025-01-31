@@ -69,7 +69,8 @@ class Dragonfly {
 		rotateWing = Math.PI * 0.25,
 		numPoints = 600,
 		strokeFill = colours[0],
-		outerStrokeWidth = 15,
+		fillTopWings = true,
+		outerStrokeWidth = 20,
 		backgroundFill = 'black',
 		opacity = 0.85,
 		widthVoronoi = 550,
@@ -103,6 +104,7 @@ class Dragonfly {
 		this.voronoiTreeMap = this.getVoronoiTreeMap();
 		this.voronoiPaths = this.getVoronoiPaths();
 		this.outsideFill = null;
+		this.fillTopWings = fillTopWings;
 	}
 
 	setX(x) {
@@ -266,8 +268,8 @@ class Dragonfly {
 		this.drawWing(0.2 * this.rotateWing, 'right', false);
 		this.drawWing(0.2 * this.rotateWing, 'left', false);
 		// Filled top right and left wings
-		this.drawWing(this.rotateWing, 'right', true);
-		this.drawWing(this.rotateWing, 'left', true);
+		this.drawWing(this.rotateWing, 'right', this.fillTopWings);
+		this.drawWing(this.rotateWing, 'left', this.fillTopWings);
 	}
 
 	// Draw the body

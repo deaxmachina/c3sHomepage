@@ -6,13 +6,13 @@ https://codepen.io/t_afif/pen/oNdKYge
 <div class="wrapper">
 	<svg width="100%" height="100%">
 		<filter id="noiseFilter">
-			<feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="5" stitchTiles="stitch">
+			<feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="9" stitchTiles="stitch">
 				<animate attributeName="seed" from="0" to="100" dur="2s" repeatCount="indefinite" />
 			</feTurbulence>
 			<feComponentTransfer>
-				<feFuncR type="linear" slope="0.5" />
-				<feFuncG type="linear" slope="0.5" />
-				<feFuncB type="linear" slope="0.5" />
+				<feFuncR type="linear" slope="0.7" />
+				<feFuncG type="linear" slope="0.7" />
+				<feFuncB type="linear" slope="0.7" />
 				<feFuncA type="linear" slope="0.65" />
 			</feComponentTransfer>
 			<feColorMatrix type="saturate" values="0" />
