@@ -18,7 +18,7 @@ https://codepen.io/t_afif/pen/oNdKYge
 			<feColorMatrix type="saturate" values="0" /> -->
 		</filter>
 		<!-- The dims of this rect are clearly a hack but needed that to work on mobile for some reason  -->
-		<rect width="400" height="4000" fill="blue" />
+		<rect width="400" height="4000" filter="url(#noiseFilter)" />
 	</svg>
 </div>
 
