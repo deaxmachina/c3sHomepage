@@ -27,7 +27,7 @@
 		p5.setup = () => {
 			p5.createCanvas(p5.windowWidth, p5.windowHeight);
 			ctx = p5.canvas.getContext('2d');
-			p5.frameRate(20);
+			// p5.frameRate(20);
 			p5.pixelDensity(2);
 
 			// Convert hex to a p5 color object and set alpha for the bg col
@@ -171,7 +171,8 @@
 					dragonflies.forEach((dragonfly, i) => {
 						dragonfly.setRotateWing(rotations[i]);
 						dragonfly.drawDragonfly();
-						rotations[i] += p5.sin(frameCounts[i] * (i + 1)) * 0.6;
+						// rotations[i] += p5.sin(frameCounts[i] * (i + 1)) * 0.6;
+						rotations[i] = Math.abs(p5.sin(frameCounts[i] * (i + 1)) * 1.3);
 					});
 				}
 			}

@@ -9,12 +9,7 @@ https://codepen.io/t_afif/pen/oNdKYge
 </script>
 
 <div class="wrapper" bind:clientWidth={wrapperWidth} bind:clientHeight={wrapperHeight}>
-	<svg
-		width={wrapperWidth}
-		height={wrapperHeight}
-		viewBox={`0 0 ${wrapperWidth} ${wrapperHeight}`}
-		style="display:block"
-	>
+	<svg width={wrapperWidth} height={wrapperHeight} viewBox={`0 0 ${wrapperWidth} ${wrapperHeight}`}>
 		<filter
 			id="noiseFilter"
 			filterUnits="userSpaceOnUse"
@@ -23,16 +18,16 @@ https://codepen.io/t_afif/pen/oNdKYge
 			width={wrapperWidth}
 			height={wrapperHeight}
 		>
-			<feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="9" stitchTiles="stitch">
-				<animate attributeName="seed" from="0" to="100" dur="2s" repeatCount="indefinite" />
+			<feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="9" stitchTiles="stitch">
+				<!-- <animate attributeName="seed" from="0" to="100" dur="2s" repeatCount="indefinite" /> -->
 			</feTurbulence>
 			<feComponentTransfer>
-				<feFuncR type="linear" slope="0.7" />
-				<feFuncG type="linear" slope="0.7" />
-				<feFuncB type="linear" slope="0.7" />
+				<feFuncR type="linear" slope="0.9" />
+				<feFuncG type="linear" slope="0.9" />
+				<feFuncB type="linear" slope="0.9" />
 				<feFuncA type="linear" slope="0.65" />
 			</feComponentTransfer>
-			<feColorMatrix type="saturate" values="0" />
+			<!-- <feColorMatrix type="saturate" values="0" /> -->
 		</filter>
 		<rect x={0} y={0} width={wrapperWidth} height={wrapperHeight} filter="url(#noiseFilter)" />
 	</svg>
@@ -40,8 +35,8 @@ https://codepen.io/t_afif/pen/oNdKYge
 
 <style lang="scss">
 	// .wrapper {
-	// 	width: 100vw;
-	// 	height: 100vh;
+	// 	width: 100%;
+	// 	height: 100%;
 	// 	background:
 	// 		repeating-radial-gradient(#000 0 0.0001%, #fff 0 0.0002%) 50% 0/2500px 2500px,
 	// 		repeating-conic-gradient(#000 0 0.0001%, #fff 0 0.0002%) 60% 60%/2500px 2500px;
