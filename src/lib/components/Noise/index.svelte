@@ -26,10 +26,10 @@ https://codepen.io/t_afif/pen/oNdKYge
 			x={0}
 			y={0}
 			stroke="blue"
-			fill="blue"
 			stroke-width={10}
 			width={wrapperWidth}
 			height={wrapperHeight}
+			filter="url(#noiseFilter)"
 		/>
 	</svg>
 </div>
