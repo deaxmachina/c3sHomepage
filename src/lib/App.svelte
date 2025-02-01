@@ -10,6 +10,22 @@
 	import Noise from '$lib/components/Noise/index.svelte';
 	import Cursor from '$lib/components/Cursor/index.svelte';
 	import Socials from './components/SectionLink/Socials.svelte';
+
+	// Function to update the CSS variable --vh with the current viewport height.
+	function updateVh() {
+		document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`);
+	}
+
+	// Run on mount and attach the resize event listener.
+	$effect(() => {
+		updateVh();
+		window.addEventListener('resize', updateVh);
+
+		// Clean up the event listener when the component is destroyed.
+		return () => {
+			window.removeEventListener('resize', updateVh);
+		};
+	});
 </script>
 
 <div class="wrapper-scenery">
@@ -36,25 +52,15 @@
 		cursor: none;
 		position: relative;
 		width: 100%;
-		height: 100vh;
+		height: var(--vh, 100vh);
 		overflow: hidden;
-		// border-top: 40px solid #6cb6a5;
-		// border-top: 40px solid #221d34;
-		// border: 20px double #6cb6a5;
-		// border-radius: 30px;
 	}
 	.wrapper-gradient {
 		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
-		height: 100vh;
-		// background: linear-gradient(
-		// 	$col-bg 70%,
-		// 	$col-accent-2-darker 80%,
-		// 	$col-accent-2 90%,
-		// 	$col-accent-1 100%
-		// );
+		height: 100%;
 		background: linear-gradient($col-bg 68%, $col-accent-1 80%, $col-accent-2 92%);
 	}
 
