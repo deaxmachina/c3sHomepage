@@ -28,10 +28,10 @@
 			margin-bottom: 35px;
 		}
 		@media (max-width: 1000px) {
-			margin-bottom: 60px;
+			margin-bottom: 50px;
 		}
 		@media (max-width: 800px) {
-			margin-bottom: 70px;
+			margin-bottom: 60px;
 		}
 	}
 	.full-name {
