@@ -3,26 +3,11 @@ https://css-tricks.com/making-static-noise-from-a-weird-css-gradient-bug/
 https://codepen.io/t_afif/pen/oNdKYge 
 -->
 
-<svg>
-	<defs>
-		<filter id="noiseFilter">
-			<feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="9" stitchTiles="stitch" />
-			<feComponentTransfer>
-				<feFuncR type="linear" slope="0.7" />
-				<feFuncG type="linear" slope="0.7" />
-				<feFuncB type="linear" slope="0.7" />
-				<feFuncA type="linear" slope="0.7" />
-			</feComponentTransfer>
-			<feColorMatrix type="saturate" values="0" />
-		</filter>
-	</defs>
-</svg>
-
 <!-- <animate attributeName="seed" from="0" to="100" dur="2s" repeatCount="indefinite" /> -->
 
 <div class="wrapper">
 	<svg width="100%" height="100%">
-		<!-- <defs>
+		<defs>
 			<filter id="noiseFilter">
 				<feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="9" stitchTiles="stitch" />
 				<feComponentTransfer>
@@ -33,7 +18,7 @@ https://codepen.io/t_afif/pen/oNdKYge
 				</feComponentTransfer>
 				<feColorMatrix type="saturate" values="0" />
 			</filter>
-		</defs> -->
+		</defs>
 		<rect width="100%" height="100%" filter="url(#noiseFilter)" />
 	</svg>
 </div>
