@@ -22,7 +22,15 @@ https://codepen.io/t_afif/pen/oNdKYge
 			</feComponentTransfer>
 			<feColorMatrix type="saturate" values="0" />
 		</filter>
-		<rect width={wrapperWidth} height={wrapperHeight} filter="url(#noiseFilter)" />
+		<rect
+			x={0}
+			y={0}
+			stroke="blue"
+			fill="blue"
+			stroke-width={10}
+			width={wrapperWidth}
+			height={wrapperHeight}
+		/>
 	</svg>
 </div>
 
@@ -41,6 +49,7 @@ https://codepen.io/t_afif/pen/oNdKYge
 	.wrapper {
 		width: 100%;
 		height: 100%;
+		border: 3px solid red;
 		opacity: 0.7;
 	}
 
