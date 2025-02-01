@@ -25,7 +25,6 @@ https://codepen.io/t_afif/pen/oNdKYge
 
 <style lang="scss">
 	.wrapper {
-		border: 1px solid red;
 		width: 100%;
 		height: 100%;
 		opacity: 0.7;

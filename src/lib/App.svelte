@@ -71,7 +71,7 @@
 		top: 0;
 		left: 0;
 		pointer-events: none;
-		z-index: 102;
+		// z-index: 102;
 		width: 100%;
 		height: 100%;
 	}
