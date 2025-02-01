@@ -36,7 +36,7 @@
 	<div class="wrapper-title"><Title /></div>
 
 	<div class="wrapper-announcement">
-		<Announcement>Our next meetup is on Jan 25. Get your tickets now! ♡♥♡</Announcement>
+		<Announcement>Our next meetup is on Jan 25. Get your tickets now!</Announcement>
 	</div>
 	<div class="wrapper-section-links"><SectionLink /></div>
 	<div class="copyright">©2025 Creative Coding Crafts Space ♡♥♡ cccspace@gmail.com</div>
@@ -99,6 +99,8 @@
 		position: absolute;
 		top: 0;
 		left: 0;
+		width: 100%;
+		height: 100%;
 	}
 	.wrapper-cursor {
 		position: absolute;

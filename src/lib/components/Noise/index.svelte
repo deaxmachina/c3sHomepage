@@ -9,7 +9,12 @@ https://codepen.io/t_afif/pen/oNdKYge
 </script>
 
 <div class="wrapper" bind:clientWidth={wrapperWidth} bind:clientHeight={wrapperHeight}>
-	<svg width={wrapperWidth} height={wrapperHeight}>
+	<svg
+		width={wrapperWidth}
+		height={wrapperHeight}
+		viewBox={`0 0 ${wrapperWidth} ${wrapperHeight}`}
+		style="display:block"
+	>
 		<filter
 			id="noiseFilter"
 			filterUnits="userSpaceOnUse"
@@ -29,15 +34,7 @@ https://codepen.io/t_afif/pen/oNdKYge
 			</feComponentTransfer>
 			<feColorMatrix type="saturate" values="0" />
 		</filter>
-		<rect
-			x={0}
-			y={0}
-			stroke="blue"
-			stroke-width={10}
-			width={wrapperWidth}
-			height={wrapperHeight}
-			filter="url(#noiseFilter)"
-		/>
+		<rect x={0} y={0} width={wrapperWidth} height={wrapperHeight} filter="url(#noiseFilter)" />
 	</svg>
 </div>
 
@@ -56,7 +53,6 @@ https://codepen.io/t_afif/pen/oNdKYge
 	.wrapper {
 		width: 100%;
 		height: 100%;
-		border: 3px solid red;
 		opacity: 0.7;
 	}
 
