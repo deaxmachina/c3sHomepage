@@ -7,18 +7,17 @@ https://codepen.io/t_afif/pen/oNdKYge
 	<svg width="100%" height="100%">
 		<filter id="noiseFilter">
 			<feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="9" stitchTiles="stitch">
-				<animate attributeName="seed" from="0" to="100" dur="2s" repeatCount="indefinite" />
+				<!-- <animate attributeName="seed" from="0" to="100" dur="2s" repeatCount="indefinite" /> -->
 			</feTurbulence>
 			<feComponentTransfer>
-				<feFuncR type="linear" slope="0.9" />
-				<feFuncG type="linear" slope="0.9" />
-				<feFuncB type="linear" slope="0.9" />
-				<feFuncA type="linear" slope="0.65" />
+				<feFuncR type="linear" slope="0.7" />
+				<feFuncG type="linear" slope="0.7" />
+				<feFuncB type="linear" slope="0.7" />
+				<feFuncA type="linear" slope="0.7" />
 			</feComponentTransfer>
-			<!-- <feColorMatrix type="saturate" values="0" /> -->
+			<feColorMatrix type="saturate" values="0" />
 		</filter>
 		<rect width="100%" height="100%" filter="url(#noiseFilter)" />
-		<rect width="100%" height="100%" fill="red" opacity="0.2" />
 	</svg>
 </div>
 
@@ -27,7 +26,7 @@ https://codepen.io/t_afif/pen/oNdKYge
 		width: 100%;
 		height: 100%;
 		opacity: 0.7;
-		border: 10px solid white;
+		mix-blend-mode: darken; //  multiply; //luminosity; //lighten; //difference; //darken; // color-burn;
 	}
 	// .wrapper {
 	// 	width: 100%;

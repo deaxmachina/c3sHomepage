@@ -14,7 +14,6 @@
 
 		p5.setup = () => {
 			p5.createCanvas(p5.windowWidth, p5.windowHeight);
-			p5.frameRate(60);
 			p5.pixelDensity(2);
 			ctx = p5.canvas.getContext('2d');
 

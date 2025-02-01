@@ -65,7 +65,6 @@
 	}
 
 	.wrapper-noise {
-		border: 4px solid red;
 		position: absolute;
 		top: 0;
 		left: 0;
