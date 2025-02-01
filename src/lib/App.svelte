@@ -12,39 +12,39 @@
 	import Socials from './components/SectionLink/Socials.svelte';
 
 	// Function to update the CSS variable --vh with the current viewport height.
-	function updateVh() {
+	let vhWasSet = $state(false);
+	const updateVh = () => {
 		document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`);
-	}
+	};
 
 	// Run on mount and attach the resize event listener.
 	$effect(() => {
 		updateVh();
-		window.addEventListener('resize', updateVh);
-
-		// Clean up the event listener when the component is destroyed.
-		return () => {
-			window.removeEventListener('resize', updateVh);
-		};
+		vhWasSet = true;
 	});
 </script>
 
-<div class="wrapper-scenery">
-	<div class="wrapper-gradient"></div>
-	<div class="wrapper-dragonflies"><Dragonflies /></div>
-	<!-- <div class="wrapper-background-text"><BackgroundText /></div> -->
-	<div class="wrapper-shadersee"><ShaderSee /></div>
-	<div class="wrapper-title"><Title /></div>
+<svelte:window onresize={updateVh} />
 
-	<div class="wrapper-announcement">
-		<Announcement>Our next meetup is on Jan 25. Get your tickets now!</Announcement>
+{#if vhWasSet}
+	<div class="wrapper-scenery">
+		<div class="wrapper-gradient"></div>
+		<div class="wrapper-dragonflies"><Dragonflies /></div>
+		<!-- <div class="wrapper-background-text"><BackgroundText /></div> -->
+		<div class="wrapper-shadersee"><ShaderSee /></div>
+		<div class="wrapper-title"><Title /></div>
+
+		<div class="wrapper-announcement">
+			<Announcement>Our next meetup is on Jan 25. Get your tickets now!</Announcement>
+		</div>
+		<div class="wrapper-section-links"><SectionLink /></div>
+		<div class="copyright">©2025 Creative Coding Crafts Space ♡♥♡ cccspace@gmail.com</div>
+		<div class="wrapper-socials"><Socials /></div>
+
+		<div class="wrapper-on-top"><Noise /></div>
+		<div class="wrapper-cursor"><Cursor />Cursor</div>
 	</div>
-	<div class="wrapper-section-links"><SectionLink /></div>
-	<div class="copyright">©2025 Creative Coding Crafts Space ♡♥♡ cccspace@gmail.com</div>
-	<div class="wrapper-socials"><Socials /></div>
-
-	<div class="wrapper-on-top"><Noise /></div>
-	<div class="wrapper-cursor"><Cursor />Cursor</div>
-</div>
+{/if}
 
 <style lang="scss">
 	@import './styles/variables.scss';
