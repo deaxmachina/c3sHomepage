@@ -26,26 +26,25 @@
 
 <svelte:window onresize={updateVh} />
 
-<!-- {#if vhWasSet} -->
-<div class="wrapper-scenery">
-	<div class="wrapper-gradient"></div>
-	<div class="wrapper-dragonflies"><Dragonflies /></div>
-	<!-- <div class="wrapper-background-text"><BackgroundText /></div> -->
-	<div class="wrapper-shadersee"><ShaderSee /></div>
-	<div class="wrapper-title"><Title /></div>
+{#if vhWasSet}
+	<div class="wrapper-scenery">
+		<div class="wrapper-gradient"></div>
+		<div class="wrapper-dragonflies"><Dragonflies /></div>
+		<!-- <div class="wrapper-background-text"><BackgroundText /></div> -->
+		<div class="wrapper-shadersee"><ShaderSee /></div>
+		<div class="wrapper-title"><Title /></div>
 
-	<div class="wrapper-announcement">
-		<Announcement>Our next meetup is on Jan 25. Get your tickets now!</Announcement>
+		<div class="wrapper-announcement">
+			<Announcement>Our next meetup is on Jan 25. Get your tickets now!</Announcement>
+		</div>
+		<!-- <div class="wrapper-section-links"><SectionLink /></div> -->
+		<div class="copyright">©2025 Creative Coding Crafts Space ♡ ♡ ♡</div>
+		<div class="wrapper-socials"><Socials /></div>
+
+		<div class="wrapper-noise"><Noise /></div>
+		<div class="wrapper-cursor"><Cursor /></div>
 	</div>
-	<!-- <div class="wrapper-section-links"><SectionLink /></div> -->
-	<div class="copyright">©2025 Creative Coding Crafts Space ♡ ♡ ♡</div>
-	<div class="wrapper-socials"><Socials /></div>
-
-	<div class="wrapper-noise"><Noise /></div>
-	<div class="wrapper-cursor"><Cursor />Cursor</div>
-</div>
-
-<!-- {/if} -->
+{/if}
 
 <style lang="scss">
 	@import './styles/variables.scss';
@@ -53,8 +52,7 @@
 		cursor: none;
 		position: relative;
 		width: 100%;
-		// height: var(--vh, 100vh);
-		height: 100vh;
+		height: var(--vh, 100vh);
 		overflow: hidden;
 	}
 	.wrapper-gradient {

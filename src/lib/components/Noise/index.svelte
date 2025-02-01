@@ -28,7 +28,7 @@ https://codepen.io/t_afif/pen/oNdKYge
 		width: 100%;
 		height: 100%;
 		opacity: 0.7;
-		mix-blend-mode: darken; //  multiply; //luminosity; //lighten; //difference; //darken; // color-burn;
+		mix-blend-mode: lighten; //  multiply; //luminosity; //lighten; //difference; //darken; // color-burn;
 	}
 	// .wrapper {
 	// 	width: 100%;

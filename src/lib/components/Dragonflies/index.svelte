@@ -172,7 +172,7 @@
 						dragonfly.setRotateWing(rotations[i]);
 						dragonfly.drawDragonfly();
 						// rotations[i] += p5.sin(frameCounts[i] * (i + 1)) * 0.6;
-						rotations[i] = Math.abs(p5.sin(frameCounts[i] * (i + 1)) * 1.3);
+						rotations[i] = Math.abs(p5.sin(frameCounts[i] * ((i % 2) + 2)) * 1.3);
 					});
 				}
 			}
