@@ -38,7 +38,7 @@
 			<Announcement>Our next meetup is on Jan 25. Get your tickets now!</Announcement>
 		</div>
 		<div class="wrapper-section-links"><SectionLink /></div>
-		<div class="copyright">©2025 Creative Coding Crafts Space ♡♥♡ cccspace@gmail.com</div>
+		<div class="copyright">©2025 Creative Coding Crafts Space ♡ ♡ ♡</div>
 		<div class="wrapper-socials"><Socials /></div>
 
 		<div class="wrapper-on-top"><Noise /></div>

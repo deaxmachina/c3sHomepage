@@ -9,14 +9,22 @@ https://codepen.io/t_afif/pen/oNdKYge
 </script>
 
 <div class="wrapper" bind:clientWidth={wrapperWidth} bind:clientHeight={wrapperHeight}>
-	<svg width={wrapperWidth} height={wrapperHeight} viewBox={`0 0 ${wrapperWidth} ${wrapperHeight}`}>
+	<svg
+		width={wrapperWidth}
+		height={wrapperHeight}
+		viewBox={`0 0 ${wrapperWidth} ${wrapperHeight}`}
+		overflow="visible"
+		style="display: block;"
+	>
 		<filter
 			id="noiseFilter"
 			filterUnits="userSpaceOnUse"
+			primitiveUnits="userSpaceOnUse"
 			x="0"
 			y="0"
 			width={wrapperWidth}
 			height={wrapperHeight}
+			filterRes={`${Math.round(wrapperWidth)} ${Math.round(wrapperHeight)}`}
 		>
 			<feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="9" stitchTiles="stitch">
 				<!-- <animate attributeName="seed" from="0" to="100" dur="2s" repeatCount="indefinite" /> -->
