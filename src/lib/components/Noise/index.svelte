@@ -10,7 +10,14 @@ https://codepen.io/t_afif/pen/oNdKYge
 
 <div class="wrapper" bind:clientWidth={wrapperWidth} bind:clientHeight={wrapperHeight}>
 	<svg width={wrapperWidth} height={wrapperHeight}>
-		<filter id="noiseFilter">
+		<filter
+			id="noiseFilter"
+			filterUnits="userSpaceOnUse"
+			x="0"
+			y="0"
+			width={wrapperWidth}
+			height={wrapperHeight}
+		>
 			<feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="9" stitchTiles="stitch">
 				<animate attributeName="seed" from="0" to="100" dur="2s" repeatCount="indefinite" />
 			</feTurbulence>
