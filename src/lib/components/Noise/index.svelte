@@ -3,29 +3,46 @@ https://css-tricks.com/making-static-noise-from-a-weird-css-gradient-bug/
 https://codepen.io/t_afif/pen/oNdKYge 
 -->
 
-<div class="wrapper">
-	<svg width="100%" height="100%">
+<svg>
+	<defs>
 		<filter id="noiseFilter">
-			<feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="9" stitchTiles="stitch">
-				<!-- <animate attributeName="seed" from="0" to="100" dur="2s" repeatCount="indefinite" /> -->
-			</feTurbulence>
-			<!-- <feComponentTransfer>
+			<feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="9" stitchTiles="stitch" />
+			<feComponentTransfer>
 				<feFuncR type="linear" slope="0.7" />
 				<feFuncG type="linear" slope="0.7" />
 				<feFuncB type="linear" slope="0.7" />
 				<feFuncA type="linear" slope="0.7" />
 			</feComponentTransfer>
-			<feColorMatrix type="saturate" values="0" /> -->
+			<feColorMatrix type="saturate" values="0" />
 		</filter>
-		<!-- The dims of this rect are clearly a hack but needed that to work on mobile for some reason  -->
-		<rect width="400" height="4000" filter="url(#noiseFilter)" />
+	</defs>
+</svg>
+
+<!-- <animate attributeName="seed" from="0" to="100" dur="2s" repeatCount="indefinite" /> -->
+
+<div class="wrapper">
+	<svg width="100%" height="100%">
+		<!-- <defs>
+			<filter id="noiseFilter">
+				<feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="9" stitchTiles="stitch" />
+				<feComponentTransfer>
+					<feFuncR type="linear" slope="0.7" />
+					<feFuncG type="linear" slope="0.7" />
+					<feFuncB type="linear" slope="0.7" />
+					<feFuncA type="linear" slope="0.7" />
+				</feComponentTransfer>
+				<feColorMatrix type="saturate" values="0" />
+			</filter>
+		</defs> -->
+		<rect width="100%" height="100%" filter="url(#noiseFilter)" />
 	</svg>
 </div>
 
 <style lang="scss">
 	.wrapper {
-		width: 100vw;
-		height: 100vh;
+		border: 1px solid red;
+		width: 100%;
+		height: 100%;
 		opacity: 0.7;
 		mix-blend-mode: darken; //  multiply; //luminosity; //lighten; //difference; //darken; // color-burn;
 	}
@@ -46,8 +63,4 @@ https://codepen.io/t_afif/pen/oNdKYge
 	// 			60% 50%;
 	// 	}
 	// }
-	rect {
-		stroke: red;
-		stroke-width: 10;
-	}
 </style>
