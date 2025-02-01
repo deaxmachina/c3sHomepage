@@ -115,6 +115,16 @@ class Dragonfly {
 		this.y = y;
 	}
 
+	// Change the rotation - this is useful for animation
+	setRotate(rotate) {
+		this.rotate = rotate;
+	}
+
+	// Change the rotation - this is useful for animation
+	setRotateWing(rotate) {
+		this.rotateWing = rotate;
+	}
+
 	setColours(colours) {
 		this.colours = colours;
 		this.bodyFill = _.sample(this.colours);
@@ -297,17 +307,6 @@ class Dragonfly {
 		this.drawWings();
 		this.drawBody();
 		this.ctx.restore();
-
-		// ctx.fillStyle = 'lightblue'
-		// ctx.beginPath()
-		// ctx.arc(this.x, this.y, this.scale*500, 0, Math.PI*2)
-		// ctx.fill()
-		// ctx.closePath()
-	}
-
-	// Change the rotation - this is useful for animation
-	setRotate(rotate) {
-		this.rotateWing = rotate;
 	}
 
 	// Check if the whole dragonfly is 'hovered'

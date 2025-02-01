@@ -169,7 +169,7 @@
 
 				if (dragonflies.length > 0) {
 					dragonflies.forEach((dragonfly, i) => {
-						dragonfly.setRotate(rotations[i]);
+						dragonfly.setRotateWing(rotations[i]);
 						dragonfly.drawDragonfly();
 						rotations[i] += p5.sin(frameCounts[i] * (i + 1)) * 0.6;
 					});
@@ -188,7 +188,7 @@
 						dragonfly.drawDragonfly();
 						if (dragonfly.clicked(p5.mouseX, p5.mouseY, p5.dist)) {
 							frameCounts[i] += 1;
-							dragonfly.setRotate(rotations[i]);
+							dragonfly.setRotateWing(rotations[i]);
 							rotations[i] += p5.sin(frameCounts[i] * (i + 1)) * 0.6;
 						}
 					});
