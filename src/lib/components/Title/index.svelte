@@ -42,16 +42,20 @@
 		font-family: 'bitcount-grid-single-circle', sans-serif;
 		font-weight: 500;
 		font-style: normal;
-		font-size: max(22px, calc($base-font-size-title * 0.08));
+		font-size: max(22px, calc($base-font-size-title * 0.083));
 		color: $col-text-and-accent;
 		// color: $col-accent-3;
 		line-height: 1;
 		text-transform: uppercase;
 		position: relative;
+		margin: 0 7px 0 7px;
 		@media (max-width: 1300px) {
-			margin-bottom: 20px;
-			// font-weight: 600;
-			font-family: 'bitcount-grid-double-circle', sans-serif;
+			font-size: max(22px, calc($base-font-size-title * 0.11));
+			margin: 0 5px 22px 5px;
+			font-weight: 500;
+			line-height: 1.05;
+			text-align: center;
+			// font-family: 'bitcount-grid-double-circle', sans-serif;
 		}
 		.full-name-top {
 			font-family: 'bitcount-grid-single-line-sq', sans-serif;

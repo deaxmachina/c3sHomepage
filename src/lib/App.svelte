@@ -38,7 +38,7 @@
 			<Announcement>Our next meetup is on Jan 25. Get your tickets now!</Announcement>
 		</div>
 		<!-- <div class="wrapper-section-links"><SectionLink /></div> -->
-		<div class="copyright">©2025 Creative Coding Crafts Space ♡ ♡ ♡</div>
+		<div class="copyright">©2025 Creative Coding Crafts Space & Dea Bankova</div>
 		<div class="wrapper-socials"><Socials /></div>
 
 		<div class="wrapper-noise"><Noise /></div>
@@ -116,9 +116,13 @@
 		top: 12px;
 		font-family: 'Funnel Sans', serif;
 		font-weight: 300;
-		color: #221d34;
-		font-size: 0.8rem;
+		color: $col-text-and-accent;
+		font-size: 0.7rem;
 		writing-mode: vertical-rl;
+		@media (max-width: 900px) {
+			top: 45px;
+			font-size: 0.6rem;
+		}
 	}
 
 	.wrapper-socials {

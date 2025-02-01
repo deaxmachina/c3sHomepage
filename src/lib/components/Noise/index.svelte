@@ -9,7 +9,12 @@ https://codepen.io/t_afif/pen/oNdKYge
 	<svg width="100%" height="100%">
 		<defs>
 			<filter id="noiseFilter">
-				<feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="9" stitchTiles="stitch" />
+				<feTurbulence
+					type="fractalNoise"
+					baseFrequency="0.95"
+					numOctaves="9"
+					stitchTiles="stitch"
+				/>
 				<feComponentTransfer>
 					<feFuncR type="linear" slope="0.7" />
 					<feFuncG type="linear" slope="0.7" />

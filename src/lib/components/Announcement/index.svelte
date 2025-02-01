@@ -13,8 +13,7 @@
 		position: absolute;
 		left: 0;
 		top: 0;
-		width: 35px;
-		padding: 0.5rem;
+		// width: 35px;
 		height: 100%;
 		background-color: #fa0089ca;
 		backdrop-filter: blur(2px);
@@ -32,6 +31,7 @@
 		font-family: 'Della Respira', serif;
 		font-family: 'Funnel Sans', serif;
 		font-weight: 500;
+		padding: 0 5px 0 8px;
 		color: $col-bg;
 		width: 100%;
 		height: 100%;
@@ -39,6 +39,7 @@
 		animation: moveUp 15s linear infinite;
 
 		@media (max-width: 900px) {
+			padding: 5px 0 8px 0;
 			writing-mode: horizontal-tb;
 			animation: moveSide 15s linear infinite;
 		}

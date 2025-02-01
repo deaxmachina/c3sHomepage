@@ -99,7 +99,7 @@
 				// Bottom right dragonfly
 				{
 					x: p5.random(p5.windowWidth * 0.6, p5.windowWidth * 0.8),
-					y: p5.random(p5.windowHeight - 100, p5.windowHeight - 160),
+					y: p5.random(p5.windowHeight - 90, p5.windowHeight - 130),
 					scale: getAttr(p5.random(0.1, 0.2), p5.random(0.1, 0.2), p5.random(0.2, 0.3)),
 					rotate: -Math.PI * 0.3,
 					rotateWing: Math.PI,
@@ -118,10 +118,19 @@
 					strokeFill: p5.random(coloursForStrokeSmallDragonflies),
 					fillTopWings: false
 				},
+				// But in the bottom left on mobile
 				{
-					x: p5.random(p5.windowWidth * 0.5, p5.windowWidth * 0.5 + 400),
-					y: p5.random(50, 200),
-					scale: getAttr(p5.random(0.05, 0.1), p5.random(0.1, 0.2), p5.random(0.1, 0.2)),
+					x: getAttr(
+						p5.random(50, 180),
+						p5.random(p5.windowWidth * 0.5, p5.windowWidth * 0.5 + 400),
+						p5.random(p5.windowWidth * 0.5, p5.windowWidth * 0.5 + 400)
+					),
+					y: getAttr(
+						p5.random(p5.windowHeight * 0.45, p5.windowHeight * 0.65),
+						p5.random(50, 200),
+						p5.random(50, 200)
+					),
+					scale: getAttr(p5.random(0.07, 0.15), p5.random(0.1, 0.2), p5.random(0.1, 0.2)),
 					rotate: p5.random(-Math.PI * 0.3, Math.PI * 0.3),
 					rotateWing: p5.random(0, Math.PI),
 					numPoints: 50,
