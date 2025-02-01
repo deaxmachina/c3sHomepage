@@ -14,8 +14,8 @@
 
 <style lang="scss">
 	@import '../../styles/variables.scss';
-	$base-font-size-title: min(max(250px, 25vw), 400px);
-	$height-adjusted-font-size-title: min(max(250px, 20vw), 370px);
+	$base-font-size-title: min(max(220px, 26vw), 400px);
+	$height-adjusted-font-size-title: min(max(220px, 22vw), 380px);
 
 	.wrapper {
 		display: flex;
@@ -23,6 +23,16 @@
 		justify-content: center;
 		position: relative;
 		flex-direction: column;
+		margin-bottom: 15px;
+		@media (max-width: 1200px) {
+			margin-bottom: 35px;
+		}
+		@media (max-width: 1000px) {
+			margin-bottom: 60px;
+		}
+		@media (max-width: 800px) {
+			margin-bottom: 70px;
+		}
 	}
 	.full-name {
 		// font-family: 'bitcount-grid-double-circle', sans-serif;
@@ -32,17 +42,26 @@
 		font-family: 'bitcount-grid-single-circle', sans-serif;
 		font-weight: 500;
 		font-style: normal;
-		font-size: calc($base-font-size-title * 0.08);
+		font-size: max(22px, calc($base-font-size-title * 0.08));
 		color: $col-text-and-accent;
+		// color: $col-accent-3;
 		line-height: 1;
 		text-transform: uppercase;
 		position: relative;
-		// .full-name-top {
-		// 	font-family: 'bitcount-grid-single-line-sq', sans-serif;
-		// 	position: absolute;
-		// 	top: 0;
-		// 	font-weight: 500;
-		// }
+		@media (max-width: 1300px) {
+			margin-bottom: 20px;
+			// font-weight: 600;
+			font-family: 'bitcount-grid-double-circle', sans-serif;
+		}
+		.full-name-top {
+			font-family: 'bitcount-grid-single-line-sq', sans-serif;
+			// font-family: 'bitcount-grid-single-square', sans-serif;
+			position: absolute;
+			top: 0;
+			font-weight: 500;
+			color: $col-accent-3;
+			color: $col-text-and-accent;
+		}
 	}
 	.abbr {
 		position: relative;
@@ -67,7 +86,8 @@
 		}
 	}
 
-	@media (max-height: 800px) {
+	// Specifically for smaller laptops
+	@media (max-height: 800px) and (max-width: 1400px) {
 		h1 {
 			font-size: $height-adjusted-font-size-title;
 			.num {
