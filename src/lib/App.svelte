@@ -41,7 +41,7 @@
 		<div class="copyright">©2025 Creative Coding Crafts Space ♡ ♡ ♡</div>
 		<div class="wrapper-socials"><Socials /></div>
 
-		<div class="wrapper-on-top"><Noise /></div>
+		<div class="wrapper-noise"><Noise /></div>
 		<div class="wrapper-cursor"><Cursor />Cursor</div>
 	</div>
 {/if}
@@ -64,7 +64,8 @@
 		background: linear-gradient($col-bg 68%, $col-accent-1 80%, $col-accent-2 92%);
 	}
 
-	.wrapper-on-top {
+	.wrapper-noise {
+		border: 4px solid red;
 		position: absolute;
 		top: 0;
 		left: 0;

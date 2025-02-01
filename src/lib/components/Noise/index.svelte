@@ -9,7 +9,7 @@ https://codepen.io/t_afif/pen/oNdKYge
 </script>
 
 <div class="wrapper" bind:clientWidth={wrapperWidth} bind:clientHeight={wrapperHeight}>
-	<svg width={wrapperWidth} height={wrapperHeight}>
+	<svg width="100%" height="100%">
 		<filter id="noiseFilter">
 			<feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="9" stitchTiles="stitch">
 				<animate attributeName="seed" from="0" to="100" dur="2s" repeatCount="indefinite" />
@@ -22,7 +22,8 @@ https://codepen.io/t_afif/pen/oNdKYge
 			</feComponentTransfer>
 			<!-- <feColorMatrix type="saturate" values="0" /> -->
 		</filter>
-		<rect x={0} y={0} width={wrapperWidth} height={wrapperHeight} filter="url(#noiseFilter)" />
+		<rect width="100%" height="100%" filter="url(#noiseFilter)" />
+		<rect width="100%" height="100%" fill="red" opacity="0.2" />
 	</svg>
 </div>
 
@@ -39,9 +40,10 @@ https://codepen.io/t_afif/pen/oNdKYge
 	// }
 
 	.wrapper {
-		width: 100vw;
-		height: 100vh;
+		width: 100%;
+		height: 100%;
 		opacity: 0.7;
+		border: 10px solid white;
 	}
 
 	@keyframes b {
