@@ -9,25 +9,10 @@ https://codepen.io/t_afif/pen/oNdKYge
 </script>
 
 <div class="wrapper" bind:clientWidth={wrapperWidth} bind:clientHeight={wrapperHeight}>
-	<svg
-		width={wrapperWidth}
-		height={wrapperHeight}
-		viewBox={`0 0 ${wrapperWidth} ${wrapperHeight}`}
-		overflow="visible"
-		style="display: block;"
-	>
-		<filter
-			id="noiseFilter"
-			filterUnits="userSpaceOnUse"
-			primitiveUnits="userSpaceOnUse"
-			x="0"
-			y="0"
-			width={wrapperWidth}
-			height={wrapperHeight}
-			filterRes={`${Math.round(wrapperWidth)} ${Math.round(wrapperHeight)}`}
-		>
+	<svg width={wrapperWidth} height={wrapperHeight}>
+		<filter id="noiseFilter">
 			<feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="9" stitchTiles="stitch">
-				<!-- <animate attributeName="seed" from="0" to="100" dur="2s" repeatCount="indefinite" /> -->
+				<animate attributeName="seed" from="0" to="100" dur="2s" repeatCount="indefinite" />
 			</feTurbulence>
 			<feComponentTransfer>
 				<feFuncR type="linear" slope="0.9" />
@@ -54,8 +39,8 @@ https://codepen.io/t_afif/pen/oNdKYge
 	// }
 
 	.wrapper {
-		width: 100%;
-		height: 100%;
+		width: 100vw;
+		height: 100vh;
 		opacity: 0.7;
 	}
 
