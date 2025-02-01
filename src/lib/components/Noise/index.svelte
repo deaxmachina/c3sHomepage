@@ -24,8 +24,8 @@ https://codepen.io/t_afif/pen/oNdKYge
 
 <style lang="scss">
 	.wrapper {
-		width: 100%;
-		height: 100%;
+		width: 100vw;
+		height: 100vh;
 		opacity: 0.7;
 		mix-blend-mode: darken; //  multiply; //luminosity; //lighten; //difference; //darken; // color-burn;
 	}
