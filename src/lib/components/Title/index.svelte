@@ -1,7 +1,22 @@
 <script lang="ts">
+	import { gsap } from 'gsap';
+
+	///////////////////////////////////////
+	/////////////// GSAP //////////////////
+	///////////////////////////////////////
+	let timeline = $state(null);
+	let elToAnimate = $state(null);
+	$effect(() => {
+		elToAnimate = document.querySelector('#wrapper-title');
+		timeline = gsap
+			.timeline()
+			.to(elToAnimate, { opacity: 1, ease: 'elastic', duration: 0.5 })
+			.to(elToAnimate, { opacity: 0, ease: 'elastic', duration: 0.5 })
+			.to(elToAnimate, { opacity: 1, ease: 'elastic', duration: 0.5 });
+	});
 </script>
 
-<div class="wrapper">
+<div class="wrapper" id="wrapper-title">
 	<div class="full-name">
 		Creative Coding Crafts Space
 		<!-- <div class="full-name-top">Creative Coding Crafts Space</div> -->

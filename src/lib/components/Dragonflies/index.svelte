@@ -1,8 +1,12 @@
 <script lang="ts">
 	import P5 from 'p5-svelte';
+	import { gsap } from 'gsap';
 	import Dragonfly from './dragonfly';
 	import { colBg, coloursDragonflies, colDark } from '$lib/styles/variables';
 
+	///////////////////////////////////////
+	///////////// Initialise //////////////
+	///////////////////////////////////////
 	const colours = coloursDragonflies;
 	const bgColorHex = colBg;
 	const coloursForStroke = colours.filter((d) => d !== bgColorHex);
@@ -11,6 +15,21 @@
 	const breakpointHeight = 800;
 	const breakpointWidth = 1400;
 
+	///////////////////////////////////////
+	/////////////// GSAP //////////////////
+	///////////////////////////////////////
+	let timeline = $state(null);
+	let elToAnimate = $state(null);
+	$effect(() => {
+		elToAnimate = document.querySelector('#wrapper-dragonflies');
+		timeline = gsap
+			.timeline()
+			.fromTo(elToAnimate, { opacity: 0 }, { opacity: 1, duration: 1, delay: 0.5 });
+	});
+
+	///////////////////////////////////////
+	/////////////// SKETCH ////////////////
+	///////////////////////////////////////
 	const sketch = (p5) => {
 		// Initialise
 		let ctx;
@@ -311,4 +330,6 @@
 	};
 </script>
 
-<P5 {sketch} />
+<div class="wrapper" id="wrapper-dragonflies">
+	<P5 {sketch} />
+</div>
