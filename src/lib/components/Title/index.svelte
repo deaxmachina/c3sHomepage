@@ -14,7 +14,7 @@
 
 <style lang="scss">
 	@import '../../styles/variables.scss';
-	$base-font-size-title: min(max(220px, 26vw), 400px);
+	$base-font-size-title: min(max(280px, 26vw), 400px);
 	$height-adjusted-font-size-title: min(max(220px, 22vw), 380px);
 
 	.wrapper {
@@ -90,6 +90,15 @@
 		}
 	}
 
+	// Form md and sm phones
+	@media (max-width: 440px) {
+		h1 {
+			font-size: calc($height-adjusted-font-size-title * 0.9);
+			.num {
+				font-size: calc($height-adjusted-font-size-title * 0.9 * 0.72);
+			}
+		}
+	}
 	// Specifically for smaller laptops
 	@media (max-height: 800px) and (max-width: 1400px) {
 		h1 {

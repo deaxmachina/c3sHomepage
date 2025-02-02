@@ -54,6 +54,7 @@
 		width: 100%;
 		height: var(--vh, 100vh);
 		overflow: hidden;
+		background: linear-gradient($col-bg 68%, $col-accent-1 80%, $col-accent-2 92%);
 	}
 	.wrapper-gradient {
 		position: absolute;

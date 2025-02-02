@@ -9,6 +9,7 @@
 	const coloursForStrokeSmallDragonflies = colours.filter((d) => d !== bgColorHex);
 
 	const breakpointHeight = 800;
+	const breakpointWidth = 1400;
 
 	const sketch = (p5) => {
 		// Initialise
@@ -37,26 +38,40 @@
 			///////////////////////////////////////////
 			/////////// Dragonflies MAIN 2 ////////////
 			///////////////////////////////////////////
-			getAttr = (sm: number, md: number, lg: number) => {
+			getAttr = (sm: number, md: number, lg: number, tablet: number = 1) => {
 				// For mobile
 				if (p5.windowWidth <= 600 && p5.windowHeight <= 1000) {
 					return sm;
 				}
-				// For desktop with bigger height (above 14'' laptop)
-				else if (p5.windowHeight >= breakpointHeight) {
-					return lg;
+				// For desktop witu smaller height (like a 14'' laptop) or tablets
+				else if (p5.windowHeight <= breakpointHeight || p5.windowWidth <= breakpointWidth) {
+					if (p5.windowWidth >= p5.windowHeight) {
+						return md;
+					} else {
+						return tablet;
+					}
 				}
-				// For desktop witu smaller height (like a 14'' laptop)
+				// For desktop with bigger height (above 14'' laptop)
 				else {
-					return md;
+					return lg;
 				}
 			};
 
 			// Larage draginfly
 			const dataDragonfly1 = {
-				scale: getAttr(0.33, 0.53, 0.57),
-				x: getAttr(p5.windowWidth * 0.35, p5.windowWidth * 0.35, p5.windowWidth * 0.38),
-				y: getAttr(p5.windowHeight * 0.27, p5.windowHeight * 0.3, p5.windowHeight * 0.34)
+				scale: getAttr(0.33, 0.53, 0.57, 0.52),
+				x: getAttr(
+					p5.windowWidth * 0.35,
+					p5.windowWidth * 0.35,
+					p5.windowWidth * 0.38,
+					p5.windowWidth * 0.33
+				),
+				y: getAttr(
+					p5.windowHeight * 0.27,
+					p5.windowHeight * 0.3,
+					p5.windowHeight * 0.34,
+					p5.windowHeight * 0.36
+				)
 			};
 			const dragonfly1 = new Dragonfly(
 				colours,
@@ -74,9 +89,19 @@
 
 			// Smaller dragonfly
 			const dataDragonfly2 = {
-				scale: getAttr(0.2, 0.32, 0.38),
-				x: getAttr(p5.windowWidth * 0.75, p5.windowWidth * 0.63, p5.windowWidth * 0.66),
-				y: getAttr(p5.windowHeight * 0.54, p5.windowHeight * 0.35, p5.windowHeight * 0.4)
+				scale: getAttr(0.2, 0.32, 0.38, 0.3),
+				x: getAttr(
+					p5.windowWidth * 0.75,
+					p5.windowWidth * 0.7,
+					p5.windowWidth * 0.68,
+					p5.windowWidth * 0.8
+				),
+				y: getAttr(
+					p5.windowHeight * 0.54,
+					p5.windowHeight * 0.35,
+					p5.windowHeight * 0.4,
+					p5.windowHeight * 0.48
+				)
 			};
 			const dragonfly2 = new Dragonfly(
 				colours,
@@ -100,7 +125,12 @@
 				{
 					x: p5.random(p5.windowWidth * 0.6, p5.windowWidth * 0.8),
 					y: p5.random(p5.windowHeight - 90, p5.windowHeight - 130),
-					scale: getAttr(p5.random(0.1, 0.2), p5.random(0.1, 0.2), p5.random(0.2, 0.3)),
+					scale: getAttr(
+						p5.random(0.1, 0.2),
+						p5.random(0.1, 0.2),
+						p5.random(0.2, 0.3),
+						p5.random(0.1, 0.3)
+					),
 					rotate: -Math.PI * 0.3,
 					rotateWing: Math.PI,
 					numPoints: 60,
@@ -111,7 +141,12 @@
 				{
 					x: p5.windowWidth * 0.6,
 					y: p5.random(50, 100),
-					scale: getAttr(p5.random(0.05, 0.1), p5.random(0.1, 0.2), p5.random(0.1, 0.2)),
+					scale: getAttr(
+						p5.random(0.05, 0.1),
+						p5.random(0.1, 0.2),
+						p5.random(0.1, 0.2),
+						p5.random(0.1, 0.25)
+					),
 					rotate: p5.random(-Math.PI * 0.3, Math.PI * 0.3),
 					rotateWing: p5.random(0, Math.PI),
 					numPoints: 70,
@@ -123,14 +158,21 @@
 					x: getAttr(
 						p5.random(50, 180),
 						p5.random(p5.windowWidth * 0.5, p5.windowWidth * 0.5 + 400),
-						p5.random(p5.windowWidth * 0.5, p5.windowWidth * 0.5 + 400)
+						p5.random(p5.windowWidth * 0.5, p5.windowWidth * 0.5 + 400),
+						p5.random(50, 180)
 					),
 					y: getAttr(
 						p5.random(p5.windowHeight * 0.45, p5.windowHeight * 0.65),
 						p5.random(50, 200),
-						p5.random(50, 200)
+						p5.random(50, 200),
+						p5.random(p5.windowHeight * 0.45, p5.windowHeight * 0.65)
 					),
-					scale: getAttr(p5.random(0.07, 0.15), p5.random(0.1, 0.2), p5.random(0.1, 0.2)),
+					scale: getAttr(
+						p5.random(0.07, 0.15),
+						p5.random(0.1, 0.2),
+						p5.random(0.1, 0.2),
+						p5.random(0.1, 0.25)
+					),
 					rotate: p5.random(-Math.PI * 0.3, Math.PI * 0.3),
 					rotateWing: p5.random(0, Math.PI),
 					numPoints: 50,
@@ -209,6 +251,7 @@
 		/////////////////////////////////
 		//////////// RESIZE /////////////
 		/////////////////////////////////
+		// TODO: Copy the final positions into this function when done
 		p5.windowResized = () => {
 			// When resizing we will just clear the whole background
 			ctx.clearRect(0, 0, p5.windowWidth, p5.windowHeight);
