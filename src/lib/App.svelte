@@ -36,7 +36,7 @@
 		<div class="wrapper-element announcement">
 			<Announcement>Our next meetup is on Jan 25. Get your tickets now!</Announcement>
 		</div>
-		<div class="wrapper-element ection-links"><SectionLink /></div>
+		<div class="wrapper-element section-links"><SectionLink /></div>
 		<div class="wrapper-element copyright"><Copyright /></div>
 		<div class="wrapper-element socials"><Socials /></div>
 		<div class="wrapper-element colour-mode"><ColourMode /></div>

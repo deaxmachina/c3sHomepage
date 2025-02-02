@@ -29,8 +29,8 @@
 				0.1,
 				rotate,
 				0,
-				20,
-				colours.colDark,
+				30,
+				p5.random(colours.coloursDragonflies.filter((d) => d !== colours.colBg)),
 				false
 			);
 			dragonfly.setRotateWing(rotation);

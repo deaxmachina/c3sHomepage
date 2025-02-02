@@ -1,36 +1,45 @@
 <script lang="ts">
-	import Socials from './Socials.svelte';
+	const options = [
+		{ href: '/', id: 'home', displayName: 'Home' },
+		{ href: '/', id: 'about', displayName: 'About' },
+		{ href: '/', id: 'events', displayName: 'Events' },
+		{ href: '/', id: 'resources', displayName: 'Resources' }
+	];
+
+	let selectedOption = $state('home');
+	let activeOption = $state('home');
 </script>
 
 <div class="wrapper-section-link">
 	<div class="sections">
-		<a href="/" class="selected">
-			<div class="triangle selected"></div>
-			Home
-		</a>
-		<a href="/about">
-			<div class="triangle"></div>
-			About</a
-		>
-		<a href="/events">
-			<div class="triangle"></div>
-			Events</a
-		>
-		<a href="/resources">
-			<div class="triangle"></div>
-			Resources</a
-		>
-	</div>
+		{#each options as option}
+			<!-- svelte-ignore a11y_mouse_events_have_key_events -->
+			<div class="selection">
+				<a
+					href={option.href}
+					class:selected={selectedOption === option.id}
+					onmouseover={() => (selectedOption = option.id)}
+					onmouseout={() => (selectedOption = null)}
+				>
+					{option.displayName}
 
-	<!-- <Socials /> -->
+					<div
+						class="triangle"
+						class:active={activeOption === option.id}
+						class:selected={selectedOption === option.id}
+					></div>
+				</a>
+			</div>
+		{/each}
+	</div>
 </div>
 
 <style lang="scss">
 	.wrapper-section-link {
 		// width: 100%;
 		position: absolute;
-		top: 10px;
-		left: 90px;
+		top: 60px;
+		right: -130px;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -52,36 +61,46 @@
 		flex-direction: column;
 	}
 
+	.selection {
+		position: relative;
+		margin-bottom: 5px;
+		width: 100%;
+	}
+
 	a {
-		color: #221d34 !important;
-		font-family: 'sudo', 'lores-9-plus-wide', sans-serif;
-		font-family: 'bitcount-grid-double-circle', sans-serif;
+		display: inline-block;
+		position: relative;
+		color: white;
 		font-family: 'Funnel Sans', serif;
 		text-transform: uppercase;
 		text-decoration: none;
 		color: var(--col-text-and-accent);
-		margin-bottom: 10px;
+
 		font-size: max(0.6770833333vw, 12px);
 		line-height: 0;
 		font-weight: 500;
-		text-transform: uppercase;
-		display: flex;
-		align-items: center;
-		justify-content: flex-start;
 		&.selected {
 			font-weight: 800;
 		}
 	}
 
+	$dim-marker: 14px;
 	.triangle {
-		width: 0;
-		height: 0;
-		border-top: 5px solid transparent;
-		border-bottom: 5px solid transparent;
-		border-left: 7px solid transparent;
-		margin-right: 3px;
+		position: absolute;
+		z-index: -1;
+		left: calc($dim-marker - $dim-marker * 2 - 6px);
+		top: calc($dim-marker * 0.5 * -1);
+		width: $dim-marker;
+		height: $dim-marker;
+		background: #96d97c39;
+		border-radius: calc($dim-marker * 0.5);
+		transition: all 0.5s ease;
+		&.active {
+			background: #97d97c;
+		}
 		&.selected {
-			border-left: 7px solid #221d34;
+			background: #97d97c;
+			width: calc(100% + $dim-marker * 2 + 6px);
 		}
 	}
 </style>
