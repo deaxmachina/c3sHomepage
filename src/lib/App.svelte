@@ -73,4 +73,10 @@
 			pointer-events: all;
 		}
 	}
+
+	.cursor {
+		@media (max-width: 1000px) {
+			display: none;
+		}
+	}
 </style>

@@ -10,9 +10,9 @@
 		elToAnimate = document.querySelector('#wrapper-title');
 		timeline = gsap
 			.timeline()
-			.to(elToAnimate, { opacity: 1, ease: 'elastic', duration: 0.5 })
-			.to(elToAnimate, { opacity: 0, ease: 'elastic', duration: 0.5 })
-			.to(elToAnimate, { opacity: 1, ease: 'elastic', duration: 0.5 });
+			.to(elToAnimate, { opacity: 1, ease: 'elastic', duration: 1 })
+			.to(elToAnimate, { opacity: 0, ease: 'elastic', duration: 1 })
+			.to(elToAnimate, { opacity: 1, ease: 'elastic', duration: 1 });
 	});
 </script>
 
