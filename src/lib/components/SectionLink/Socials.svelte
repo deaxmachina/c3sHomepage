@@ -15,8 +15,8 @@
 		justify-content: center;
 		font-family: 'Funnel Sans', serif;
 		@media (max-width: 900px) {
-			left: 20px;
-			bottom: 12px;
+			left: 12px;
+			bottom: 8px;
 		}
 		img {
 			padding: 0;

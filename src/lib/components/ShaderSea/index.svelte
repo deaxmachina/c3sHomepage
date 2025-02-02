@@ -206,8 +206,8 @@
 	#shader-colours-wrapper {
 		margin: auto;
 		cursor: crosshair;
-		width: 100vw;
-		height: 100vh;
+		width: 100%;
+		height: 100%;
 	}
 	canvas {
 		width: 100%;
