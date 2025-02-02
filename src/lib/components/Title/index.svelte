@@ -18,11 +18,10 @@
 	$height-adjusted-font-size-title: min(max(220px, 22vw), 380px);
 
 	.wrapper {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		position: relative;
-		flex-direction: column;
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translate(-50%, 0);
 		margin-bottom: 15px;
 		@media (max-width: 1200px) {
 			margin-bottom: 35px;

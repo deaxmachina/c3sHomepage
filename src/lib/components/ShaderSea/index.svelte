@@ -3,12 +3,10 @@
 	import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 	import fragmentShader from './shaders/fragmentShader.glsl';
 	import vertexShader from './shaders/vertexShader.glsl';
-	import { colTextAndAccent } from '$lib/styles/variables';
+	import { colBg } from '$lib/styles/variables';
 
 	let canvas: HTMLCanvasElement;
-	// Options -- these will be props
-	// const colBg = '#011627';
-	const colHills = colTextAndAccent; //'#dae2cb';
+	const colHills = colBg;
 	const hillValue = 0.1;
 
 	// Sizes

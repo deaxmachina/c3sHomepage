@@ -1,4 +1,4 @@
-<div class="socials">
+<div class="wrapper">
 	<img src="/images/socials/socials-discord-dark.svg" alt="" />
 	<img src="/images/socials/socials-bsky-dark.svg" alt="" />
 	<img src="/images/socials/socials-x-dark.svg" class="x" alt="" />
@@ -6,11 +6,18 @@
 </div>
 
 <style lang="scss">
-	.socials {
+	.wrapper {
+		position: absolute;
+		left: 60px;
+		bottom: 12px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		font-family: 'Funnel Sans', serif;
+		@media (max-width: 900px) {
+			left: 20px;
+			bottom: 12px;
+		}
 		img {
 			padding: 0;
 			margin: 0;

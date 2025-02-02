@@ -1,146 +1,89 @@
 <script lang="ts">
-	import P5 from 'p5-svelte';
-	import * as d3 from 'd3';
-	let { sectionLink, sectionTitle, children, contentSlot, randomOffset = 0, ...props } = $props();
-
-	const sketch = (p5) => {
-		let zoff = 0;
-		let minRadius = 10;
-		let maxRadius = 70;
-		let centerX;
-		let centerY;
-		let col1;
-		let col2;
-
-		const drawBlob = (centerX, centerY, fill = '#dae2cb1b') => {
-			p5.fill(fill);
-			p5.noStroke();
-			p5.beginShape();
-			for (let a = 0; a < p5.TWO_PI; a += 0.1) {
-				let xoff = p5.map(p5.cos(a), -1, 1, 0, 1);
-				let yoff = p5.map(p5.sin(a), -1, 1, 0, 1);
-				let r = p5.map(
-					p5.noise(xoff + randomOffset, yoff + randomOffset, zoff),
-					0,
-					1,
-					minRadius,
-					maxRadius
-				);
-				let x = centerX + r * p5.cos(a);
-				let y = centerY + r * p5.sin(a);
-				p5.vertex(x, y);
-			}
-			p5.endShape(p5.CLOSE);
-		};
-
-		p5.setup = () => {
-			p5.createCanvas(100, 100);
-			centerX = p5.random(p5.width * 0.4, p5.width * 0.6);
-			centerY = p5.height * 0.5;
-			col1 = p5.random(['#96c3a65e', '#6cb6a586', '#9c75db5b', '#9c75db52']);
-			col2 = p5.random(['#96c3a65e', '#6cb6a586', '#9c75db5b', '#9c75db52']);
-			drawBlob(centerX, centerY, col1);
-			drawBlob(centerX + 5, centerY + 3, col2);
-		};
-
-		p5.draw = () => {
-			// p5.fill('#221d34');
-			// p5.circle(p5.width / 2, p5.height / 2, 150);
-			// drawBlob(centerX, centerY, col1);
-			// drawBlob(centerX + 5, centerY + 3, col2);
-			// zoff += 0.01;
-		};
-	};
-
-	/**************************************
-	 * Logic for dragging the item and
-	 * positioning it anywhere on screen
-	 *************************************/
-	let x = $state(0);
-	let y = $state(0);
-	let offsetX = $state(0);
-	let offsetY = $state(0);
-
-	function dragStart(event: MouseEvent) {
-		const { clientX, clientY } = event.sourceEvent;
-		offsetX = clientX - x;
-		offsetY = clientY - y;
-	}
-	function drag(event: MouseEvent) {
-		// Update position based on mouse coordinates and offset
-		const { clientX, clientY } = event.sourceEvent;
-		x = clientX - offsetX;
-		y = clientY - offsetY;
-		d3.select(this).style('transform', `translate(${x}px, ${y}px)`);
-	}
-	$effect(() => {
-		d3.select(`.wrapper-section-link.${sectionLink}`).call(
-			d3.drag().on('start', dragStart).on('drag', drag)
-		);
-	});
+	import Socials from './Socials.svelte';
 </script>
 
-<a href="/{sectionLink}" class="wrapper-section-link {sectionLink}" {...props}>
-	<!-- {@render children()} -->
-
-	{#if contentSlot}
-		<p class="section-description">
-			{@render contentSlot()}
-		</p>
-	{/if}
-
-	<div class="wrapper-p5-sketch">
-		<P5 {sketch} />
+<div class="wrapper-section-link">
+	<div class="sections">
+		<a href="/" class="selected">
+			<div class="triangle selected"></div>
+			Home
+		</a>
+		<a href="/about">
+			<div class="triangle"></div>
+			About</a
+		>
+		<a href="/events">
+			<div class="triangle"></div>
+			Events</a
+		>
+		<a href="/resources">
+			<div class="triangle"></div>
+			Resources</a
+		>
 	</div>
 
-	<h2>:: {sectionTitle} ::</h2>
-</a>
+	<!-- <Socials /> -->
+</div>
 
 <style lang="scss">
+	@import '../../styles/variables.scss';
+
 	.wrapper-section-link {
+		// width: 100%;
 		position: absolute;
-
-		text-decoration: none;
-		color: #dae2cb;
-
-		width: 170px;
-		height: 170px;
-		padding: 15px 5px 10px 5px;
-		text-align: center;
-		border-radius: 230px;
-
-		// background: #54448e49;
-		background: #221d3430;
-		// box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-		backdrop-filter: blur(5px);
-		// -webkit-backdrop-filter: blur(10px); // Safari support
-		// border-top: 2px solid #dae2cb;
-		// border-bottom: 2px solid #dae2cb;
+		top: 10px;
+		left: 90px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-direction: column;
+		z-index: 100;
+		background-color: none;
+		padding: 0.7rem 1rem 0rem 1rem;
+		// background-color: #4a7d6f9a; // #221d347a; // #4a7d6f7b;
+		// backdrop-filter: blur(2px);
+		border-radius: 0 0 14px 0;
+		// border-radius: 20px 20px 0 0;
+		transform: translateX(-50%);
+		// border: 1px solid #221d34;
+		border-top: none;
+		width: 200px;
+	}
+	.sections {
+		display: flex;
+		flex-direction: column;
 	}
 
-	h2 {
+	a {
+		color: #221d34 !important;
 		font-family: 'sudo', 'lores-9-plus-wide', sans-serif;
-		// font-family: 'bitcount-grid-double-circle', sans-serif;
+		font-family: 'bitcount-grid-double-circle', sans-serif;
+		font-family: 'Funnel Sans', serif;
 		text-transform: uppercase;
-		font-weight: 400;
-		line-height: 1;
-		font-size: 1.9rem;
-		position: absolute;
-		width: 100%;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
+		text-decoration: none;
+		color: $col-text-and-accent;
+		margin-bottom: 10px;
+		font-size: max(0.6770833333vw, 12px);
+		line-height: 0;
+		font-weight: 500;
+		text-transform: uppercase;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		&.selected {
+			font-weight: 800;
+		}
 	}
 
-	.section-description {
-		text-align: left;
-		margin-top: 10px;
-		font-family: 'Della Respira', serif;
-	}
-	.wrapper-p5-sketch {
-		position: absolute;
-		top: -10px;
-		left: -10px;
-		// border: 1px solid red;
+	.triangle {
+		width: 0;
+		height: 0;
+		border-top: 5px solid transparent;
+		border-bottom: 5px solid transparent;
+		border-left: 7px solid transparent;
+		margin-right: 3px;
+		&.selected {
+			border-left: 7px solid #221d34;
+		}
 	}
 </style>
