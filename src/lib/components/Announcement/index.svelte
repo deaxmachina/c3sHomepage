@@ -7,15 +7,12 @@
 </div>
 
 <style lang="scss">
-	@import '../../styles/variables.scss';
-
 	.wrapper {
 		position: absolute;
 		left: 0;
 		top: 0;
-		// width: 35px;
 		height: 100%;
-		background-color: #fa0089ca;
+		// background-color: #fa00899d;
 		backdrop-filter: blur(2px);
 		transform: rotate(180deg);
 
@@ -32,7 +29,7 @@
 		font-family: 'Funnel Sans', serif;
 		font-weight: 500;
 		padding: 0 5px 0 8px;
-		color: $col-bg;
+		color: var(--col-text-and-accent);
 		width: 100%;
 		height: 100%;
 		writing-mode: vertical-rl;

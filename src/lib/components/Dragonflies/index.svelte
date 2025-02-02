@@ -2,15 +2,19 @@
 	import P5 from 'p5-svelte';
 	import { gsap } from 'gsap';
 	import Dragonfly from './dragonfly';
-	import { colBg, coloursDragonflies, colDark } from '$lib/styles/variables';
+	import { stores } from '$lib/stores/stores.svelte';
+
+	let { colours } = stores;
 
 	///////////////////////////////////////
 	///////////// Initialise //////////////
 	///////////////////////////////////////
-	const colours = coloursDragonflies;
-	const bgColorHex = colBg;
-	const coloursForStroke = colours.filter((d) => d !== bgColorHex);
-	const coloursForStrokeSmallDragonflies = colours.filter((d) => d !== bgColorHex);
+	let bgColorHex = $derived(colours.colBg);
+	let colStrokeWingsDragonfly = $derived(colours.colStrokeWingsDragonfly);
+	let coloursForStroke = $derived(colours.coloursDragonflies.filter((d) => d !== bgColorHex));
+	let coloursForStrokeSmallDragonflies = $derived(
+		colours.coloursDragonflies.filter((d) => d !== bgColorHex)
+	);
 
 	const breakpointHeight = 800;
 	const breakpointWidth = 1400;
@@ -25,6 +29,15 @@
 		timeline = gsap
 			.timeline()
 			.fromTo(elToAnimate, { opacity: 0 }, { opacity: 1, duration: 1, delay: 0.5 });
+	});
+
+	let numbers = $state([1, 2, 3]);
+	let total = $derived.by(() => {
+		let total = 0;
+		for (const n of numbers) {
+			total += n;
+		}
+		return total;
 	});
 
 	///////////////////////////////////////
@@ -93,7 +106,7 @@
 				)
 			};
 			const dragonfly1 = new Dragonfly(
-				colours,
+				colours.coloursDragonflies,
 				ctx,
 				dataDragonfly1.x,
 				dataDragonfly1.y,
@@ -101,7 +114,7 @@
 				Math.PI * 0.2,
 				0,
 				300,
-				colDark
+				colStrokeWingsDragonfly
 			);
 			dragonflies.push(dragonfly1);
 			rotations.push(sampleRotation);
@@ -123,7 +136,7 @@
 				)
 			};
 			const dragonfly2 = new Dragonfly(
-				colours,
+				colours.coloursDragonflies,
 				ctx,
 				dataDragonfly2.x,
 				dataDragonfly2.y,
@@ -202,7 +215,7 @@
 
 			additionalDragonflies.forEach((d, i) => {
 				const newDragonfly = new Dragonfly(
-					colours,
+					colours.coloursDragonflies,
 					ctx,
 					d.x,
 					d.y,
@@ -331,5 +344,14 @@
 </script>
 
 <div class="wrapper" id="wrapper-dragonflies">
-	<P5 {sketch} />
+	{#key bgColorHex}
+		<P5 sketch={(p5) => sketch(p5)} />
+	{/key}
 </div>
+
+<style lang="scss">
+	.inner {
+		width: 100%;
+		height: 100%;
+	}
+</style>

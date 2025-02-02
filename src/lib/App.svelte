@@ -9,6 +9,8 @@
 	import Cursor from '$lib/components/Cursor/index.svelte';
 	import Socials from './components/SectionLink/Socials.svelte';
 	import Copyright from '$lib/components/Copyright/index.svelte';
+	import ColourMode from '$lib/components/ColourMode/index.svelte';
+	import { stores } from '$lib/stores/stores.svelte';
 
 	// Function to update the CSS variable --vh with the current viewport height.
 	let vhWasSet = $state(false);
@@ -26,8 +28,8 @@
 <svelte:window onresize={updateVh} />
 
 {#if vhWasSet}
-	<div class="wrapper-scenery">
-		<div class="wrapper-element gradient"></div>
+	<div class="wrapper-scenery {stores.colourMode}">
+		<div class="wrapper-element gradient {stores.colourMode}"></div>
 		<div class="wrapper-element dragonflies"><Dragonflies /></div>
 		<div class="wrapper-element shadersee"><ShaderSee /></div>
 		<div class="wrapper-element title"><Title /></div>
@@ -37,25 +39,32 @@
 		<div class="wrapper-element ection-links"><SectionLink /></div>
 		<div class="wrapper-element copyright"><Copyright /></div>
 		<div class="wrapper-element socials"><Socials /></div>
+		<div class="wrapper-element colour-mode"><ColourMode /></div>
 		<div class="wrapper-element noise"><Noise /></div>
 		<div class="wrapper-element cursor"><Cursor /></div>
 	</div>
 {/if}
 
 <style lang="scss">
-	@import './styles/variables.scss';
-
 	.wrapper-scenery {
 		cursor: none;
 		position: relative;
 		width: 100%;
 		height: var(--vh, 100vh);
 		overflow: hidden;
-		background: linear-gradient($col-bg 68%, $col-accent-1 80%, $col-accent-2 92%);
 	}
 	.wrapper-scenery,
 	.gradient {
-		background: linear-gradient($col-bg 68%, $col-accent-1 80%, $col-accent-2 92%);
+		background: linear-gradient(
+			var(--col-bg) 68%,
+			var(--col-accent-1) 80%,
+			var(--col-accent-2) 92%
+		);
+
+		&.dark {
+			background: linear-gradient(to bottom, transparent 85%, var(--col-accent-1) 95%),
+				linear-gradient(var(--col-bg) 70%, var(--col-accent-2) 92%);
+		}
 	}
 
 	.wrapper-element {
@@ -69,7 +78,8 @@
 		&.announcement,
 		&.socials,
 		&.section-links,
-		&.copyright {
+		&.copyright,
+		&.colour-mode {
 			pointer-events: all;
 		}
 	}

@@ -14,6 +14,7 @@
 		align-items: center;
 		justify-content: center;
 		font-family: 'Funnel Sans', serif;
+		color: var(--col-text-and-accent);
 		@media (max-width: 900px) {
 			left: 12px;
 			bottom: 8px;

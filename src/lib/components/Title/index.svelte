@@ -28,7 +28,6 @@
 </div>
 
 <style lang="scss">
-	@import '../../styles/variables.scss';
 	$base-font-size-title: min(max(280px, 26vw), 400px);
 	$height-adjusted-font-size-title: min(max(220px, 22vw), 380px);
 
@@ -57,8 +56,7 @@
 		font-weight: 500;
 		font-style: normal;
 		font-size: max(22px, calc($base-font-size-title * 0.083));
-		color: $col-text-and-accent;
-		// color: $col-accent-3;
+		color: var(--col-text-title-main);
 		line-height: 1;
 		text-transform: uppercase;
 		position: relative;
@@ -69,16 +67,12 @@
 			font-weight: 500;
 			line-height: 1.05;
 			text-align: center;
-			// font-family: 'bitcount-grid-double-circle', sans-serif;
 		}
 		.full-name-top {
 			font-family: 'bitcount-grid-single-line-sq', sans-serif;
-			// font-family: 'bitcount-grid-single-square', sans-serif;
 			position: absolute;
 			top: 0;
 			font-weight: 500;
-			color: $col-accent-3;
-			color: $col-text-and-accent;
 		}
 	}
 	.abbr {
@@ -97,10 +91,10 @@
 		&.foreground {
 			position: absolute;
 			top: -10px;
-			color: $col-text-and-accent;
+			color: var(--col-text-title-main);
 		}
 		&.background {
-			color: $col-accent-2;
+			color: var(--col-text-title-accent);
 		}
 	}
 

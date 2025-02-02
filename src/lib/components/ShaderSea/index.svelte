@@ -3,11 +3,13 @@
 	import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 	import fragmentShader from './shaders/fragmentShader.glsl';
 	import vertexShader from './shaders/vertexShader.glsl';
-	import { colBg } from '$lib/styles/variables';
+	import { stores } from '$lib/stores/stores.svelte';
+
+	let { colours } = stores;
 
 	let canvas: HTMLCanvasElement;
-	const colHills = colBg;
-	const hillValue = 0.1;
+	let colHills = $derived(colours.colBg);
+	const hillValue = 0;
 
 	// Sizes
 	const getHeight = (width: number) => {
@@ -85,7 +87,7 @@
 		 ************************************/
 		// Geometry
 		geometryPlane = new THREE.PlaneGeometry(3, 3, 1000, 1000);
-		geometryPlane.rotateX(-Math.PI * 0.43);
+		geometryPlane.rotateX(-Math.PI * 0.44);
 
 		// Material
 		materialPlane = new THREE.ShaderMaterial({
@@ -98,7 +100,7 @@
 				uTime: { value: 0 },
 				uTexture: { value: texture.instance },
 				uElevation: { value: 1 },
-				uHeightHill: { value: 0.4 }
+				uHeightHill: { value: hillValue }
 			}
 		});
 
@@ -115,6 +117,7 @@
 		 ************************************/
 		camera = new THREE.PerspectiveCamera(50, aspect, 0.1, 100);
 		// camera.position.y = -0.2;
+		camera.position.y = 0.3;
 		camera.position.z = 1.2;
 		scene.add(camera);
 
@@ -144,7 +147,7 @@
 
 			// Update the material, e.g. the uniforms
 			materialPlane.uniforms.uTime.value = elapsedTime;
-			materialPlane.uniforms.uElevation.value = 1 - Math.sin(elapsedTime) * 0.2;
+			materialPlane.uniforms.uElevation.value = 1 - Math.sin(elapsedTime) * 0.3;
 
 			// Update the controls
 			// controls.update();
@@ -184,11 +187,11 @@
 	});
 
 	// Update the value of the hills (height)
-	$effect(() => {
-		if (materialPlane && texture) {
-			materialPlane.uniforms.uHeightHill.value = hillValue;
-		}
-	});
+	// $effect(() => {
+	// 	if (materialPlane && texture) {
+	// 		materialPlane.uniforms.uHeightHill.value = hillValue;
+	// 	}
+	// });
 </script>
 
 <svelte:window bind:innerWidth={windowWidth} />

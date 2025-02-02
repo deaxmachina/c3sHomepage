@@ -27,7 +27,8 @@
 }
 
 body {
-   background-color: #221d34; 
+   background-color: #000000; 
   //  min-height: 100vh;
-   background: linear-gradient($col-bg 68%, $col-accent-1 80%, $col-accent-2 92%);
+  //  background: linear-gradient($col-bg 68%, $col-accent-1 80%, $col-accent-2 92%);
+  background: linear-gradient(var(--col-bg) 68%, var(--col-accent-1) 80%, var(--col-accent-2) 92%);
   }

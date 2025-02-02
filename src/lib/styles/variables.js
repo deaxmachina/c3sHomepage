@@ -1,6 +1,6 @@
-export const colBg = '#eaeace';
+export const colBg = '#eaeace'; // '#221d34';
 export const colTextAndAccent = '#221d34';
-export const colDark = '#221d34';
+export const colDark = '#221d34'; // '#eaeace';
 export const colAccent1 = '#7fd69e'; //'#97d97c';
 export const colAccent2 = '#6cb6a5';
 export const colAccent2darker = '#6cb6a5';

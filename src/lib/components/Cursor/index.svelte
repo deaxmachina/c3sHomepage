@@ -1,8 +1,9 @@
 <script>
 	import P5 from 'p5-svelte';
 	import Dragonfly from '../Dragonflies/dragonfly';
-	import { coloursDragonflies, colDark } from '$lib/styles/variables';
-	import { Flower } from './flower';
+	import { stores } from '$lib/stores/stores.svelte';
+
+	let { colours } = stores;
 
 	const sketch = (p5) => {
 		// Initialise
@@ -20,7 +21,18 @@
 			x = p5.mouseX;
 			y = p5.mouseY;
 
-			dragonfly = new Dragonfly(coloursDragonflies, ctx, x, y, 0.1, rotate, 0, 20, colDark, false);
+			dragonfly = new Dragonfly(
+				colours.coloursDragonflies,
+				ctx,
+				x,
+				y,
+				0.1,
+				rotate,
+				0,
+				20,
+				colours.colDark,
+				false
+			);
 			dragonfly.setRotateWing(rotation);
 			dragonfly.drawDragonfly();
 		};

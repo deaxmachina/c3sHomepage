@@ -26,8 +26,6 @@
 </div>
 
 <style lang="scss">
-	@import '../../styles/variables.scss';
-
 	.wrapper-section-link {
 		// width: 100%;
 		position: absolute;
@@ -61,7 +59,7 @@
 		font-family: 'Funnel Sans', serif;
 		text-transform: uppercase;
 		text-decoration: none;
-		color: $col-text-and-accent;
+		color: var(--col-text-and-accent);
 		margin-bottom: 10px;
 		font-size: max(0.6770833333vw, 12px);
 		line-height: 0;
