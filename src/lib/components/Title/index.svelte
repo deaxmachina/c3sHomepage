@@ -4,16 +4,16 @@
 	///////////////////////////////////////
 	/////////////// GSAP //////////////////
 	///////////////////////////////////////
-	let timeline = $state(null);
-	let elToAnimate = $state(null);
-	$effect(() => {
-		elToAnimate = document.querySelector('#wrapper-title');
-		timeline = gsap
-			.timeline()
-			.to(elToAnimate, { opacity: 1, ease: 'elastic', duration: 1 })
-			.to(elToAnimate, { opacity: 0, ease: 'elastic', duration: 1 })
-			.to(elToAnimate, { opacity: 1, ease: 'elastic', duration: 1 });
-	});
+	// let timeline = $state(null);
+	// let elToAnimate = $state(null);
+	// $effect(() => {
+	// 	elToAnimate = document.querySelector('#wrapper-title');
+	// 	timeline = gsap
+	// 		.timeline()
+	// 		.to(elToAnimate, { opacity: 1, ease: 'elastic', duration: 1 })
+	// 		.to(elToAnimate, { opacity: 0, ease: 'elastic', duration: 1 })
+	// 		.to(elToAnimate, { opacity: 1, ease: 'elastic', duration: 1 });
+	// });
 </script>
 
 <div class="wrapper" id="wrapper-title">
@@ -56,7 +56,7 @@
 		font-weight: 500;
 		font-style: normal;
 		font-size: max(22px, calc($base-font-size-title * 0.083));
-		color: var(--col-text-title-main);
+		color: var(--col-text-subtitle-main);
 		line-height: 1;
 		text-transform: uppercase;
 		position: relative;

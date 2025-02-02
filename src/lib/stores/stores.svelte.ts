@@ -3,6 +3,7 @@ export const stores = $state({
 		colBg: '#eaeace', // '#221d34';
 		colTextAndAccent: '#221d34',
 		colTextTitleMain: '#221d34',
+		colTextSubtitleMain: '#221d34',
 		colTextTitleAccent: '#6cb6a5',
 		colDark: '#221d34', // '#eaeace';
 		colStrokeWingsDragonfly: '#221d34',
@@ -12,5 +13,6 @@ export const stores = $state({
 		colAccent3: '#fa008a',
 		coloursDragonflies: ['#eaeace', '#97d97c', '#6cb6a5', '#221d34', '#fa008a']
 	},
-	colourMode: 'light'
+	colourMode: 'light',
+	isDarkMode: false
 });

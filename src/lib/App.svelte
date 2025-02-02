@@ -62,8 +62,9 @@
 		);
 
 		&.dark {
-			background: linear-gradient(to bottom, transparent 85%, var(--col-accent-1) 95%),
-				linear-gradient(var(--col-bg) 70%, var(--col-accent-2) 92%);
+			background: linear-gradient(to bottom right, transparent 87%, var(--col-accent-1) 98%),
+				linear-gradient(to bottom left, transparent 87%, var(--col-accent-1) 98%),
+				linear-gradient(var(--col-bg) 70%, var(--col-accent-2) 90%);
 		}
 	}
 

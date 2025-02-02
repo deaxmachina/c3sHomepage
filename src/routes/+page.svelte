@@ -10,6 +10,7 @@
     --col-bg: {colours.colBg};
 		--col-text-and-accent: {colours.colTextAndAccent};
 		--col-text-title-main: {colours.colTextTitleMain};
+		--col-text-subtitle-main: {colours.colTextSubtitleMain};
 		--col-text-title-accent: {colours.colTextTitleAccent};
 		--col-stroke-wings-dragonfly: {colours.colStrokeWingsDragonfly};
 		--col-dark: {colours.colDark}; 

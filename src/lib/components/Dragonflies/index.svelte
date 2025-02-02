@@ -344,7 +344,7 @@
 </script>
 
 <div class="wrapper" id="wrapper-dragonflies">
-	{#key bgColorHex}
+	{#key stores.colourMode}
 		<P5 sketch={(p5) => sketch(p5)} />
 	{/key}
 </div>

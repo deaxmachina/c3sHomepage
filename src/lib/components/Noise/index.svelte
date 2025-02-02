@@ -3,9 +3,13 @@ https://css-tricks.com/making-static-noise-from-a-weird-css-gradient-bug/
 https://codepen.io/t_afif/pen/oNdKYge 
 -->
 
+<script lang="ts">
+	import { stores } from '$lib/stores/stores.svelte';
+</script>
+
 <!-- <animate attributeName="seed" from="0" to="100" dur="2s" repeatCount="indefinite" /> -->
 
-<div class="wrapper">
+<div class="wrapper {stores.colourMode}">
 	<svg width="100%" height="100%">
 		<defs>
 			<filter id="noiseFilter">
@@ -31,7 +35,13 @@ https://codepen.io/t_afif/pen/oNdKYge
 		width: 100%;
 		height: 100%;
 		opacity: 0.7;
-		mix-blend-mode: luminosity; //  multiply; //luminosity; //lighten; //difference; //darken; // color-burn;
+		mix-blend-mode: lighten; //  multiply; //luminosity; //lighten; //difference; //darken; // color-burn;
+		&.light {
+			mix-blend-mode: lighten;
+		}
+		&.dark {
+			mix-blend-mode: luminosity;
+		}
 	}
 	// .wrapper {
 	// 	width: 100%;

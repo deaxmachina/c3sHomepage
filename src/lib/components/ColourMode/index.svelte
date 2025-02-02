@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { stores } from '$lib/stores/stores.svelte';
+	import Toggle from './Toggle.svelte';
 
 	let { colours } = stores;
 
@@ -27,8 +28,9 @@
 </script>
 
 <div class="wrapper">
-	<button onclick={lightMode}>light</button>
-	<button onclick={darkMode}>dark</button>
+	<!-- <button onclick={lightMode}>light</button> -->
+	<!-- <button onclick={darkMode}>dark</button> -->
+	<Toggle />
 </div>
 
 <style lang="scss">
