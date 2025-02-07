@@ -23,7 +23,7 @@ https://codepen.io/t_afif/pen/oNdKYge
 					<feFuncB type="linear" slope="0.7" />
 					<feFuncA type="linear" slope="0.7" />
 				</feComponentTransfer>
-				<feColorMatrix type="saturate" values="0" />
+				<!-- <feColorMatrix type="saturate" values="0" /> -->
 			</filter>
 		</defs>
 		<rect width="100%" height="100%" filter="url(#noiseFilter)" />

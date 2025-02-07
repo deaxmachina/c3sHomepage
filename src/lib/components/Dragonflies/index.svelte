@@ -10,6 +10,7 @@
 	///////////// Initialise //////////////
 	///////////////////////////////////////
 	let bgColorHex = $derived(colours.colBg);
+	$inspect(bgColorHex);
 	let colStrokeWingsDragonfly = $derived(colours.colStrokeWingsDragonfly);
 	let coloursForStroke = $derived(colours.coloursDragonflies.filter((d) => d !== bgColorHex));
 	let coloursForStrokeSmallDragonflies = $derived(
