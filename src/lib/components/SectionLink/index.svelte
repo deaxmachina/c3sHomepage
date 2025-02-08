@@ -18,17 +18,17 @@
 				<a
 					href={option.href}
 					class:selected={selectedOption === option.id}
+					class:active={activeOption === option.id}
 					onmouseover={() => (selectedOption = option.id)}
 					onmouseout={() => (selectedOption = null)}
 				>
 					{option.displayName}
-
-					<div
-						class="triangle"
-						class:active={activeOption === option.id}
-						class:selected={selectedOption === option.id}
-					></div>
 				</a>
+				<div
+					class="triangle"
+					class:active={activeOption === option.id}
+					class:selected={selectedOption === option.id}
+				></div>
 			</div>
 		{/each}
 	</div>
@@ -36,25 +36,16 @@
 
 <style lang="scss">
 	.wrapper-section-link {
-		// width: 100%;
 		position: absolute;
-		top: 60px;
-		right: -130px;
+		top: 70px;
+		right: 30px;
+		// border: 2px solid red;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		flex-direction: column;
 		z-index: 100;
 		background-color: none;
-		padding: 0.7rem 1rem 0rem 1rem;
-		// background-color: #4a7d6f9a; // #221d347a; // #4a7d6f7b;
-		// backdrop-filter: blur(2px);
-		border-radius: 0 0 14px 0;
-		// border-radius: 20px 20px 0 0;
-		transform: translateX(-50%);
-		// border: 1px solid #221d34;
-		border-top: none;
-		width: 200px;
 	}
 	.sections {
 		display: flex;
@@ -62,34 +53,42 @@
 	}
 
 	.selection {
+		display: inline;
 		position: relative;
-		margin-bottom: 5px;
+		margin-bottom: 10px;
 		width: 100%;
+		text-align: right;
 	}
 
 	a {
 		display: inline-block;
-		position: relative;
 		color: white;
 		font-family: 'Funnel Sans', serif;
 		text-transform: uppercase;
 		text-decoration: none;
+		text-align: right;
 		color: var(--col-text-and-accent);
-
 		font-size: max(0.6770833333vw, 12px);
 		line-height: 0;
 		font-weight: 500;
+		margin-right: 20px;
+		letter-spacing: 1.5px;
 		&.selected {
+			color: var(--col-dark);
+		}
+		&.active {
 			font-weight: 800;
 		}
 	}
 
-	$dim-marker: 14px;
+	$dim-marker: 16px;
 	.triangle {
 		position: absolute;
+		right: 0;
 		z-index: -1;
-		left: calc($dim-marker - $dim-marker * 2 - 6px);
-		top: calc($dim-marker * 0.5 * -1);
+		//left: calc($dim-marker - $dim-marker * 2 - 6px);
+		top: 2px;
+		// top: calc($dim-marker * 0.5 * -1);
 		width: $dim-marker;
 		height: $dim-marker;
 		background: #96d97c39;
@@ -100,7 +99,8 @@
 		}
 		&.selected {
 			background: #97d97c;
-			width: calc(100% + $dim-marker * 2 + 6px);
+			width: 120%;
+			// width: calc($dim-marker * 2 + 6px);
 		}
 	}
 </style>

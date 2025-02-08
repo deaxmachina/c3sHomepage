@@ -1,42 +1,41 @@
 <!-- // Source: https://codepen.io/t_afif/pen/PoEebrz -->
 
 <script>
-	import { stores } from '$lib/stores/stores.svelte';
-
+	import { stores, lightMode, darkMode, defaultColours } from '$lib/stores/stores.svelte';
 	let { colours } = stores;
 
-	const lightMode = () => {
-		colours.colBg = '#eaeace';
-		colours.colDark = '#eaeace';
-		colours.colStrokeWingsDragonfly = '#221d34';
-		colours.colTextAndAccent = '#221d34';
-		colours.colTextTitleMain = '#221d34';
-		colours.colTextSubtitleMain = '#221d34';
-		colours.colTextTitleAccent = '#6cb6a5';
+	const setLightMode = () => {
+		colours.colBg = lightMode.colBg;
+		colours.colStrokeWingsDragonfly = lightMode.colStrokeWingsDragonfly;
+		colours.colTextAndAccent = lightMode.colTextAndAccent;
+		colours.colTextTitleMain = lightMode.colTextTitleMain;
+		colours.colTextSubtitleMain = lightMode.colTextSubtitleMain;
+		colours.colTextTitleAccent = lightMode.colTextTitleAccent;
 
 		stores.colourMode = 'light';
+		stores.isDarkMode = false;
 	};
 
-	const darkMode = () => {
-		colours.colBg = '#221d34';
-		colours.colDark = '#221d34';
-		colours.colStrokeWingsDragonfly = '#eaeace';
-		colours.colTextAndAccent = '#eaeace';
-		colours.colTextTitleMain = '#eaeace';
-		colours.colTextSubtitleMain = '#eaeace';
-		colours.colTextTitleAccent = '#97d97c'; //'#fa008a'; // '#221d34'; // #6cb6a5 // #7fd69e // #97d97c
+	const setDarkMode = () => {
+		colours.colBg = darkMode.colBg;
+		colours.colStrokeWingsDragonfly = darkMode.colStrokeWingsDragonfly;
+		colours.colTextAndAccent = darkMode.colTextAndAccent;
+		colours.colTextTitleMain = darkMode.colTextTitleMain;
+		colours.colTextSubtitleMain = darkMode.colTextSubtitleMain;
+		colours.colTextTitleAccent = darkMode.colTextTitleAccent;
 
 		stores.colourMode = 'dark';
+		stores.isDarkMode = true;
 	};
 
 	$effect(() => {
 		if (stores.isDarkMode) {
 			setTimeout(() => {
-				darkMode();
+				setDarkMode();
 			}, 400);
 		} else {
 			setTimeout(() => {
-				lightMode();
+				setLightMode();
 			}, 400);
 		}
 	});

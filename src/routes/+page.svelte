@@ -14,6 +14,7 @@
 		--col-text-title-accent: {colours.colTextTitleAccent};
 		--col-stroke-wings-dragonfly: {colours.colStrokeWingsDragonfly};
 		--col-dark: {colours.colDark}; 
+		--col-light: {colours.colLight}; 
 		--col-accent-1: {colours.colAccent1};
 		--col-accent-2: {colours.colAccent2};
 		--col-accent-2-darker: {colours.colAccent2};
