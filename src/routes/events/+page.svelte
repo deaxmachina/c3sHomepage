@@ -1,5 +1,5 @@
-<script>
-	import { processSanityTextConent } from '$lib/utils/sanity.js';
+<script lang="ts">
+	import { processSanityTextConent } from '$lib/utils/sanity';
 	// This data comes from what we return in the load function in +page.ts
 	const { data } = $props();
 	let { events } = data;

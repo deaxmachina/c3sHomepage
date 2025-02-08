@@ -11,11 +11,11 @@
 		<Fa icon={faDiscord} {scale} />
 	</a>
 
-	<a href="" class="social-link" target="_blank">
+	<a href="https://bsky.app/profile/cccraftsspace.bsky.social" class="social-link" target="_blank">
 		<Fa icon={faBluesky} {scale} />
 	</a>
 
-	<a href="" class="social-link" target="_blank">
+	<a href="https://x.com/CCCraftsSpace" class="social-link" target="_blank">
 		<Fa icon={faXTwitter} {scale} />
 	</a>
 
