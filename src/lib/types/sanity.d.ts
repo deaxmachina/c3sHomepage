@@ -1,4 +1,4 @@
-type Event = {
+type SanityEvent = {
 	_id: string;
 	_type: 'event';
 	_createdAt: string;
@@ -6,8 +6,8 @@ type Event = {
 	_rev: string;
 	eventName?: string;
 	eventDate?: string;
-	slug?: string;
-	image?: {
+	slug: string;
+	image: {
 		asset?: {
 			_ref: string;
 			_type: 'reference';
@@ -18,8 +18,8 @@ type Event = {
 		crop?: SanityImageCrop;
 		_type: 'image';
 	};
-	tech?: Array<string>;
-	content?: Array<
+	tech: Array<string>;
+	content: Array<
 		| {
 				children?: Array<{
 					marks?: Array<string>;
@@ -58,7 +58,7 @@ type Event = {
 	>;
 };
 
-type EventResource = {
+type SanityEventResource = {
 	_id: string;
 	_type: 'eventResource';
 	_createdAt: string;

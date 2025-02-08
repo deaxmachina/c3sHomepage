@@ -1,15 +1,12 @@
 <script>
-	import '$lib/styles/style.scss';
 	import ShaderSee from '$lib/components/ShaderSea/index.svelte';
 	import Dragonflies from '$lib/components/Dragonflies/index.svelte';
 	import Title from '$lib/components/Title/index.svelte';
-	import SectionLink from '$lib/components/SectionLink/index.svelte';
 	import Announcement from '$lib/components/Announcement/index.svelte';
 	import Noise from '$lib/components/Noise/index.svelte';
 	import Cursor from '$lib/components/Cursor/index.svelte';
 	import Socials from './components/SectionLink/Socials.svelte';
 	import Copyright from '$lib/components/Copyright/index.svelte';
-	import ColourMode from '$lib/components/ColourMode/index.svelte';
 	import { stores } from '$lib/stores/stores.svelte';
 
 	// Function to update the CSS variable --vh with the current viewport height.
@@ -36,10 +33,10 @@
 		<div class="wrapper-element announcement">
 			<Announcement>Our next meetup is on Jan 25. Get your tickets now!</Announcement>
 		</div>
-		<div class="wrapper-element section-links"><SectionLink /></div>
+
 		<div class="wrapper-element copyright"><Copyright /></div>
 		<div class="wrapper-element socials"><Socials /></div>
-		<div class="wrapper-element colour-mode"><ColourMode /></div>
+		<!-- <div class="wrapper-element colour-mode"><ColourMode /></div> -->
 		<div class="wrapper-element noise"><Noise /></div>
 		<div class="wrapper-element cursor"><Cursor /></div>
 	</div>
