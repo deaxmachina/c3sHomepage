@@ -1,5 +1,4 @@
 import sanityClient from '$lib/utils/sanity';
-import type { EventResource } from '$lib/types/sanity';
 
 export const load = async () => {
 	// Get the event resource data from Sanity

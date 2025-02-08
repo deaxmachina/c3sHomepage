@@ -1,8 +1,8 @@
 <script lang="ts">
 	const options = [
 		{ href: '/', id: 'home', displayName: 'Home' },
-		{ href: '/', id: 'about', displayName: 'About' },
-		{ href: '/', id: 'events', displayName: 'Events' },
+		{ href: '/about', id: 'about', displayName: 'About' },
+		{ href: '/events', id: 'events', displayName: 'Events' },
 		{ href: '/resources', id: 'resources', displayName: 'Resources' }
 	];
 
