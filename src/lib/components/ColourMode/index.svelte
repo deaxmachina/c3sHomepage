@@ -13,6 +13,10 @@
 		right: 15px;
 		top: 10px;
 
+		@media (max-width: 900px) {
+			right: 0px;
+		}
+
 		button {
 			border: none;
 			padding: 0.3rem 1rem;

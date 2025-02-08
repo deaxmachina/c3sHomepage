@@ -42,6 +42,10 @@ https://codepen.io/t_afif/pen/oNdKYge
 		&.dark {
 			mix-blend-mode: luminosity;
 		}
+
+		@media (max-width: 900px) {
+			display: none;
+		}
 	}
 	// .wrapper {
 	// 	width: 100%;

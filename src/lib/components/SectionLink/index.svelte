@@ -14,14 +14,14 @@
 	<div class="sections">
 		{#each options as option}
 			<!-- svelte-ignore a11y_mouse_events_have_key_events -->
-			<div class="selection">
-				<a
-					href={option.href}
-					class:selected={selectedOption === option.id}
-					class:active={activeOption === option.id}
-					onmouseover={() => (selectedOption = option.id)}
-					onmouseout={() => (selectedOption = null)}
-				>
+			<div
+				class="selection"
+				class:selected={selectedOption === option.id}
+				class:active={activeOption === option.id}
+				onmouseover={() => (selectedOption = option.id)}
+				onmouseout={() => (selectedOption = null)}
+			>
+				<a href={option.href}>
 					{option.displayName}
 				</a>
 				<div
@@ -46,6 +46,10 @@
 		flex-direction: column;
 		z-index: 100;
 		background-color: none;
+
+		@media (max-width: 900px) {
+			right: 12px;
+		}
 	}
 	.sections {
 		display: flex;
