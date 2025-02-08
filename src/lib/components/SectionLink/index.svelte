@@ -3,7 +3,7 @@
 		{ href: '/', id: 'home', displayName: 'Home' },
 		{ href: '/', id: 'about', displayName: 'About' },
 		{ href: '/', id: 'events', displayName: 'Events' },
-		{ href: '/', id: 'resources', displayName: 'Resources' }
+		{ href: '/resources', id: 'resources', displayName: 'Resources' }
 	];
 
 	let selectedOption = $state('home');

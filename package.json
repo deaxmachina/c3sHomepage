@@ -43,6 +43,7 @@
 		"p5": "^1.11.2",
 		"p5-svelte": "^3.1.2",
 		"postprocessing": "^6.36.6",
+		"sanity": "^3.74.1",
 		"sass": "^1.83.1",
 		"sass-embedded": "^1.83.1",
 		"svelte-fa": "^4.0.3",
