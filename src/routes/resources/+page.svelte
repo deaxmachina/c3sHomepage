@@ -12,7 +12,7 @@
 <div class="wrapper">
 	{#each eventResources as eventResource}
 		<div class="wrapper-resource">
-			<img width="100%" src={imgUrlBuilder.image(eventResource.resourceImage).url()} alt="" />
+			<img src={imgUrlBuilder.image(eventResource.resourceImage).url()} alt="" />
 			<h3>{eventResource.resourceName}</h3>
 			<div>Slug: {eventResource.slug.current}</div>
 			<div>Date created: {eventResource._createdAt}</div>
@@ -76,5 +76,13 @@
 		width: 500px;
 		border-radius: 10px;
 		padding: 20px;
+	}
+
+	img {
+		width: 100%;
+		max-width: 300px;
+		height: 300px;
+		object-fit: cover;
+		object-position: center;
 	}
 </style>
