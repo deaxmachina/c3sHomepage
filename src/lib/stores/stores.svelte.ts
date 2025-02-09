@@ -1,6 +1,8 @@
+const colDarkOption1 = '#221d34';
+const colDarkOption2 = '#06030b';
 export const defaultColours = {
 	colLight: '#eaeace',
-	colDark: '#221d34'
+	colDark: Math.random() > 0.5 ? colDarkOption1 : colDarkOption2
 };
 
 export const lightMode = {
