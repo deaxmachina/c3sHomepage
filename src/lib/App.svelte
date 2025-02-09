@@ -33,7 +33,7 @@
 	$effect(() => {
 		timeline = gsap.timeline().to('.fade-in', {
 			opacity: 1,
-			duration: 2,
+			duration: 3,
 			delay: 2.2,
 			ease: 'power2.out'
 		});

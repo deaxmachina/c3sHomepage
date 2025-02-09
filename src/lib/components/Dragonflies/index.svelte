@@ -1,6 +1,5 @@
 <script lang="ts">
 	import P5 from 'p5-svelte';
-	import { gsap } from 'gsap';
 	import Dragonfly from './dragonfly';
 	import { stores } from '$lib/stores/stores.svelte';
 
@@ -19,18 +18,6 @@
 
 	const breakpointHeight = 800;
 	const breakpointWidth = 1400;
-
-	///////////////////////////////////////
-	/////////////// GSAP //////////////////
-	///////////////////////////////////////
-	// let timeline = $state(null);
-	// let elToAnimate = $state(null);
-	// $effect(() => {
-	// 	elToAnimate = document.querySelector('#wrapper-dragonflies');
-	// 	timeline = gsap
-	// 		.timeline()
-	// 		.fromTo(elToAnimate, { opacity: 0 }, { opacity: 1, duration: 1, delay: 0.5 });
-	// });
 
 	let numbers = $state([1, 2, 3]);
 	let total = $derived.by(() => {
