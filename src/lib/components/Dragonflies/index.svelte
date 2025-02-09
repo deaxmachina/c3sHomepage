@@ -243,14 +243,19 @@
 
 			// Draw and aniamte all the dragonflies below a certain number of frames (50 to 205)
 			if (p5.frameCount >= 100 && p5.frameCount <= 205) {
+				// Clear the background just for the dragonfly at the bottom above the sea
 				ctx.clearRect(0, p5.windowHeight * 0.68, p5.windowWidth, p5.windowHeight * 0.32);
 
+				// For the rest of the background, this is the right blend option
+				// to allow to have the trailing effect of the dragonflies
+				p5.blendMode(p5.REMOVE);
+				p5.noStroke();
+				p5.fill(bgColor);
+				p5.rect(0, 0, p5.windowWidth, p5.windowHeight * 0.68);
+				// Make sure to reset the blend value to the default after bg has been drawn
+				p5.blendMode(p5.BLEND);
+
 				frameCounts = dragonflies.map((d) => p5.frameCount);
-
-				// p5.stroke(bgColor);
-				// p5.fill(bgColor);
-				// p5.rect(0, 0, p5.windowWidth, p5.windowHeight * 0.68);
-
 				if (dragonflies.length > 0) {
 					dragonflies.forEach((dragonfly, i) => {
 						dragonfly.setRotateWing(rotations[i]);
@@ -260,25 +265,6 @@
 					});
 				}
 			}
-			// And above that threshold of frames, only aniamte the dragonfly being hovered
-			// Note that we still need to make sure that we are drawing the other ones, just
-			// not animating them (hence the need for the background etc)
-			// else {
-			// 	if (existsDragonflyHovered) {
-			// 		ctx.clearRect(0, p5.windowHeight * 0.68, p5.windowWidth, p5.windowHeight * 0.32);
-			// 		p5.fill(bgColor);
-			// 		p5.stroke(bgColor);
-			// 		p5.rect(0, 0, p5.windowWidth, p5.windowHeight * 0.68);
-			// 		dragonflies.forEach((dragonfly, i) => {
-			// 			dragonfly.drawDragonfly();
-			// 			if (dragonfly.clicked(p5.mouseX, p5.mouseY, p5.dist)) {
-			// 				frameCounts[i] += 1;
-			// 				dragonfly.setRotateWing(rotations[i]);
-			// 				rotations[i] += p5.sin(frameCounts[i] * (i + 1)) * 0.6;
-			// 			}
-			// 		});
-			// 	}
-			// }
 		};
 
 		/////////////////////////////////

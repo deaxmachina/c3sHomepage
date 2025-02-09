@@ -5,6 +5,8 @@
 	///////////////////////////////////////
 	/////////////// GSAP //////////////////
 	///////////////////////////////////////
+	// Animation to type the words 'Creative coding crafts space' out
+	// followed by fading in the title 'c3s'
 	let timeline = $state(null);
 	$effect(() => {
 		gsap.registerPlugin(TextPlugin);
@@ -21,11 +23,13 @@
 			.to('#wrapper-title .abbr', {
 				opacity: 1,
 				duration: 1,
-				delay: 0.5
+				delay: 0.2,
+				ease: 'none'
 			});
 	});
 </script>
 
+<!-- TODO: Restructure this to have semantic html -->
 <div class="wrapper" id="wrapper-title">
 	<div class="full-name">
 		<!-- Creative Coding Crafts Space -->

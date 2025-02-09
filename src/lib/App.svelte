@@ -26,14 +26,16 @@
 	///////////////////////////////////////
 	/////////////// GSAP //////////////////
 	///////////////////////////////////////
+	// Note that this animation will apply to the colour switch
+	// and the menu elements which live in the +page.svelte and
+	// also have the class of fade-in
 	let timeline = $state(null);
-	let elToAnimate = $state(null);
 	$effect(() => {
 		timeline = gsap.timeline().to('.fade-in', {
 			opacity: 1,
 			duration: 2,
-			delay: 2.5,
-			ease: 'none'
+			delay: 2.2,
+			ease: 'power2.out'
 		});
 	});
 </script>
