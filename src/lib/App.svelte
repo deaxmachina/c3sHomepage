@@ -11,18 +11,6 @@
 	import Copyright from '$lib/components/Copyright/index.svelte';
 	import { stores } from '$lib/stores/stores.svelte';
 
-	// Function to update the CSS variable --vh with the current viewport height.
-	let vhWasSet = $state(false);
-	const updateVh = () => {
-		document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`);
-	};
-
-	// Run on mount and attach the resize event listener.
-	$effect(() => {
-		updateVh();
-		vhWasSet = true;
-	});
-
 	///////////////////////////////////////
 	/////////////// GSAP //////////////////
 	///////////////////////////////////////
@@ -37,41 +25,35 @@
 			delay: 2.2,
 			ease: 'power2.out'
 		});
+		return () => {
+			timeline = null;
+		};
 	});
 </script>
 
-<svelte:window onresize={updateVh} />
-
 <!-- {#if vhWasSet} -->
-<div class="wrapper-scenery {stores.colourMode}">
-	<div class="wrapper-element gradient fade-in {stores.colourMode}"></div>
-	<div class="wrapper-element dragonflies fade-in"><Dragonflies /></div>
-	<div class="wrapper-element shadersee"><ShaderSee /></div>
-	<div class="wrapper-element title"><Title /></div>
-	<div class="wrapper-element announcement fade-in">
-		<Announcement>Our next meetup is on Jan 25. Get your tickets now!</Announcement>
-	</div>
-	<div class="wrapper-element copyright fade-in"><Copyright /></div>
-	<div class="wrapper-element socials fade-in"><Socials /></div>
-	<div class="wrapper-element noise"><Noise /></div>
-	<div class="wrapper-element cursor fade-in"><Cursor /></div>
-</div>
+<!-- <div class="wrapper-scenery {stores.colourMode}"> -->
 
+<div class="wrapper-element gradient fade-in {stores.colourMode}"></div>
+<div class="wrapper-element dragonflies fade-in"><Dragonflies /></div>
+<div class="wrapper-element shadersee"><ShaderSee /></div>
+<div class="wrapper-element title"><Title /></div>
+<div class="wrapper-element announcement fade-in">
+	<Announcement>Our next meetup is on Jan 25. Get your tickets now!</Announcement>
+</div>
+<div class="wrapper-element copyright fade-in"><Copyright /></div>
+<div class="wrapper-element socials fade-in"><Socials /></div>
+
+<!-- <div class="wrapper-element noise"><Noise /></div> -->
+<!-- <div class="wrapper-element cursor fade-in"><Cursor /></div> -->
+
+<!-- </div> -->
 <!-- {/if} -->
 
 <style lang="scss">
-	.wrapper-scenery {
-		cursor: none;
-		position: relative;
-		width: 100%;
-		height: var(--vh, 100vh);
-		overflow: hidden;
-		background: transparent;
-	}
 	.fade-in {
 		opacity: 0;
 	}
-	// .wrapper-scenery,
 	.gradient {
 		background: linear-gradient(
 			var(--col-bg) 68%,
@@ -86,26 +68,24 @@
 		}
 	}
 
-	.wrapper-element {
+	.gradient,
+	.dragonflies,
+	.shadersee,
+	.title {
 		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100%;
 		pointer-events: none;
-		&.title,
-		&.announcement,
-		&.socials,
-		&.section-links,
-		&.copyright,
-		&.colour-mode {
-			pointer-events: all;
-		}
 	}
 
-	.cursor {
-		@media (max-width: 1000px) {
-			display: none;
-		}
+	.title,
+	.announcement,
+	.section-links,
+	.colour-mode,
+	.copyright,
+	.socials {
+		pointer-events: all;
 	}
 </style>

@@ -69,13 +69,22 @@
 	.wrapper {
 		display: flex;
 		flex-wrap: wrap;
-		padding: 20px;
+		padding: 50px;
+		position: relative;
 	}
 	.wrapper-resource {
 		border: 2px solid rgb(220, 220, 220);
 		width: 500px;
 		border-radius: 10px;
 		padding: 20px;
+	}
+	.noise {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
 	}
 
 	img {

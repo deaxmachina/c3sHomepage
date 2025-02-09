@@ -36,15 +36,11 @@
 
 <style lang="scss">
 	.wrapper-section-link {
-		position: absolute;
-		top: 70px;
-		right: 30px;
-		// border: 2px solid red;
 		display: flex;
-		align-items: center;
+		align-items: flex-end;
 		justify-content: space-between;
 		flex-direction: column;
-		z-index: 100;
+		// z-index: 100;
 		background-color: none;
 
 		@media (max-width: 900px) {

@@ -9,9 +9,13 @@
 
 <style lang="scss">
 	.wrapper {
-		position: absolute;
-		right: 15px;
-		top: 10px;
+		// position: absolute;
+		// right: 15px;
+		// top: 10px;
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		flex-direction: column;
 
 		@media (max-width: 900px) {
 			right: 0px;

@@ -28,7 +28,7 @@
 	.wrapper {
 		position: absolute;
 		background: none;
-		z-index: 100;
+		// z-index: 100;
 		left: 50px;
 		bottom: 12px;
 		display: flex;

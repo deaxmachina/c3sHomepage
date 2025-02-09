@@ -1,13 +1,54 @@
 <script>
 	import '$lib/styles/style.scss';
+	import { page } from '$app/state';
+
+	import gsap from 'gsap';
+
 	import SectionLink from '$lib/components/SectionLink/index.svelte';
 	import ColourMode from '$lib/components/ColourMode/index.svelte';
+	import Noise from '$lib/components/Noise/index.svelte';
+	import Cursor from '$lib/components/Cursor/index.svelte';
 
 	import { stores } from '$lib/stores/stores.svelte';
 	let { colours } = stores;
 
 	let { children } = $props();
+
+	// Function to update the CSS variable --vh with the current viewport height.
+	let vhWasSet = $state(false);
+	const updateVh = () => {
+		document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`);
+	};
+
+	// Run on mount and attach the resize event listener.
+	$effect(() => {
+		updateVh();
+		vhWasSet = true;
+	});
+
+	///////////////////////////////////////
+	/////////////// GSAP //////////////////
+	///////////////////////////////////////
+	// Note that this animation will apply to the colour switch
+	// and the menu elements which live in the +page.svelte and
+	// also have the class of fade-in
+	let timeline = $state(null);
+	$effect(() => {
+		const dummy = page.url.pathname;
+		timeline = gsap.timeline().to('.fade-in-layout', {
+			opacity: 1,
+			duration: 3,
+			delay: 2.2,
+			ease: 'power2.out'
+		});
+
+		return () => {
+			timeline = null;
+		};
+	});
 </script>
+
+<svelte:window onresize={updateVh} />
 
 <div
 	style="
@@ -25,24 +66,56 @@
 		--col-accent-3: {colours.colAccent3};
   "
 >
-	<div class="wrapper-element section-links fade-in"><SectionLink /></div>
-	<div class="wrapper-element colour-mode fade-in"><ColourMode /></div>
-	{@render children()}
+	<div class="layout-wrapper">
+		{@render children()}
+
+		<div class="wrapper-element section-links fade-in-layout"><SectionLink /></div>
+		<div class="wrapper-element colour-mode fade-in-layout"><ColourMode /></div>
+
+		<div class="wrapper-element cursor"><Cursor /></div>
+		<div class="wrapper-element noise"><Noise /></div>
+	</div>
 </div>
 
 <style lang="scss">
+	.layout-wrapper {
+		position: relative;
+		width: 100%;
+		min-height: var(--vh, 100vh);
+		overflow: hidden;
+		background: transparent;
+	}
+	.fade-in-layout {
+		opacity: 0;
+	}
+
 	.wrapper-element {
 		position: absolute;
-		background: none;
 		top: 0;
-		right: 0;
-		width: 200px;
-		height: 200px;
-		&.colour-mode {
-			z-index: 10;
+		left: 0;
+	}
+	.section-links {
+		pointer-events: all;
+		top: 70px;
+		right: 30px;
+	}
+	.colour-mode {
+		pointer-events: all;
+		top: 10px;
+		right: 15px;
+	}
+	.cursor {
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+		@media (max-width: 1000px) {
+			display: none;
 		}
 	}
-	.fade-in {
-		opacity: 0;
+
+	.noise {
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
 	}
 </style>
