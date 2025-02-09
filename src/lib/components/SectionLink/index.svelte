@@ -1,4 +1,7 @@
 <script lang="ts">
+	import gsap from 'gsap';
+	import { goto } from '$app/navigation';
+
 	const options = [
 		{ href: '/', id: 'home', displayName: 'Home' },
 		{ href: '/about', id: 'about', displayName: 'About' },
@@ -8,12 +11,34 @@
 
 	let selectedOption = $state('home');
 	let activeOption = $state('home');
+
+	// GSAP
+	function handleNavigation(event, href) {
+		event.preventDefault(); // Stop immediate navigation
+		// This is a hacky way to animate the current route out and only then
+		// navigate to the route we intend to go to; and then animate that new route in
+		// Here .layout-wrapper is the wrapper around the whole page in +layout.svelte
+		gsap
+			.timeline()
+			.to('.layout-wrapper', {
+				opacity: 0,
+				duration: 0.5,
+				onComplete: () => {
+					goto(href); // Navigate after animation
+				}
+			})
+			.to('.layout-wrapper', {
+				opacity: 1,
+				duration: 0.5
+			});
+	}
 </script>
 
 <div class="wrapper-section-link">
 	<div class="sections">
 		{#each options as option}
 			<!-- svelte-ignore a11y_mouse_events_have_key_events -->
+			<!-- svelte-ignore a11y_no_static_element_interactions -->
 			<div
 				class="selection"
 				class:selected={selectedOption === option.id}
@@ -21,7 +46,7 @@
 				onmouseover={() => (selectedOption = option.id)}
 				onmouseout={() => (selectedOption = null)}
 			>
-				<a href={option.href}>
+				<a href={option.href} onclick={(event) => handleNavigation(event, option.href)}>
 					{option.displayName}
 				</a>
 				<div

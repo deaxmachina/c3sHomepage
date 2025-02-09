@@ -32,22 +32,21 @@
 </script>
 
 <!-- {#if vhWasSet} -->
-<!-- <div class="wrapper-scenery {stores.colourMode}"> -->
+<div class="wrapper-scenery {stores.colourMode}">
+	<div class="wrapper-element gradient fade-in {stores.colourMode}"></div>
+	<div class="wrapper-element dragonflies fade-in"><Dragonflies /></div>
+	<div class="wrapper-element shadersee"><ShaderSee /></div>
+	<div class="wrapper-element title"><Title /></div>
+	<div class="wrapper-element announcement fade-in">
+		<Announcement>Our next meetup is on Jan 25. Get your tickets now!</Announcement>
+	</div>
+	<div class="wrapper-element copyright fade-in"><Copyright /></div>
+	<div class="wrapper-element socials fade-in"><Socials /></div>
 
-<div class="wrapper-element gradient fade-in {stores.colourMode}"></div>
-<div class="wrapper-element dragonflies fade-in"><Dragonflies /></div>
-<div class="wrapper-element shadersee"><ShaderSee /></div>
-<div class="wrapper-element title"><Title /></div>
-<div class="wrapper-element announcement fade-in">
-	<Announcement>Our next meetup is on Jan 25. Get your tickets now!</Announcement>
+	<!-- <div class="wrapper-element noise"><Noise /></div> -->
+	<!-- <div class="wrapper-element cursor fade-in"><Cursor /></div> -->
 </div>
-<div class="wrapper-element copyright fade-in"><Copyright /></div>
-<div class="wrapper-element socials fade-in"><Socials /></div>
 
-<!-- <div class="wrapper-element noise"><Noise /></div> -->
-<!-- <div class="wrapper-element cursor fade-in"><Cursor /></div> -->
-
-<!-- </div> -->
 <!-- {/if} -->
 
 <style lang="scss">
