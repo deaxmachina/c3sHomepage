@@ -23,14 +23,14 @@
 	///////////////////////////////////////
 	/////////////// GSAP //////////////////
 	///////////////////////////////////////
-	let timeline = $state(null);
-	let elToAnimate = $state(null);
-	$effect(() => {
-		elToAnimate = document.querySelector('#wrapper-dragonflies');
-		timeline = gsap
-			.timeline()
-			.fromTo(elToAnimate, { opacity: 0 }, { opacity: 1, duration: 1, delay: 0.5 });
-	});
+	// let timeline = $state(null);
+	// let elToAnimate = $state(null);
+	// $effect(() => {
+	// 	elToAnimate = document.querySelector('#wrapper-dragonflies');
+	// 	timeline = gsap
+	// 		.timeline()
+	// 		.fromTo(elToAnimate, { opacity: 0 }, { opacity: 1, duration: 1, delay: 0.5 });
+	// });
 
 	let numbers = $state([1, 2, 3]);
 	let total = $derived.by(() => {
@@ -241,15 +241,15 @@
 				.map((d) => d.clicked(p5.mouseX, p5.mouseY, p5.dist))
 				.find((d) => d === true);
 
-			// Draw and aniamte all the dragonflies below a certain number of frames
-			if (p5.frameCount <= 50) {
+			// Draw and aniamte all the dragonflies below a certain number of frames (50 to 205)
+			if (p5.frameCount >= 100 && p5.frameCount <= 205) {
 				ctx.clearRect(0, p5.windowHeight * 0.68, p5.windowWidth, p5.windowHeight * 0.32);
 
 				frameCounts = dragonflies.map((d) => p5.frameCount);
 
-				p5.stroke(bgColor);
-				p5.fill(bgColor);
-				p5.rect(0, 0, p5.windowWidth, p5.windowHeight * 0.68);
+				// p5.stroke(bgColor);
+				// p5.fill(bgColor);
+				// p5.rect(0, 0, p5.windowWidth, p5.windowHeight * 0.68);
 
 				if (dragonflies.length > 0) {
 					dragonflies.forEach((dragonfly, i) => {

@@ -25,8 +25,8 @@
 		--col-accent-3: {colours.colAccent3};
   "
 >
-	<div class="wrapper-element section-links"><SectionLink /></div>
-	<div class="wrapper-element colour-mode"><ColourMode /></div>
+	<div class="wrapper-element section-links fade-in"><SectionLink /></div>
+	<div class="wrapper-element colour-mode fade-in"><ColourMode /></div>
 	{@render children()}
 </div>
 
@@ -41,5 +41,8 @@
 		&.colour-mode {
 			z-index: 10;
 		}
+	}
+	.fade-in {
+		opacity: 0;
 	}
 </style>

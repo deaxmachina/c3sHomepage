@@ -13,7 +13,7 @@ https://codepen.io/t_afif/pen/oNdKYge
 	<svg width="100%" height="100%">
 		<defs>
 			<filter id="noiseFilter">
-				<feTurbulence type="fractalNoise" baseFrequency="0.95" numOctaves="9" stitchTiles="stitch">
+				<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="9" stitchTiles="stitch">
 					<!-- TODO: Add this just for Chrome -->
 					<!-- <animate attributeName="seed" from="0" to="100" dur="2s" repeatCount="indefinite" /> -->
 				</feTurbulence>
@@ -23,7 +23,7 @@ https://codepen.io/t_afif/pen/oNdKYge
 					<feFuncB type="linear" slope="0.7" />
 					<feFuncA type="linear" slope="0.7" />
 				</feComponentTransfer>
-				<!-- <feColorMatrix type="saturate" values="0" /> -->
+				<feColorMatrix type="saturate" values="0" />
 			</filter>
 		</defs>
 		<rect width="100%" height="100%" filter="url(#noiseFilter)" />
@@ -34,7 +34,7 @@ https://codepen.io/t_afif/pen/oNdKYge
 	.wrapper {
 		width: 100%;
 		height: 100%;
-		opacity: 0.7;
+		opacity: 0.6;
 		mix-blend-mode: lighten; //  multiply; //luminosity; //lighten; //difference; //darken; // color-burn;
 		&.light {
 			mix-blend-mode: lighten;

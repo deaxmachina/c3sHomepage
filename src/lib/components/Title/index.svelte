@@ -1,25 +1,34 @@
 <script lang="ts">
-	import { gsap } from 'gsap';
+	import gsap from 'gsap';
+	import TextPlugin from 'gsap/dist/TextPlugin'; // Ensure UMD version
 
 	///////////////////////////////////////
 	/////////////// GSAP //////////////////
 	///////////////////////////////////////
-	// let timeline = $state(null);
-	// let elToAnimate = $state(null);
-	// $effect(() => {
-	// 	elToAnimate = document.querySelector('#wrapper-title');
-	// 	timeline = gsap
-	// 		.timeline()
-	// 		.to(elToAnimate, { opacity: 1, ease: 'elastic', duration: 1 })
-	// 		.to(elToAnimate, { opacity: 0, ease: 'elastic', duration: 1 })
-	// 		.to(elToAnimate, { opacity: 1, ease: 'elastic', duration: 1 });
-	// });
+	let timeline = $state(null);
+	$effect(() => {
+		gsap.registerPlugin(TextPlugin);
+		timeline = gsap
+			.timeline()
+			.to('#wrapper-title .full-name', {
+				text: {
+					value: 'Creative coding crafts space'
+				},
+				duration: 1,
+				delay: 0.5,
+				ease: 'none'
+			})
+			.to('#wrapper-title .abbr', {
+				opacity: 1,
+				duration: 1,
+				delay: 0.5
+			});
+	});
 </script>
 
 <div class="wrapper" id="wrapper-title">
 	<div class="full-name">
-		Creative Coding Crafts Space
-		<!-- <div class="full-name-top">Creative Coding Crafts Space</div> -->
+		<!-- Creative Coding Crafts Space -->
 	</div>
 	<div class="abbr">
 		<h1 class="background">c<span class="num">3</span>s</h1>
@@ -78,6 +87,7 @@
 	.abbr {
 		position: relative;
 		margin-top: -20px;
+		opacity: 0;
 	}
 	h1 {
 		line-height: 0.7;

@@ -18,8 +18,6 @@
 }
 
 
-
-
 *, body {
   margin: 0;
   padding: 0;
@@ -27,6 +25,6 @@
 }
 
 body {
-   background-color: #000000; 
-  background: linear-gradient(var(--col-bg) 68%, var(--col-accent-1) 80%, var(--col-accent-2) 92%);
-  }
+  background-color: #221d34;
+  // background: linear-gradient(var(--col-bg) 68%, var(--col-accent-1) 80%, var(--col-accent-2) 92%);
+}
