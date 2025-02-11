@@ -1,40 +1,48 @@
 <script lang="ts">
 	import gsap from 'gsap';
 	import TextPlugin from 'gsap/dist/TextPlugin'; // Ensure UMD version
+	import { stores } from '$lib/stores/stores.svelte';
 
 	///////////////////////////////////////
 	/////////////// GSAP //////////////////
 	///////////////////////////////////////
 	// Animation to type the words 'Creative coding crafts space' out
-	// followed by fading in the title 'c3s'
+	// followed by fading in the title 'c3s'. This only plays the first
+	// time the component mounts, i.e. stores.hasMountedFirstTime = true,
+	// and not each time user navigates back to home route
 	let timeline = $state(null);
 	$effect(() => {
 		gsap.registerPlugin(TextPlugin);
-		timeline = gsap
-			.timeline()
-			.to('#wrapper-title .full-name', {
-				text: {
-					value: 'Creative coding crafts space'
-				},
-				duration: 1,
-				delay: 0.5,
-				ease: 'none'
-			})
-			.to('#wrapper-title .abbr', {
-				opacity: 1,
-				duration: 1,
-				delay: 0.2,
-				ease: 'none'
-			});
+		if (stores.hasMountedFirstTime) {
+			timeline = gsap
+				.timeline()
+				.to('#wrapper-title .full-name', {
+					text: {
+						value: 'Creative coding crafts space'
+					},
+					duration: 1,
+					delay: 0.5,
+					ease: 'none'
+				})
+				.to('#wrapper-title .abbr', {
+					opacity: 1,
+					duration: 1,
+					delay: 0.2,
+					ease: 'none'
+				});
+		} else {
+		}
 	});
 </script>
 
 <!-- TODO: Restructure this to have semantic html -->
 <div class="wrapper" id="wrapper-title">
 	<div class="full-name">
-		<!-- Creative Coding Crafts Space -->
+		{#if !stores.hasMountedFirstTime}
+			Creative Coding Crafts Space
+		{/if}
 	</div>
-	<div class="abbr">
+	<div class="abbr" class:mounted-more-than-once={!stores.hasMountedFirstTime}>
 		<h1 class="background">c<span class="num">3</span>s</h1>
 		<h1 class="foreground">c<span class="num">3</span>s</h1>
 	</div>
@@ -92,6 +100,9 @@
 		position: relative;
 		margin-top: -20px;
 		opacity: 0;
+		&.mounted-more-than-once {
+			opacity: 1;
+		}
 	}
 	h1 {
 		line-height: 0.7;

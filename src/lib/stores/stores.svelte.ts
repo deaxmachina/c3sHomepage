@@ -52,5 +52,6 @@ export const stores = $state({
 		...darkMode
 	},
 	colourMode: 'dark',
-	isDarkMode: true
+	isDarkMode: true,
+	hasMountedFirstTime: true // TODO: figure out how to move stores to different files and import in one stores.ts file
 });

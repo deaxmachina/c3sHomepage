@@ -28,6 +28,10 @@
 		return total;
 	});
 
+	// Good values: 110, 88, 95
+	// TODO: Consider making is random selection from values above for different results
+	let numFramesToPlayAnimation = $derived(stores.hasMountedFirstTime ? 195 : 88);
+
 	///////////////////////////////////////
 	/////////////// SKETCH ////////////////
 	///////////////////////////////////////
@@ -41,6 +45,7 @@
 		let existsDragonflyHovered = false; // Keep track if any dragonfly has been hovered
 		let frameCounts = []; // Want to keep track of the current number of frame counts for each dragonfly in motion
 		let getAttr;
+		let animateDragonfliesCondition;
 
 		/////////////////////////////////
 		//////////// SETUP //////////////
@@ -53,7 +58,7 @@
 
 			// Convert hex to a p5 color object and set alpha for the bg col
 			bgColor = p5.color(bgColorHex);
-			bgColor.setAlpha(100);
+			bgColor.setAlpha(90);
 
 			///////////////////////////////////////////
 			/////////// Dragonflies MAIN 2 ////////////
@@ -229,7 +234,13 @@
 				.find((d) => d === true);
 
 			// Draw and aniamte all the dragonflies below a certain number of frames (50 to 205)
-			if (p5.frameCount >= 100 && p5.frameCount <= 205) {
+			// if (p5.frameCount >= 100 && p5.frameCount <= 205) {
+			// Set the play condition based on whether this is frist time
+			// the component has rendered or each subsequent time
+			animateDragonfliesCondition = stores.hasMountedFirstTime
+				? p5.frameCount >= 100 && p5.frameCount <= 163
+				: p5.frameCount <= numFramesToPlayAnimation;
+			if (animateDragonfliesCondition) {
 				// Clear the background just for the dragonfly at the bottom above the sea
 				ctx.clearRect(0, p5.windowHeight * 0.68, p5.windowWidth, p5.windowHeight * 0.32);
 
