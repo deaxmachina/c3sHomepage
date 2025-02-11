@@ -13,6 +13,8 @@
 	let activeOption = $state('home');
 
 	// GSAP
+	// TODO: This animation shold only happen when navigating between different routes
+	// atm it happen even if you click on the same route again
 	function handleNavigation(event, href) {
 		event.preventDefault(); // Stop immediate navigation
 		// This is a hacky way to animate the current route out and only then
@@ -22,6 +24,9 @@
 			.timeline()
 			.to('.layout-wrapper', {
 				opacity: 0,
+				filter: 'invert(1)',
+				// filter: 'invert(1)blur(4px)',
+				// filter: 'invert(1)blur(4px)',filter: 'invert(1) grayscale(1) contrast(2)', // Full negative effect
 				duration: 0.5,
 				onComplete: () => {
 					goto(href); // Navigate after animation
@@ -29,6 +34,9 @@
 			})
 			.to('.layout-wrapper', {
 				opacity: 1,
+				filter: 'invert(0)',
+				// filter: 'invert(0)blur(0px)',
+				// filter: 'invert(0) grayscale(0) contrast(1)', // Reset to normal
 				duration: 0.5
 			});
 	}

@@ -239,7 +239,7 @@
 			// the component has rendered or each subsequent time
 			animateDragonfliesCondition = stores.hasMountedFirstTime
 				? p5.frameCount >= 100 && p5.frameCount <= 163
-				: p5.frameCount <= numFramesToPlayAnimation;
+				: p5.frameCount >= 10 && p5.frameCount <= 30;
 			if (animateDragonfliesCondition) {
 				// Clear the background just for the dragonfly at the bottom above the sea
 				ctx.clearRect(0, p5.windowHeight * 0.68, p5.windowWidth, p5.windowHeight * 0.32);
