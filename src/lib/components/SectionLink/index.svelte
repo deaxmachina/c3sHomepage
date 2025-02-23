@@ -54,18 +54,23 @@
 				onmouseover={() => (selectedOption = option.id)}
 				onmouseout={() => (selectedOption = null)}
 			>
-				<a href={option.href} onclick={(event) => handleNavigation(event, option.href)}>
+				<a
+					class:selected={selectedOption === option.id}
+					class:active={activeOption === option.id}
+					href={option.href}
+					onclick={(event) => {
+						activeOption = option.id;
+						handleNavigation(event, option.href);
+					}}
+				>
 					{option.displayName}
 				</a>
-				<div
-					class="triangle"
-					class:active={activeOption === option.id}
-					class:selected={selectedOption === option.id}
-				></div>
 			</div>
 		{/each}
 	</div>
 </div>
+
+<!-- #97d97c -->
 
 <style lang="scss">
 	.wrapper-section-link {
@@ -86,15 +91,14 @@
 	}
 
 	.selection {
-		display: inline;
+		display: inline-block;
 		position: relative;
-		margin-bottom: 10px;
+		margin-bottom: 5px;
 		width: 100%;
 		text-align: right;
 	}
 
 	a {
-		display: inline-block;
 		color: white;
 		font-family: 'Funnel Sans', serif;
 		text-transform: uppercase;
@@ -104,36 +108,22 @@
 		font-size: max(0.6770833333vw, 12px);
 		line-height: 0;
 		font-weight: 500;
-		margin-right: 20px;
-		letter-spacing: 1.5px;
+		// letter-spacing: 1.5px;
+		border-radius: 8px;
+		padding: 0.1rem 0.4rem;
+
+		background: linear-gradient(to left, #97d97c 50%, transparent 50%);
+		background-size: 200% 100%;
+		background-position: 0 0;
+		transition: background-position 0.4s ease;
+		&.active {
+			color: var(--col-dark);
+			font-weight: 800;
+			background: #97d97c;
+		}
 		&.selected {
 			color: var(--col-dark);
-		}
-		&.active {
-			font-weight: 800;
-		}
-	}
-
-	$dim-marker: 16px;
-	.triangle {
-		position: absolute;
-		right: 0;
-		z-index: -1;
-		//left: calc($dim-marker - $dim-marker * 2 - 6px);
-		top: 2px;
-		// top: calc($dim-marker * 0.5 * -1);
-		width: $dim-marker;
-		height: $dim-marker;
-		background: #96d97c39;
-		border-radius: calc($dim-marker * 0.5);
-		transition: all 0.5s ease;
-		&.active {
-			background: #97d97c;
-		}
-		&.selected {
-			background: #97d97c;
-			width: 120%;
-			// width: calc($dim-marker * 2 + 6px);
+			background-position: 100% 0;
 		}
 	}
 </style>

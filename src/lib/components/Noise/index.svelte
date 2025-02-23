@@ -14,9 +14,9 @@ https://codepen.io/t_afif/pen/oNdKYge
 		<defs>
 			<filter id="noiseFilter">
 				<!-- <feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="9" stitchTiles="stitch"> -->
-				<feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" stitchTiles="stitch">
+				<feTurbulence type="fractalNoise" baseFrequency="0.95" numOctaves="1" stitchTiles="stitch">
 					<!-- TODO: Add this just for Chrome -->
-					<animate attributeName="seed" from="0" to="100" dur="2s" repeatCount="indefinite" />
+					<!-- <animate attributeName="seed" from="0" to="100" dur="2s" repeatCount="indefinite" /> -->
 				</feTurbulence>
 				<feComponentTransfer>
 					<feFuncR type="linear" slope="0.7" />
@@ -35,7 +35,6 @@ https://codepen.io/t_afif/pen/oNdKYge
 	.wrapper {
 		width: 100%;
 		height: 100%;
-		border: 10px solid red;
 		opacity: 0.6;
 		mix-blend-mode: lighten; //  multiply; //luminosity; //lighten; //difference; //darken; // color-burn;
 		&.light {
