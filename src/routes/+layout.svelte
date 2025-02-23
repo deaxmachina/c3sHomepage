@@ -80,7 +80,8 @@
 	.layout-wrapper {
 		position: relative;
 		width: 100%;
-		min-height: var(--vh, 100vh);
+		// min-height: var(--vh, 100vh);
+		min-height: 100svh;
 		overflow: hidden;
 		background: transparent;
 	}

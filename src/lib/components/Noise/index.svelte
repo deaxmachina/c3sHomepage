@@ -34,6 +34,7 @@ https://codepen.io/t_afif/pen/oNdKYge
 	.wrapper {
 		width: 100%;
 		height: 100%;
+		border: 10px solid red;
 		opacity: 0.6;
 		mix-blend-mode: lighten; //  multiply; //luminosity; //lighten; //difference; //darken; // color-burn;
 		&.light {
@@ -44,7 +45,7 @@ https://codepen.io/t_afif/pen/oNdKYge
 		}
 
 		@media (max-width: 900px) {
-			display: none;
+			// display: none;
 		}
 	}
 	// .wrapper {
