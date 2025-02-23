@@ -1,6 +1,7 @@
 <script lang="ts">
 	import gsap from 'gsap';
 	import { goto } from '$app/navigation';
+	import { page } from '$app/state';
 
 	const options = [
 		{ href: '/', id: 'home', displayName: 'Home' },
@@ -12,11 +13,10 @@
 	let selectedOption = $state('home');
 	let activeOption = $state('home');
 
-	// GSAP
-	// TODO: This animation shold only happen when navigating between different routes
-	// atm it happen even if you click on the same route again
+	// GSAP animation to navigate manually to new route
 	function handleNavigation(event, href) {
 		event.preventDefault(); // Stop immediate navigation
+		if (page.url.pathname === href) return; // Don't do anything if current route is selected again
 		// This is a hacky way to animate the current route out and only then
 		// navigate to the route we intend to go to; and then animate that new route in
 		// Here .layout-wrapper is the wrapper around the whole page in +layout.svelte
