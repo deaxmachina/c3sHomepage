@@ -14,7 +14,7 @@ https://codepen.io/t_afif/pen/oNdKYge
 		<defs>
 			<filter id="noiseFilter">
 				<!-- <feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="9" stitchTiles="stitch"> -->
-				<feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="9" stitchTiles="stitch">
+				<feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="9" stitchTiles="stitch">
 					<!-- TODO: Add this just for Chrome -->
 					<!-- <animate attributeName="seed" from="0" to="100" dur="2s" repeatCount="indefinite" /> -->
 				</feTurbulence>

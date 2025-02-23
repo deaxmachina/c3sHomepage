@@ -69,6 +69,7 @@
 <style lang="scss">
 	.wrapper-resources {
 		background-color: var(--col-bg);
+		color: var(--col-text-and-accent);
 	}
 	.wrapper {
 		display: flex;
