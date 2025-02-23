@@ -8,7 +8,7 @@
 </script>
 
 <div class="wrapper-resources">
-	<h1>Resources</h1>
+	<h1>Resources WIP!</h1>
 	<div class="wrapper">
 		{#each eventResources as eventResource}
 			<div class="wrapper-resource">

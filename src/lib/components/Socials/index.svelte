@@ -28,9 +28,8 @@
 	.wrapper {
 		position: absolute;
 		background: none;
-		// z-index: 100;
-		left: 50px;
-		bottom: 12px;
+		left: 1rem;
+		bottom: 1rem;
 		display: flex;
 		align-items: center;
 		justify-content: center;

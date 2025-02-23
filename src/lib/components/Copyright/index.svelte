@@ -1,4 +1,4 @@
-<div class="wrapper">©2025 Creative Coding Crafts Space & Dea B.</div>
+<!-- <div class="wrapper">©2025 Creative Coding Crafts Space & Dea B.</div> -->
 
 <style lang="scss">
 	.wrapper {

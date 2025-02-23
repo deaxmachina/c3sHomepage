@@ -1,5 +1,5 @@
 <div class="wrapper-about">
-	<h1>About</h1>
+	<h1>About WIP</h1>
 </div>
 
 <style lang="scss">

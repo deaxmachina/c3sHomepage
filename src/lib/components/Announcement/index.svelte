@@ -1,62 +1,59 @@
 <script lang="ts">
-	let { children } = $props();
+	import Fa from 'svelte-fa';
+	import { faEnvelope, faTicket, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 </script>
 
 <div class="wrapper">
-	<p class="vertical-text">{@render children()}</p>
+	<a href="https://x.com/CCCraftsSpace" class="social-link" target="_blank">
+		<p class="vertical-text">
+			Next meetup is on Jan 25!
+			<Fa icon={faArrowRight} scale={0.8} />
+			<Fa icon={faTicket} scale={1} />
+		</p>
+	</a>
 </div>
 
 <style lang="scss">
 	.wrapper {
 		position: absolute;
-		left: 0;
-		top: 0;
-		height: 100%;
-		// background-color: #fa00899d;
+		left: 1rem;
+		top: 1rem;
+		padding: 0.2rem;
 		backdrop-filter: blur(2px);
-		transform: rotate(180deg);
-
-		@media (max-width: 900px) {
-			left: 0;
-			top: 0;
-			width: 100%;
-			height: 35px;
-			transform: rotate(0deg);
-		}
+		border: 3px dotted var(--col-accent-3);
+		border-radius: 12px;
+		width: 270px;
+		overflow: hidden;
+		pointer-events: all;
+		z-index: 100;
 	}
+
 	.vertical-text {
-		font-family: 'Della Respira', serif;
 		font-family: 'Funnel Sans', serif;
 		font-weight: 500;
 		padding: 0 5px 0 8px;
-		color: var(--col-text-and-accent);
 		width: 100%;
-		height: 100%;
-		writing-mode: vertical-rl;
-		animation: moveUp 15s linear infinite;
-
-		@media (max-width: 900px) {
-			padding: 5px 0 8px 0;
-			writing-mode: horizontal-tb;
-			animation: moveSide 15s linear infinite;
-		}
+		display: inline-block;
+		white-space: nowrap;
+		animation: scrollText 15s linear infinite;
 	}
 
-	@keyframes moveUp {
-		0% {
-			transform: translateY(100%); /* Start below the screen */
-		}
-		100% {
-			transform: translateY(-100%); /* Move above the screen */
-		}
-	}
-
-	@keyframes moveSide {
+	@keyframes scrollText {
 		0% {
 			transform: translateX(100%);
+		}
+		50% {
+			transform: translateX(0);
 		}
 		100% {
 			transform: translateX(-100%);
 		}
+	}
+
+	a,
+	p,
+	div {
+		text-decoration: none;
+		color: var(--col-accent-3);
 	}
 </style>

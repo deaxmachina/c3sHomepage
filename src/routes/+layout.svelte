@@ -14,18 +14,6 @@
 
 	let { children } = $props();
 
-	// Function to update the CSS variable --vh with the current viewport height.
-	let vhWasSet = $state(false);
-	const updateVh = () => {
-		document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`);
-	};
-
-	// Run on mount and attach the resize event listener.
-	$effect(() => {
-		updateVh();
-		vhWasSet = true;
-	});
-
 	///////////////////////////////////////
 	/////////////// GSAP //////////////////
 	///////////////////////////////////////
@@ -46,8 +34,6 @@
 		};
 	});
 </script>
-
-<svelte:window onresize={updateVh} />
 
 <div
 	style="
@@ -92,17 +78,20 @@
 	.wrapper-element {
 		position: absolute;
 		top: 0;
-		left: 0;
+		// left: 0;
 	}
 	.section-links {
 		pointer-events: all;
-		top: 70px;
-		right: 30px;
+		top: 60px;
+		right: 15px;
+		@media (max-width: 900px) {
+			right: 12px;
+		}
 	}
 	.colour-mode {
 		pointer-events: all;
-		top: 10px;
-		right: 15px;
+		top: 2px;
+		right: 0px;
 	}
 	.cursor {
 		width: 100%;

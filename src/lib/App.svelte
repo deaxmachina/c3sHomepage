@@ -1,13 +1,10 @@
 <script>
 	import gsap from 'gsap';
-
 	import ShaderSee from '$lib/components/ShaderSea/index.svelte';
 	import Dragonflies from '$lib/components/Dragonflies/index.svelte';
 	import Title from '$lib/components/Title/index.svelte';
 	import Announcement from '$lib/components/Announcement/index.svelte';
-	import Noise from '$lib/components/Noise/index.svelte';
-	import Cursor from '$lib/components/Cursor/index.svelte';
-	import Socials from './components/SectionLink/Socials.svelte';
+	import Socials from '$lib/components/Socials/index.svelte';
 	import Copyright from '$lib/components/Copyright/index.svelte';
 	import { stores } from '$lib/stores/stores.svelte';
 
@@ -41,7 +38,6 @@
 	});
 </script>
 
-<!-- {#if vhWasSet} -->
 <div class="wrapper-scenery {stores.colourMode}">
 	<div
 		class="wrapper-element gradient fade-in {stores.colourMode}"
@@ -55,12 +51,7 @@
 	</div>
 	<div class="wrapper-element shadersee"><ShaderSee /></div>
 	<div class="wrapper-element title"><Title /></div>
-	<div
-		class="wrapper-element announcement fade-in"
-		class:mounted-more-than-once={!stores.hasMountedFirstTime}
-	>
-		<Announcement>Our next meetup is on Jan 25. Get your tickets now!</Announcement>
-	</div>
+
 	<div
 		class="wrapper-element copyright fade-in"
 		class:mounted-more-than-once={!stores.hasMountedFirstTime}
@@ -74,11 +65,13 @@
 		<Socials />
 	</div>
 
-	<!-- <div class="wrapper-element noise"><Noise /></div> -->
-	<!-- <div class="wrapper-element cursor fade-in"><Cursor /></div> -->
+	<div
+		class="wrapper-element announcement fade-in"
+		class:mounted-more-than-once={!stores.hasMountedFirstTime}
+	>
+		<Announcement />
+	</div>
 </div>
-
-<!-- {/if} -->
 
 <style lang="scss">
 	.fade-in {

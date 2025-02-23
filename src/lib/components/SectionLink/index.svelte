@@ -70,21 +70,15 @@
 	</div>
 </div>
 
-<!-- #97d97c -->
-
 <style lang="scss">
 	.wrapper-section-link {
 		display: flex;
 		align-items: flex-end;
 		justify-content: space-between;
 		flex-direction: column;
-		// z-index: 100;
 		background-color: none;
-
-		@media (max-width: 900px) {
-			right: 12px;
-		}
 	}
+
 	.sections {
 		display: flex;
 		flex-direction: column;
@@ -107,22 +101,23 @@
 		color: var(--col-text-and-accent);
 		font-size: max(0.6770833333vw, 12px);
 		line-height: 0;
-		font-weight: 500;
+		font-weight: 400;
 		// letter-spacing: 1.5px;
 		border-radius: 8px;
 		padding: 0.1rem 0.4rem;
 
-		background: linear-gradient(to left, #97d97c 50%, transparent 50%);
+		// background: linear-gradient(to left, #97d97c 50%, transparent 50%);
 		background-size: 200% 100%;
 		background-position: 0 0;
 		transition: background-position 0.4s ease;
 		&.active {
-			color: var(--col-dark);
+			// color: var(--col-dark);
 			font-weight: 800;
-			background: #97d97c;
+			// background: #97d97c;
 		}
 		&.selected {
-			color: var(--col-dark);
+			// color: var(--col-dark);
+			font-weight: 800;
 			background-position: 100% 0;
 		}
 	}
