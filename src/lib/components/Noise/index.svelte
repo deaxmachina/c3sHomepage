@@ -13,7 +13,8 @@ https://codepen.io/t_afif/pen/oNdKYge
 	<svg width="100%" height="100%">
 		<defs>
 			<filter id="noiseFilter">
-				<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="9" stitchTiles="stitch">
+				<!-- <feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="9" stitchTiles="stitch"> -->
+				<feTurbulence type="fractalNoise" baseFrequency="0.3" numOctaves="3" stitchTiles="stitch">
 					<!-- TODO: Add this just for Chrome -->
 					<!-- <animate attributeName="seed" from="0" to="100" dur="2s" repeatCount="indefinite" /> -->
 				</feTurbulence>
