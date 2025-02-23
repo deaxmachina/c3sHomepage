@@ -19,10 +19,10 @@ https://codepen.io/t_afif/pen/oNdKYge
 					<!-- <animate attributeName="seed" from="0" to="100" dur="2s" repeatCount="indefinite" /> -->
 				</feTurbulence>
 				<feComponentTransfer>
-					<feFuncR type="linear" slope="0.7" />
-					<feFuncG type="linear" slope="0.7" />
-					<feFuncB type="linear" slope="0.7" />
-					<feFuncA type="linear" slope="0.7" />
+					<feFuncR type="linear" slope="0.4" />
+					<feFuncG type="linear" slope="0.4" />
+					<feFuncB type="linear" slope="0.4" />
+					<feFuncA type="linear" slope="0.4" />
 				</feComponentTransfer>
 				<feColorMatrix type="saturate" values="0" />
 			</filter>
