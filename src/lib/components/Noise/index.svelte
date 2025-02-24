@@ -27,10 +27,10 @@ https://codepen.io/t_afif/pen/oNdKYge
 				<feColorMatrix type="saturate" values="0" />
 			</filter>
 		</defs>
-		<!-- <rect width="100%" height="100%" filter="url(#noiseFilter)" /> -->
+		<rect width="100%" height="100%" filter="url(#noiseFilter)" />
 	</svg>
 
-	<div class="dotted-bg {stores.colourMode}"></div>
+	<!-- <div class="dotted-bg {stores.colourMode}"></div> -->
 </div>
 
 <style lang="scss">
@@ -38,10 +38,10 @@ https://codepen.io/t_afif/pen/oNdKYge
 		width: 100%;
 		height: 100%;
 		opacity: 0.6;
-		// mix-blend-mode: lighten; //  multiply; //luminosity; //lighten; //difference; //darken; // color-burn;
-		// &.light {
-		// 	mix-blend-mode: lighten;
-		// }
+		mix-blend-mode: lighten; //  multiply; //luminosity; //lighten; //difference; //darken; // color-burn;
+		&.light {
+			mix-blend-mode: lighten;
+		}
 		&.dark {
 			mix-blend-mode: luminosity;
 		}

@@ -47,6 +47,9 @@
 		let getAttr;
 		let animateDragonfliesCondition;
 
+		let drawTriangle;
+		let strokeColRgb;
+
 		/////////////////////////////////
 		//////////// SETUP //////////////
 		/////////////////////////////////
@@ -59,6 +62,34 @@
 			// Convert hex to a p5 color object and set alpha for the bg col
 			bgColor = p5.color(bgColorHex);
 			bgColor.setAlpha(90);
+
+			//////////////////////////////////////////
+			//////////////////////////////////////////
+			//////////////////////////////////////////
+			//////////////////////////////////////////
+			//////////////////////////////////////////
+			//////////////////////////////////////////
+			//////////////////////////////////////////
+			drawTriangle = (x, y, r, rot) => {
+				let aX = x + r * p5.cos(rot + 0);
+				let aY = y + r * p5.sin(rot + 0);
+				let bX = x + r * p5.cos(rot + 120);
+				let bY = y + r * p5.sin(rot + 120);
+				let cX = x + r * p5.cos(rot + 240);
+				let cY = y + r * p5.sin(rot + 240);
+
+				p5.triangle(x, y, bX, bY, cX, cY);
+				p5.triangle(aX, aY, x, y, cX, cY);
+				p5.triangle(aX, aY, bX, bY, x, y);
+			};
+			strokeColRgb = stores.isDarkMode ? '#3a3159' : '#97d97c';
+			//////////////////////////////////////////
+			//////////////////////////////////////////
+			//////////////////////////////////////////
+			//////////////////////////////////////////
+			//////////////////////////////////////////
+			//////////////////////////////////////////
+			//////////////////////////////////////////
 
 			///////////////////////////////////////////
 			/////////// Dragonflies MAIN 2 ////////////
@@ -243,6 +274,43 @@
 			if (animateDragonfliesCondition) {
 				// Clear the background just for the dragonfly at the bottom above the sea
 				ctx.clearRect(0, p5.windowHeight * 0.68, p5.windowWidth, p5.windowHeight * 0.32);
+
+				//////////////////////////////
+				//////////////////////////////
+				//////////////////////////////
+				//////////////////////////////
+				//////////////////////////////
+				//////////////////////////////
+				// Kumiko
+				p5.push();
+				p5.angleMode(p5.DEGREES);
+				p5.noFill();
+				const strokeCol = p5.color(strokeColRgb); // '#97d97c' '#3a3159'
+				strokeCol.setAlpha(30);
+				p5.stroke(strokeCol);
+				p5.strokeWeight(0.5);
+				// p5.blendMode(p5.DARKEST);
+				let r = 30;
+				let padX = r + r * p5.cos(60);
+				let padY = r * p5.sin(60);
+				let distX = r - r * p5.cos(60);
+				for (let a = 0; a < 26; a++) {
+					for (let b = 0; b < 40; b++) {
+						if ((a + b) % 2 == 0) {
+							drawTriangle(b * padX, a * padY, r, 0);
+						} else {
+							drawTriangle(b * padX + distX, a * padY, r, 180);
+						}
+					}
+				}
+				p5.pop();
+				p5.angleMode(p5.RADIANS);
+				//////////////////////////////
+				//////////////////////////////
+				//////////////////////////////
+				//////////////////////////////
+				//////////////////////////////
+				//////////////////////////////
 
 				// For the rest of the background, this is the right blend option
 				// to allow to have the trailing effect of the dragonflies
