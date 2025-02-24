@@ -66,10 +66,11 @@
 	.layout-wrapper {
 		position: relative;
 		width: 100%;
-		// min-height: var(--vh, 100vh);
 		min-height: 100svh;
 		overflow: hidden;
 		background: transparent;
+		border: 15px solid #06030b;
+		border-radius: 35px;
 	}
 	.fade-in-layout {
 		opacity: 0;

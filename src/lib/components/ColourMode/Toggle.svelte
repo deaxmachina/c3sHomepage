@@ -11,6 +11,7 @@
 		colours.colTextTitleMain = lightMode.colTextTitleMain;
 		colours.colTextSubtitleMain = lightMode.colTextSubtitleMain;
 		colours.colTextTitleAccent = lightMode.colTextTitleAccent;
+		colours.colSee = lightMode.colSee;
 
 		stores.colourMode = 'light';
 		stores.isDarkMode = false;
@@ -23,6 +24,7 @@
 		colours.colTextTitleMain = darkMode.colTextTitleMain;
 		colours.colTextSubtitleMain = darkMode.colTextSubtitleMain;
 		colours.colTextTitleAccent = darkMode.colTextTitleAccent;
+		colours.colSee = darkMode.colSee;
 
 		stores.colourMode = 'dark';
 		stores.isDarkMode = true;

@@ -70,7 +70,7 @@ class Dragonfly {
 		numPoints = 600,
 		strokeFill = colours[0],
 		fillTopWings = true,
-		outerStrokeWidth = 20,
+		outerStrokeWidth = 22,
 		backgroundFill = 'black',
 		opacity = 0.85,
 		widthVoronoi = 550,

@@ -43,13 +43,15 @@
 		class="wrapper-element gradient fade-in {stores.colourMode}"
 		class:mounted-more-than-once={!stores.hasMountedFirstTime}
 	></div>
+
+	<div class="wrapper-element shadersee"><ShaderSee /></div>
 	<div
 		class="wrapper-element dragonflies fade-in"
 		class:mounted-more-than-once={!stores.hasMountedFirstTime}
 	>
 		<Dragonflies />
 	</div>
-	<div class="wrapper-element shadersee"><ShaderSee /></div>
+
 	<div class="wrapper-element title"><Title /></div>
 
 	<div
@@ -91,6 +93,9 @@
 			background: linear-gradient(to bottom right, transparent 87%, var(--col-accent-1) 98%),
 				linear-gradient(to bottom left, transparent 87%, var(--col-accent-1) 98%),
 				linear-gradient(var(--col-bg) 70%, var(--col-accent-2) 90%);
+
+			background: linear-gradient(var(--col-bg) 0%, var(--col-bg) 100%);
+			// background: var(--col-bg);
 		}
 	}
 

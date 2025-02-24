@@ -16,6 +16,7 @@ export const lightMode = {
 	colAccent2: '#6cb6a5',
 	colAccent2darker: '#6cb6a5',
 	colAccent3: '#fa008a',
+	colSee: '#eaeace',
 	coloursDragonflies: [
 		defaultColours.colLight,
 		'#97d97c',
@@ -36,6 +37,7 @@ export const darkMode = {
 	colAccent2: '#6cb6a5',
 	colAccent2darker: '#6cb6a5',
 	colAccent3: '#fa008a',
+	colSee: defaultColours.colDark === colDarkOption1 ? '#3a3159' : '#221d34',
 	coloursDragonflies: [
 		defaultColours.colLight,
 		'#97d97c',

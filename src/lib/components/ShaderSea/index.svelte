@@ -1,6 +1,5 @@
 <script lang="ts">
 	import * as THREE from 'three';
-	import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 	import fragmentShader from './shaders/fragmentShader.glsl';
 	import vertexShader from './shaders/vertexShader.glsl';
 	import { stores } from '$lib/stores/stores.svelte';
@@ -8,7 +7,7 @@
 	let { colours } = stores;
 
 	let canvas: HTMLCanvasElement;
-	let colHills = $derived(colours.colBg);
+	let colHills = $derived(colours.colSee); // $derived(colours.colBg); // TODO: add another var here
 	const hillValue = 0;
 
 	// Sizes
@@ -30,7 +29,6 @@
 	let meshPlane = undefined;
 
 	let camera: THREE.PerspectiveCamera = undefined;
-	let controls: THREE.OrbitControls = undefined;
 	let renderer: THREE.WebGLRenderer = undefined;
 	let clock: THREE.Clock = undefined;
 
@@ -48,16 +46,12 @@
 		/************************************
 		 ************** Texture **************
 		 ************************************/
-		texture.linesCount = 10;
+		texture.linesCount = 8;
 		texture.width = 32;
 		texture.height = 128;
 		texture.canvas = document.createElement('canvas');
 		texture.canvas.width = texture.width;
 		texture.canvas.height = texture.height;
-		texture.canvas.style.position = 'fixed';
-		texture.canvas.style.top = '0';
-		texture.canvas.style.left = '0';
-		texture.canvas.style.zIndex = '1';
 
 		texture.context = texture.canvas.getContext('2d')!;
 		texture.instance = new THREE.CanvasTexture(texture.canvas);
@@ -65,17 +59,18 @@
 		texture.instance.wrapT = THREE.RepeatWrapping;
 
 		texture.context.clearRect(0, 0, texture.width, texture.height);
+
 		texture.context.globalAlpha = 1;
 		texture.context.fillStyle = colHills;
-		texture.context.fillRect(0, 0, texture.width, Math.round(texture.height * 0.08));
+		texture.context.fillRect(0, 0, texture.width, Math.round(texture.height * 0.1));
 		const smallLinesCount = texture.linesCount - 1;
 		for (let i = 0; i < smallLinesCount; i++) {
-			texture.context.globalAlpha = 0.5;
+			texture.context.globalAlpha = 0.9;
 			texture.context.fillRect(
 				0,
 				Math.round(texture.height / (smallLinesCount + 1)) * (i + 1),
 				texture.width,
-				Math.round(texture.height * 0.01)
+				Math.round(texture.height * 0.003 * i)
 			);
 		}
 
@@ -86,8 +81,7 @@
 		 *********** Plane Object ************
 		 ************************************/
 		// Geometry
-		geometryPlane = new THREE.PlaneGeometry(3, 3, 1000, 1000);
-		geometryPlane.rotateX(-Math.PI * 0.44);
+		geometryPlane = new THREE.PlaneGeometry(3, 4, 1000, 1000);
 
 		// Material
 		materialPlane = new THREE.ShaderMaterial({
@@ -107,23 +101,20 @@
 		// Mesh
 		meshPlane = new THREE.Mesh(geometryPlane, materialPlane);
 		meshPlane.scale.set(10, 10, 10);
+		meshPlane.rotation.x = Math.PI * 0.44;
 		meshPlane.rotation.z = Math.PI;
-		meshPlane.rotation.x = Math.PI * 0.05;
+
 		meshPlane.position.y -= 2;
 		scene.add(meshPlane);
 
 		/************************************
 		 ************** Camera ***************
 		 ************************************/
-		camera = new THREE.PerspectiveCamera(50, aspect, 0.1, 100);
+		camera = new THREE.PerspectiveCamera(65, aspect, 0.1, 100);
 		// camera.position.y = -0.2;
-		camera.position.y = 0.3;
-		camera.position.z = 1.2;
+		camera.position.y = 0.2;
+		camera.position.z = 2;
 		scene.add(camera);
-
-		// Controls
-		// controls = new OrbitControls(camera, canvas);
-		// controls.enableDamping = true;
 
 		/************************************
 		 ************* Renderer **************
@@ -149,9 +140,6 @@
 			materialPlane.uniforms.uTime.value = elapsedTime;
 			materialPlane.uniforms.uElevation.value = 1 - Math.sin(elapsedTime) * 0.3;
 
-			// Update the controls
-			// controls.update();
-
 			// Render
 			renderer.render(scene, camera);
 
@@ -164,8 +152,6 @@
 			window.cancelAnimationFrame(id); // Stop the animation
 			scene = null;
 			camera = null;
-			controls = null;
-			//empty(this.modelContainer);
 		};
 	});
 
@@ -185,13 +171,6 @@
 			renderer.render(scene, camera);
 		}
 	});
-
-	// Update the value of the hills (height)
-	// $effect(() => {
-	// 	if (materialPlane && texture) {
-	// 		materialPlane.uniforms.uHeightHill.value = hillValue;
-	// 	}
-	// });
 </script>
 
 <svelte:window bind:innerWidth={windowWidth} />

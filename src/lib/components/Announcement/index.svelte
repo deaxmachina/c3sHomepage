@@ -1,6 +1,11 @@
 <script lang="ts">
 	import Fa from 'svelte-fa';
-	import { faEnvelope, faTicket, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+	import {
+		faEnvelope,
+		faTicket,
+		faArrowRight,
+		faBullhorn
+	} from '@fortawesome/free-solid-svg-icons';
 </script>
 
 <div class="wrapper">
@@ -13,10 +18,14 @@
 	</a>
 </div>
 
+<div class="loudspeaker">
+	<Fa icon={faBullhorn} scale={1} />
+</div>
+
 <style lang="scss">
 	.wrapper {
 		position: absolute;
-		left: 1rem;
+		left: 2rem;
 		top: 1rem;
 		padding: 0.2rem;
 		backdrop-filter: blur(2px);
@@ -26,6 +35,16 @@
 		overflow: hidden;
 		pointer-events: all;
 		z-index: 100;
+
+		@media (max-width: 450px) {
+			width: 230px;
+		}
+	}
+
+	.loudspeaker {
+		position: absolute;
+		left: 0.5rem;
+		top: 1.5rem;
 	}
 
 	.vertical-text {
