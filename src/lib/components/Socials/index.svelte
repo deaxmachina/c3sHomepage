@@ -48,6 +48,7 @@
 		align-items: center;
 		justify-content: center;
 		transition: all 0.3s ease;
+		color: var(--col-accent-3);
 		&:hover {
 			color: var(--col-accent-3);
 		}
