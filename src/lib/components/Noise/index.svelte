@@ -2,57 +2,7 @@
 	import P5 from 'p5-svelte';
 	import { stores } from '$lib/stores/stores.svelte';
 	let { colours } = stores;
-
-	// const sketch = (p5) => {
-	// 	let drawTriangle;
-	// 	let strokeColRgb;
-	// 	p5.setup = () => {
-	// 		p5.createCanvas(p5.windowWidth, p5.windowHeight);
-	// 		p5.pixelDensity(2);
-
-	// 		drawTriangle = (x, y, r, rot) => {
-	// 			let aX = x + r * p5.cos(rot + 0);
-	// 			let aY = y + r * p5.sin(rot + 0);
-	// 			let bX = x + r * p5.cos(rot + 120);
-	// 			let bY = y + r * p5.sin(rot + 120);
-	// 			let cX = x + r * p5.cos(rot + 240);
-	// 			let cY = y + r * p5.sin(rot + 240);
-
-	// 			p5.triangle(x, y, bX, bY, cX, cY);
-	// 			p5.triangle(aX, aY, x, y, cX, cY);
-	// 			p5.triangle(aX, aY, bX, bY, x, y);
-	// 		};
-	// 		strokeColRgb = stores.isDarkMode ? '#3a3159' : '#97d97c';
-	// 	};
-
-	// 	p5.draw = () => {
-	// 		p5.clear();
-
-	// 		// Kumiko
-	// 		p5.push();
-	// 		p5.angleMode(p5.DEGREES);
-	// 		p5.noFill();
-	// 		const strokeCol = p5.color(strokeColRgb); // '#97d97c' '#3a3159'
-	// 		strokeCol.setAlpha(130);
-	// 		p5.stroke(strokeCol);
-	// 		p5.strokeWeight(0.5);
-	// 		let r = 30;
-	// 		let padX = r + r * p5.cos(60);
-	// 		let padY = r * p5.sin(60);
-	// 		let distX = r - r * p5.cos(60);
-	// 		for (let a = 0; a < 26; a++) {
-	// 			for (let b = 0; b < 40; b++) {
-	// 				if ((a + b) % 2 == 0) {
-	// 					drawTriangle(b * padX, a * padY, r, 0);
-	// 				} else {
-	// 					drawTriangle(b * padX + distX, a * padY, r, 180);
-	// 				}
-	// 			}
-	// 		}
-	// 		p5.pop();
-	// 		p5.angleMode(p5.RADIANS);
-	// 	};
-	// };
+	import Dots from './Dots.svelte';
 </script>
 
 <!-- <animate attributeName="seed" from="0" to="100" dur="2s" repeatCount="indefinite" /> -->
@@ -77,14 +27,12 @@
 	</svg> -->
 
 	<!-- Dotted pattern  -->
-	<div class="dotted-bg {stores.colourMode}"></div>
+	<!-- <div class="dotted-bg {stores.colourMode}"></div> -->
 
 	<!-- Kumiko pattern -->
-	<!-- {#key stores.colourMode}
-		<div class="wrapper-p5">
-			<P5 sketch={(p5) => sketch(p5)} />
-		</div>
-	{/key} -->
+	{#key stores.colourMode}
+		<Dots />
+	{/key}
 </div>
 
 <style lang="scss">
