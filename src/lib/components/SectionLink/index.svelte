@@ -20,23 +20,25 @@
 		// This is a hacky way to animate the current route out and only then
 		// navigate to the route we intend to go to; and then animate that new route in
 		// Here .layout-wrapper is the wrapper around the whole page in +layout.svelte
-		gsap
-			.timeline()
-			.to('.layout-wrapper', {
-				opacity: 0,
-				// filter: 'invert(1)blur(4px)',
-				// filter: 'invert(1)blur(4px)',filter: 'invert(1) grayscale(1) contrast(2)', // Full negative effect
-				duration: 0.5,
-				onComplete: () => {
-					goto(href); // Navigate after animation
-				}
-			})
-			.to('.layout-wrapper', {
-				opacity: 1,
-				// filter: 'invert(0)blur(0px)',
-				// filter: 'invert(0) grayscale(0) contrast(1)', // Reset to normal
-				duration: 0.5
-			});
+		gsap.timeline().to('.page', {
+			opacity: 0,
+			duration: 1,
+			onComplete: () => {
+				console.log('navigated');
+				goto(href); // Navigate after animation
+			}
+		});
+		// .fromTo(
+		// 	'.about',
+		// 	{ opacity: 0 },
+		// 	{
+		// 		opacity: 1,
+		// 		duration: 1,
+		// 		onComplete: () => {
+		// 			console.log('completed animation');
+		// 		}
+		// 	}
+		// );
 	}
 </script>
 

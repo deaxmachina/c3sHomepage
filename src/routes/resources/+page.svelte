@@ -1,15 +1,27 @@
 <script lang="ts">
+	import gsap from 'gsap';
+
 	import { imgUrlBuilder, processContent } from '$lib/utils/sanity';
 	import Resource from '$lib/components/Resource/index.svelte';
 
 	// This data comes from what we return in the load function in +page.ts
 	const { data } = $props();
 	let { eventResources } = data;
-	$inspect(eventResources);
+
+	$effect(() => {
+		gsap.timeline().fromTo(
+			'.page',
+			{ opacity: 0 },
+			{
+				opacity: 1,
+				duration: 1
+			}
+		);
+	});
 </script>
 
-<div class="wrapper-resources">
-	<div class="wrapper">
+<div class="page wrapper-resources">
+	<div class="wrapper-inner">
 		{#each eventResources as eventResource}
 			<Resource {imgUrlBuilder} {processContent} {eventResource}></Resource>
 		{/each}
@@ -18,14 +30,14 @@
 
 <style lang="scss">
 	.wrapper-resources {
-		background-color: var(--col-bg);
+		// background-color: var(--col-bg);
 		color: var(--col-text-and-accent);
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
 	}
-	.wrapper {
+	.wrapper-inner {
 		position: relative;
 		display: flex;
 		flex-wrap: wrap;

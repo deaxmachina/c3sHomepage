@@ -1,6 +1,5 @@
 <script>
 	import gsap from 'gsap';
-	import ShaderSee from '$lib/components/ShaderSea/index.svelte';
 	import Dragonflies from '$lib/components/Dragonflies/index.svelte';
 	import Title from '$lib/components/Title/index.svelte';
 	import Announcement from '$lib/components/Announcement/index.svelte';
@@ -40,12 +39,6 @@
 
 <div class="wrapper-scenery {stores.colourMode}">
 	<div
-		class="wrapper-element gradient fade-in {stores.colourMode}"
-		class:mounted-more-than-once={!stores.hasMountedFirstTime}
-	></div>
-
-	<div class="wrapper-element shadersee"><ShaderSee /></div>
-	<div
 		class="wrapper-element dragonflies fade-in"
 		class:mounted-more-than-once={!stores.hasMountedFirstTime}
 	>
@@ -82,26 +75,8 @@
 			opacity: 1;
 		}
 	}
-	.gradient {
-		background: linear-gradient(
-			var(--col-bg) 68%,
-			var(--col-accent-1) 80%,
-			var(--col-accent-2) 92%
-		);
 
-		&.dark {
-			background: linear-gradient(to bottom right, transparent 87%, var(--col-accent-1) 98%),
-				linear-gradient(to bottom left, transparent 87%, var(--col-accent-1) 98%),
-				linear-gradient(var(--col-bg) 70%, var(--col-accent-2) 90%);
-
-			background: linear-gradient(var(--col-bg) 0%, var(--col-bg) 100%);
-			// background: var(--col-bg);
-		}
-	}
-
-	.gradient,
 	.dragonflies,
-	.shadersee,
 	.title {
 		position: absolute;
 		top: 0;

@@ -1,7 +1,7 @@
 <script>
 	let { imgUrlBuilder, processContent, eventResource } = $props();
 
-	console.log('eventResource', eventResource);
+	// console.log('eventResource', eventResource);
 
 	function formatDate(dateString) {
 		const months = [

@@ -1,13 +1,13 @@
 <script>
 	import '$lib/styles/style.scss';
 	import { page } from '$app/state';
-
 	import gsap from 'gsap';
 
 	import SectionLink from '$lib/components/SectionLink/index.svelte';
 	import ColourMode from '$lib/components/ColourMode/index.svelte';
 	import Noise from '$lib/components/Noise/index.svelte';
 	import Cursor from '$lib/components/Cursor/index.svelte';
+	import ShaderSee from '$lib/components/ShaderSea/index.svelte';
 
 	import { stores } from '$lib/stores/stores.svelte';
 	let { colours } = stores;
@@ -20,7 +20,6 @@
 	// Note that this animation will apply to the colour switch
 	// and the menu elements which live in the +page.svelte and
 	// also have the class of fade-in
-	// TODO: This one is just buggy
 	let timeline = $state(null);
 	$effect(() => {
 		timeline = gsap.timeline().to('.fade-in-layout', {
@@ -53,11 +52,16 @@
   "
 >
 	<div class="layout-wrapper" style="overflow-y: {page.url.pathname === '/' ? 'hidden' : 'scroll'}">
+		<div
+			class="wrapper-element gradient fade-in {stores.colourMode}"
+			class:mounted-more-than-once={!stores.hasMountedFirstTime}
+		></div>
+		<div class="wrapper-element shadersee"><ShaderSee /></div>
+
 		{@render children()}
 
 		<div class="wrapper-element section-links fade-in-layout"><SectionLink /></div>
 		<div class="wrapper-element colour-mode fade-in-layout"><ColourMode /></div>
-
 		<div class="wrapper-element cursor"><Cursor /></div>
 		<div class="wrapper-element noise"><Noise /></div>
 	</div>
@@ -70,7 +74,6 @@
 		height: 100svh;
 		overflow-x: hidden;
 		background: transparent;
-		border: 15px solid #06030b;
 		border-radius: 35px;
 	}
 	.fade-in-layout {
@@ -78,7 +81,7 @@
 	}
 
 	.wrapper-element {
-		position: absolute;
+		position: fixed;
 		top: 0;
 		// left: 0;
 	}
@@ -103,10 +106,30 @@
 			display: none;
 		}
 	}
-
 	.noise {
 		width: 100%;
 		height: 100%;
 		pointer-events: none;
+	}
+	.gradient,
+	.shadersee {
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+	}
+	.gradient {
+		background: linear-gradient(
+			var(--col-bg) 68%,
+			var(--col-accent-1) 80%,
+			var(--col-accent-2) 92%
+		);
+		&.dark {
+			background: linear-gradient(to bottom right, transparent 87%, var(--col-accent-1) 98%),
+				linear-gradient(to bottom left, transparent 87%, var(--col-accent-1) 98%),
+				linear-gradient(var(--col-bg) 70%, var(--col-accent-2) 90%);
+
+			background: linear-gradient(var(--col-bg) 0%, var(--col-bg) 100%);
+			// background: var(--col-bg);
+		}
 	}
 </style>
