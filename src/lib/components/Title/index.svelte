@@ -69,10 +69,6 @@
 		}
 	}
 	.full-name {
-		// font-family: 'bitcount-grid-double-circle', sans-serif;
-		// font-family: 'bitcount-grid-single-line-ci', sans-serif;
-		// font-family: 'bitcount-grid-single-line-sq', sans-serif;
-		// font-family: 'bitcount-grid-single-square', sans-serif;
 		font-family: 'bitcount-grid-single-circle', sans-serif;
 		font-weight: 500;
 		font-style: normal;

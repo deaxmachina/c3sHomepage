@@ -24,7 +24,6 @@
 			.timeline()
 			.to('.layout-wrapper', {
 				opacity: 0,
-				filter: 'invert(1)',
 				// filter: 'invert(1)blur(4px)',
 				// filter: 'invert(1)blur(4px)',filter: 'invert(1) grayscale(1) contrast(2)', // Full negative effect
 				duration: 0.5,
@@ -34,7 +33,6 @@
 			})
 			.to('.layout-wrapper', {
 				opacity: 1,
-				filter: 'invert(0)',
 				// filter: 'invert(0)blur(0px)',
 				// filter: 'invert(0) grayscale(0) contrast(1)', // Reset to normal
 				duration: 0.5

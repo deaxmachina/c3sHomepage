@@ -76,7 +76,7 @@
 </div>
 
 <style lang="scss">
-	$padding: 60px;
+	$padding: 50px;
 	$padding-sm: 20px;
 	$base-width: 320px;
 	$base-width-sm: 280px;
@@ -85,12 +85,12 @@
 
 	* {
 		font-family: 'Funnel Sans', serif;
+		font-family: 'Titillium Web', serif;
 		box-sizing: border-box;
 	}
 
 	.wrapper-resource {
 		position: relative;
-
 		// border: 2px solid white;
 		width: calc($base-width + 2 * $padding);
 		border-radius: $border-radius;
@@ -104,27 +104,36 @@
 
 	.wrapper-date {
 		position: absolute;
-		top: 5px;
+		top: 8px;
 		right: calc($padding + 10px);
 		text-transform: uppercase;
 		font-weight: 500;
+		color: var(--col-accent-3);
+		@media (max-width: 600px) {
+			top: 0px;
+			right: calc($padding-sm + 10px);
+		}
 	}
 
 	.wrapper-byline {
 		position: absolute;
 		top: 40px;
-		right: calc($padding - 25px);
+		right: calc($padding - 20px);
 		writing-mode: vertical-rl;
 		text-orientation: mixed;
 		font-style: italic;
 		font-weight: 100;
 		font-size: $font-sm;
 		opacity: 0.8;
+		@media (max-width: 600px) {
+			right: calc($padding-sm - 20px);
+		}
 	}
 
 	.title {
 		font-size: 1.4rem;
 		margin-bottom: 20px;
+		line-height: 1;
 		font-family: 'sudo', 'lores-9-plus-wide', sans-serif;
 	}
 
@@ -133,8 +142,8 @@
 		text-decoration: none;
 		&:hover {
 			img {
-				width: 100%;
-				height: 100%;
+				width: 105%;
+				height: 105%;
 			}
 		}
 	}
@@ -149,6 +158,7 @@
 		align-items: center;
 		justify-content: center;
 
+		overflow: hidden;
 		.platform {
 			backdrop-filter: blur(4px);
 			position: absolute;
@@ -156,7 +166,7 @@
 			right: 16px;
 			background-color: rgba(#7fd69e, 0.3);
 			padding: 5px 10px;
-			border-radius: 4px 4px $border-radius 4px;
+			border-radius: $border-radius;
 			font-size: $font-sm;
 			font-weight: 400;
 		}
@@ -184,8 +194,8 @@
 			font-weight: 500;
 		}
 		img {
-			width: 90%;
-			height: 90%;
+			width: 93%;
+			height: 93%;
 			object-fit: cover;
 			object-position: center;
 			border-radius: $border-radius;
@@ -210,7 +220,6 @@
 	.wrapper-event-description {
 		p {
 			font-weight: 100;
-			opacity: 0.8;
 		}
 	}
 </style>

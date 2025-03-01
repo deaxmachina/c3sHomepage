@@ -49,9 +49,10 @@
 		--col-accent-2: {colours.colAccent2};
 		--col-accent-2-darker: {colours.colAccent2};
 		--col-accent-3: {colours.colAccent3};
+		--font-main: 'Titillium Web, serif';
   "
 >
-	<div class="layout-wrapper">
+	<div class="layout-wrapper" style="overflow-y: {page.url.pathname === '/' ? 'hidden' : 'scroll'}">
 		{@render children()}
 
 		<div class="wrapper-element section-links fade-in-layout"><SectionLink /></div>
@@ -66,8 +67,8 @@
 	.layout-wrapper {
 		position: relative;
 		width: 100%;
-		min-height: 100svh;
-		overflow: hidden;
+		height: 100svh;
+		overflow-x: hidden;
 		background: transparent;
 		border: 15px solid #06030b;
 		border-radius: 35px;
