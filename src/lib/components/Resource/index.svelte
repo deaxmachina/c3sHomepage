@@ -78,10 +78,11 @@
 <style lang="scss">
 	$padding: 50px;
 	$padding-sm: 20px;
-	$base-width: 320px;
+	$base-width: 300px;
 	$base-width-sm: 280px;
 	$border-radius: 10px;
 	$font-sm: 0.8rem;
+	$spacing: 14px;
 
 	* {
 		font-family: 'Funnel Sans', serif;
@@ -91,9 +92,7 @@
 
 	.wrapper-resource {
 		position: relative;
-		// border: 2px solid white;
 		width: calc($base-width + 2 * $padding);
-		border-radius: $border-radius;
 		padding: $padding;
 		padding-top: calc($padding * 0.5);
 		@media (max-width: 600px) {
@@ -104,11 +103,11 @@
 
 	.wrapper-date {
 		position: absolute;
-		top: 8px;
+		top: 0px;
 		right: calc($padding + 10px);
 		text-transform: uppercase;
 		font-weight: 500;
-		color: var(--col-accent-3);
+		// color: var(--col-accent-3);
 		@media (max-width: 600px) {
 			top: 0px;
 			right: calc($padding-sm + 10px);
@@ -131,9 +130,9 @@
 	}
 
 	.title {
-		font-size: 1.4rem;
-		margin-bottom: 20px;
-		line-height: 1;
+		font-size: 1.3rem;
+		margin-bottom: $spacing;
+		line-height: 1.1;
 		font-family: 'sudo', 'lores-9-plus-wide', sans-serif;
 	}
 
@@ -142,28 +141,30 @@
 		text-decoration: none;
 		&:hover {
 			img {
-				width: 105%;
-				height: 105%;
+				// width: 100%;
+				// height: 50%;
+				transform: scale(1.2);
 			}
 		}
 	}
 	.wrapper-img {
 		position: relative;
-		border: 4px solid var(--col-accent-3);
-		border-radius: $border-radius;
+		border: 4px solid var(--col-see);
+		background-color: var(--col-dark);
+
+		border-radius: calc($border-radius * 1.8);
 		max-width: $base-width;
-		height: $base-width;
-		margin-bottom: 22px;
+		height: calc($base-width * 0.8);
+		margin-bottom: $spacing;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-
 		overflow: hidden;
 		.platform {
 			backdrop-filter: blur(4px);
 			position: absolute;
 			bottom: 16px;
-			right: 16px;
+			right: 18px;
 			background-color: rgba(#7fd69e, 0.3);
 			padding: 5px 10px;
 			border-radius: $border-radius;
@@ -174,6 +175,16 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			backdrop-filter: blur(4px);
+			border-radius: $border-radius;
+			position: absolute;
+			top: 14px;
+			left: 16px;
+			padding: 4px 8px;
+			background-color: rgba(#221d34, 0.6);
+			backdrop-filter: blur(4px);
+			font-size: $font-sm;
+			font-weight: 500;
 			.circle {
 				width: 12px;
 				height: 12px;
@@ -182,20 +193,10 @@
 				background: #221d34;
 				display: inline-block;
 			}
-			backdrop-filter: blur(4px);
-			border-radius: $border-radius;
-			position: absolute;
-			top: 22px;
-			left: 22px;
-			padding: 5px 10px;
-			background-color: rgba(#221d34, 0.6);
-			backdrop-filter: blur(4px);
-			font-size: $font-sm;
-			font-weight: 500;
 		}
 		img {
-			width: 93%;
-			height: 93%;
+			width: 90%;
+			height: 90%;
 			object-fit: cover;
 			object-position: center;
 			border-radius: $border-radius;
@@ -205,7 +206,7 @@
 
 	.wrapper-tools {
 		display: flex;
-		margin-bottom: 20px;
+		margin-bottom: $spacing;
 		span {
 			display: inline-block;
 			padding: 2px 7px;

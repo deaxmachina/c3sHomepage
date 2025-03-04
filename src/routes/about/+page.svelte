@@ -91,10 +91,11 @@
 	h3 {
 		z-index: 999 !important;
 		margin-top: 5rem;
+		max-width: 540px;
 	}
 	.wrapper-text {
 		width: 100%;
-		max-width: 660px;
+		max-width: 500px;
 		height: 500px;
 		overflow-y: scroll;
 		z-index: 999 !important;

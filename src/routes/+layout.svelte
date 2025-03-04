@@ -8,6 +8,7 @@
 	import Noise from '$lib/components/Noise/index.svelte';
 	import Cursor from '$lib/components/Cursor/index.svelte';
 	import ShaderSee from '$lib/components/ShaderSea/index.svelte';
+	import Fish from '$lib/components/Fish/index.svelte';
 
 	import { stores } from '$lib/stores/stores.svelte';
 	let { colours } = stores;
@@ -48,6 +49,7 @@
 		--col-accent-2: {colours.colAccent2};
 		--col-accent-2-darker: {colours.colAccent2};
 		--col-accent-3: {colours.colAccent3};
+		--col-see: {colours.colSee};
 		--font-main: 'Titillium Web, serif';
   "
 >
@@ -57,6 +59,7 @@
 			class:mounted-more-than-once={!stores.hasMountedFirstTime}
 		></div>
 		<div class="wrapper-element shadersee"><ShaderSee /></div>
+		<div class="wrapper-element fish"><Fish /></div>
 
 		{@render children()}
 
@@ -74,7 +77,6 @@
 		height: 100svh;
 		overflow-x: hidden;
 		background: transparent;
-		border-radius: 35px;
 	}
 	.fade-in-layout {
 		opacity: 0;
@@ -86,11 +88,13 @@
 		// left: 0;
 	}
 	.section-links {
+		position: absolute;
+		top: 20px;
 		pointer-events: all;
-		top: 60px;
-		right: 15px;
+		right: 100px;
 		@media (max-width: 900px) {
-			right: 12px;
+			right: 0px;
+			top: calc(100% - 33px);
 		}
 	}
 	.colour-mode {
@@ -112,7 +116,8 @@
 		pointer-events: none;
 	}
 	.gradient,
-	.shadersee {
+	.shadersee,
+	.fish {
 		width: 100%;
 		height: 100%;
 		pointer-events: none;

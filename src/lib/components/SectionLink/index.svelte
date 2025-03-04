@@ -7,7 +7,8 @@
 		{ href: '/', id: 'home', displayName: 'Home' },
 		{ href: '/about', id: 'about', displayName: 'About' },
 		{ href: '/events', id: 'events', displayName: 'Events' },
-		{ href: '/resources', id: 'resources', displayName: 'Resources' }
+		{ href: '/resources', id: 'resources', displayName: 'Resources' },
+		{ href: 'https://creativecodingbook.club/', id: 'bookclub', displayName: 'Bookclub' }
 	];
 
 	let selectedOption = $state('home');
@@ -24,7 +25,6 @@
 			opacity: 0,
 			duration: 1,
 			onComplete: () => {
-				console.log('navigated');
 				goto(href); // Navigate after animation
 			}
 		});
@@ -54,17 +54,23 @@
 				onmouseover={() => (selectedOption = option.id)}
 				onmouseout={() => (selectedOption = null)}
 			>
-				<a
-					class:selected={selectedOption === option.id}
-					class:active={activeOption === option.id}
-					href={option.href}
-					onclick={(event) => {
-						activeOption = option.id;
-						handleNavigation(event, option.href);
-					}}
-				>
-					{option.displayName}
-				</a>
+				{#if option.id !== 'bookclub'}
+					<a
+						class:selected={selectedOption === option.id}
+						class:active={activeOption === option.id}
+						href={option.href}
+						onclick={(event) => {
+							activeOption = option.id;
+							handleNavigation(event, option.href);
+						}}
+					>
+						{option.displayName}
+					</a>
+				{:else}
+					<a href={option.href} class="hide-mobile" target="_blank" rel="noopener noreferrer">
+						{option.displayName}
+					</a>
+				{/if}
 			</div>
 		{/each}
 	</div>
@@ -72,16 +78,11 @@
 
 <style lang="scss">
 	.wrapper-section-link {
-		display: flex;
-		align-items: flex-end;
-		justify-content: space-between;
-		flex-direction: column;
-		background-color: none;
 	}
 
 	.sections {
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
 	}
 
 	.selection {
@@ -119,6 +120,11 @@
 			// color: var(--col-dark);
 			font-weight: 800;
 			background-position: 100% 0;
+		}
+		&.hide-mobile {
+			@media (max-width: 500px) {
+				display: none;
+			}
 		}
 	}
 </style>

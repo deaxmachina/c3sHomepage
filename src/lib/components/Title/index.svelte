@@ -53,10 +53,15 @@
 	$height-adjusted-font-size-title: min(max(220px, 22vw), 380px);
 
 	.wrapper {
+		// border: 2px solid red;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 		position: absolute;
+		width: 100%;
 		bottom: 0;
-		left: 50%;
-		transform: translate(-50%, 0);
+		// left: 50%;
+		// transform: translate(-50%, 0);
 		margin-bottom: 15px;
 		@media (max-width: 1200px) {
 			margin-bottom: 35px;
@@ -65,7 +70,7 @@
 			margin-bottom: 40px;
 		}
 		@media (max-width: 800px) {
-			margin-bottom: 50px;
+			margin-bottom: 70px;
 		}
 	}
 	.full-name {
@@ -84,6 +89,10 @@
 			font-weight: 500;
 			line-height: 1.05;
 			text-align: center;
+		}
+		@media (max-width: 500px) {
+			font-size: 1.3rem;
+			line-height: 2;
 		}
 		.full-name-top {
 			font-family: 'bitcount-grid-single-line-sq', sans-serif;
