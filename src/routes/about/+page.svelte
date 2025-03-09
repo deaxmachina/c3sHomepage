@@ -1,5 +1,6 @@
 <script>
 	import gsap from 'gsap';
+	import Instructions from '$lib/components/Resource/Instructions.svelte';
 
 	import { stores } from '$lib/stores/stores.svelte';
 	import ShaderSee from '$lib/components/ShaderSea/index.svelte';
@@ -17,45 +18,70 @@
 </script>
 
 <div class="page wrapper-about {stores.colourMode}">
-	<h3 class="title">
-		About c3s
-		<br />
-		Creative Coding Crafts Space
-	</h3>
-	<div class="wrapper-text">
-		<p>
-			We believe that creativity is more than a mere hobby; it is a catalyst for growth and a
-			life-force. This community exists to make ‘space’ for that - physical space, head space,
-			collaboration space. Space to get together and craft coding projects, generative artwork, new
-			or ‘traditional’ forms of creative coding projects born out of the interactions and
-			inspiration that ‘space’ allows for.
+	<div class="wrapper-inner">
+		<h3 class="title">
+			<span class="other">About</span>
+			<span class="abbr">
+				<span class="abbr-bottom">c3s</span>
+				<span class="abbr-top">c3s</span>
+			</span>
 
-			<br /><br />
-			We meet about once a month in London, in or around Hackney Wick - an area known for its large artistic
-			community and a [Creative Enterprise Zone].You can find out more about our past events [here] and
-			all the resources we used in those [here].
+			<br />
+			<span class="full-name">Creative Coding Crafts Space</span>
+		</h3>
 
-			<br /><br />c3s was started in 2024 by Dea Bankova and Prasanta Kumar Dutta. We actively
-			encourage community driven-initiatives, such as our spin-off Creative Coding Bookclub, and
-			community participation in person or on our [Discord server]
-		</p>
+		<div class="wrapper-instructions">
+			<Instructions col="var(--col-text-and-accent)" />
+		</div>
+		<div class="wrapper-text">
+			<p>
+				We are a London-based and online community dedicated to making space for creativity -
+				physical space, head space, collaboration space. A playground for exploring the tools,
+				ideas, and experiments that live at the intersection of code and art. In concrete terms,
+				we’re looking at browser-based sketches (p5.js, Three.js, d3.js, GSAP, etc.), using physical
+				tools like pen plotters and circuits, and occasionally exploring the weird and wonderful
+				edges of creative expression - like quantum computers’ involvement in music. We believe that
+				creativity as a shared experience is something much greater than a ‘nice to have’ in our
+				lives and hope to contribute in whatever way we can to keeping that spark alive in our
+				little corner of the world.
 
-		<p>
-			We believe that creativity is more than a mere hobby; it is a catalyst for growth and a
-			life-force. This community exists to make ‘space’ for that - physical space, head space,
-			collaboration space. Space to get together and craft coding projects, generative artwork, new
-			or ‘traditional’ forms of creative coding projects born out of the interactions and
-			inspiration that ‘space’ allows for.
+				<br /><br />
+				We meet about once a month in London, in or around Hackney Wick - an area known for its large
+				artistic community and a
+				<a
+					target="_blank"
+					rel="noopener noreferrer"
+					href="https://www.london.gov.uk/programmes-strategies/arts-and-culture/space-culture/explore-creative-enterprise-zones/about-creative-enterprise-zones"
+				>
+					Creative Enterprise Zone
+				</a>. You can find out more about our past events
+				<a
+					target="_blank"
+					rel="noopener noreferrer"
+					href="https://www.london.gov.uk/programmes-strategies/arts-and-culture/space-culture/explore-creative-enterprise-zones/about-creative-enterprise-zones"
+				>
+					here
+				</a>
+				and all the resources we used in those
+				<a href="/resources"> here </a>.
 
-			<br /><br />
-			We meet about once a month in London, in or around Hackney Wick - an area known for its large artistic
-			community and a [Creative Enterprise Zone].You can find out more about our past events [here] and
-			all the resources we used in those [here].
+				<br /><br />
+				c3s was started in 2024 by
+				<a target="_blank" rel="noopener noreferrer" href="https://deabankova.com/">
+					Dea Bankova
+				</a>
+				and
+				<a target="_blank" rel="noopener noreferrer" href="https://prasantakrdutta.com/">
+					Prasanta Kumar Dutta
+				</a>. We actively encourage community driven-initiatives, such as our spin-off Creative
+				Coding Bookclub, and community participation in person or on our
+				<a target="_blank" rel="noopener noreferrer" href="https://discord.gg/HGH7uEpy99">
+					Discord server
+				</a>.
+			</p>
 
-			<br /><br />c3s was started in 2024 by Dea Bankova and Prasanta Kumar Dutta. We actively
-			encourage community driven-initiatives, such as our spin-off Creative Coding Bookclub, and
-			community participation in person or on our [Discord server]
-		</p>
+			<div class="shadow-bottom"></div>
+		</div>
 	</div>
 </div>
 
@@ -74,6 +100,23 @@
 		justify-content: flex-start;
 	}
 
+	.wrapper-instructions {
+		position: absolute;
+		left: 50%;
+		transform: translate(calc(-50% - 350px), 0px);
+	}
+
+	.wrapper-inner {
+		width: 100%;
+		max-width: 540px;
+		z-index: 999 !important;
+		margin-top: 5rem;
+		padding: 1.5rem;
+		@media (max-width: 600px) {
+			margin-top: 4rem;
+		}
+	}
+
 	.fade-in {
 		opacity: 0;
 		&.mounted-more-than-once {
@@ -82,23 +125,61 @@
 	}
 
 	.title {
-		font-size: 2.4rem;
 		margin-bottom: 20px;
-		line-height: 1;
-		font-family: 'sudo', 'lores-9-plus-wide', sans-serif;
+		.other {
+			font-family: 'sudo', 'lores-9-plus-wide', sans-serif;
+			font-size: 6rem;
+			color: var(--col-accent-2);
+			margin-right: 15px;
+		}
+		.abbr {
+			position: relative;
+			display: inline-block;
+		}
+		.abbr-bottom {
+			font-family: 'sudo', 'lores-9-plus-wide', sans-serif;
+			font-size: 7rem;
+			color: var(--col-accent-2);
+		}
+		.abbr-top {
+			font-family: 'sudo', 'lores-9-plus-wide', sans-serif;
+			position: absolute;
+			top: -4px;
+			left: 0;
+			font-size: 7rem;
+			color: var(--col-text-and-accent);
+		}
+		.full-name {
+			font-family: 'bitcount-grid-single-circle', sans-serif;
+			font-weight: 500;
+			font-size: 1.7rem;
+			color: var(--col-accent-2);
+		}
+
+		@media (max-width: 600px) {
+			.other {
+				font-size: 4rem;
+				margin-right: 15px;
+			}
+			.abbr-bottom {
+				font-size: 5rem;
+			}
+			.abbr-top {
+				top: -4px;
+				font-size: 5rem;
+			}
+			.full-name {
+				font-size: 1.5rem;
+			}
+		}
 	}
 
-	h3 {
-		z-index: 999 !important;
-		margin-top: 5rem;
-		max-width: 540px;
-	}
 	.wrapper-text {
 		width: 100%;
 		max-width: 500px;
-		height: 500px;
+		height: 400px;
 		overflow-y: scroll;
-		z-index: 999 !important;
+		position: relative;
 
 		p {
 			color: var(--col-text-and-accent);
@@ -106,5 +187,20 @@
 			font-weight: 100;
 			font-size: 1.2rem;
 		}
+
+		@media (max-width: 600px) {
+			height: 330px;
+		}
+	}
+
+	.shadow-bottom {
+		position: sticky;
+		bottom: -20px;
+		left: 0;
+		width: 100%;
+		height: 70px; /* Adjust thickness */
+		background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, var(--col-bg) 70%);
+		pointer-events: none; /* Prevents interference */
+		z-index: 1; /* Ensures it stays on top */
 	}
 </style>

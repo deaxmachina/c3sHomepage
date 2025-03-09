@@ -6,8 +6,12 @@
 	const options = [
 		{ href: '/', id: 'home', displayName: 'Home' },
 		{ href: '/about', id: 'about', displayName: 'About' },
-		{ href: '/events', id: 'events', displayName: 'Events' },
 		{ href: '/resources', id: 'resources', displayName: 'Resources' },
+		{
+			href: 'https://www.eventbrite.co.uk/o/creativecodingcrafts-space-90303892113',
+			id: 'events',
+			displayName: 'Events'
+		},
 		{ href: 'https://creativecodingbook.club/', id: 'bookclub', displayName: 'Bookclub' }
 	];
 
@@ -54,7 +58,7 @@
 				onmouseover={() => (selectedOption = option.id)}
 				onmouseout={() => (selectedOption = null)}
 			>
-				{#if option.id !== 'bookclub'}
+				{#if !['bookclub', 'events'].includes(option.id)}
 					<a
 						class:selected={selectedOption === option.id}
 						class:active={activeOption === option.id}
@@ -67,7 +71,14 @@
 						{option.displayName}
 					</a>
 				{:else}
-					<a href={option.href} class="hide-mobile" target="_blank" rel="noopener noreferrer">
+					<a
+						class:selected={selectedOption === option.id}
+						class:active={activeOption === option.id}
+						href={option.href}
+						class="hide-mobile"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
 						{option.displayName}
 					</a>
 				{/if}

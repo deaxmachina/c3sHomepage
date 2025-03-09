@@ -11,9 +11,9 @@
 <div class="wrapper">
 	<a href="https://x.com/CCCraftsSpace" class="social-link" target="_blank">
 		<p class="vertical-text">
-			Next meetup is on Jan 25!
-			<Fa icon={faArrowRight} scale={0.8} />
-			<Fa icon={faTicket} scale={1} />
+			Next meetup TBA soon. Likely on 5th April at the Cave in Hackney Wick.
+			<!-- <Fa icon={faArrowRight} scale={0.8} /> -->
+			<!-- <Fa icon={faTicket} scale={1} /> -->
 		</p>
 	</a>
 </div>

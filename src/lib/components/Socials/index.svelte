@@ -19,7 +19,7 @@
 		<Fa icon={faXTwitter} {scale} />
 	</a>
 
-	<a href="mailto:cccspace@gmail.com" class="social-link" target="_blank">
+	<a href="mailto:cccrafts.space@gmail.com" class="social-link" target="_blank">
 		<Fa icon={faEnvelope} {scale} />
 	</a>
 </div>

@@ -1,4 +1,4 @@
-<!-- <div class="wrapper">©2025 Creative Coding Crafts Space & Dea B.</div> -->
+<div class="wrapper">©2025 c3s & Dea Bankova</div>
 
 <style lang="scss">
 	.wrapper {
@@ -7,10 +7,13 @@
 		bottom: 12px;
 		font-family: 'Funnel Sans', serif;
 		font-weight: 400;
-		color: var(--col-dark);
+		color: var(--col-text-and-accent);
 		font-size: 0.75rem;
 		// writing-mode: vertical-rl;
-		writing-mode: horizontal-tb;
+		// writing-mode: horizontal-tb;
+		backdrop-filter: blur(2px);
+		opacity: 0.8;
+
 		@media (max-width: 900px) {
 			max-width: 200px;
 			text-align: right;
