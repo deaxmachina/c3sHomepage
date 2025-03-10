@@ -77,6 +77,7 @@
 		height: 100svh;
 		overflow-x: hidden;
 		background: transparent;
+		cursor: none;
 	}
 	.fade-in-layout {
 		opacity: 0;
@@ -85,6 +86,8 @@
 	.wrapper-element {
 		position: fixed;
 		top: 0;
+		cursor: none;
+
 		// left: 0;
 	}
 	.section-links {

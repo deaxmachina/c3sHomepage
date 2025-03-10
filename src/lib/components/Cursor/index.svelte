@@ -29,7 +29,7 @@
 				0.1,
 				rotate,
 				0,
-				30,
+				10,
 				p5.random(colours.coloursDragonflies.filter((d) => d !== colours.colBg)),
 				false
 			);
