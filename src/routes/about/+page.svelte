@@ -1,9 +1,7 @@
 <script>
 	import gsap from 'gsap';
-	import Instructions from '$lib/components/ScrollInstructions/Instructions.svelte';
-
+	import About from '$lib/components/About/index.svelte';
 	import { stores } from '$lib/stores/stores.svelte';
-	import ShaderSee from '$lib/components/ShaderSea/index.svelte';
 
 	$effect(() => {
 		gsap.timeline().fromTo(
@@ -18,72 +16,10 @@
 </script>
 
 <div class="page wrapper-about {stores.colourMode}">
-	<div class="wrapper-inner">
-		<h3 class="title">
-			<span class="other">About</span>
-			<span class="abbr">
-				<span class="abbr-bottom">c3s</span>
-				<span class="abbr-top">c3s</span>
-			</span>
-
-			<br />
-			<span class="full-name">Creative Coding Crafts Space</span>
-		</h3>
-
-		<div class="wrapper-instructions">
-			<Instructions col="var(--col-text-and-accent)" />
-		</div>
-		<div class="wrapper-text">
-			<p>
-				We are a London-based and online community dedicated to making space for creativity -
-				physical space, head space, collaboration space. A playground for exploring the tools,
-				ideas, and experiments that live at the intersection of code and art. In concrete terms,
-				we’re looking at browser-based sketches (p5.js, Three.js, d3.js, GSAP, etc.), using physical
-				tools like pen plotters and circuits, and occasionally exploring the weird and wonderful
-				edges of creative expression - like quantum computers’ involvement in music.
-			</p>
-			<p>
-				We meet about once a month in London, in or around Hackney Wick - an area known for its
-				large artistic community and a Creative Enterprise Zone . You can find out more about our
-				past events
-				<a
-					target="_blank"
-					rel="noopener noreferrer"
-					href="https://www.london.gov.uk/programmes-strategies/arts-and-culture/space-culture/explore-creative-enterprise-zones/about-creative-enterprise-zones"
-				>
-					here
-				</a>
-				and all the resources we used in those
-				<a href="/resources"> here </a>. c3s was started in 2024 by
-				<a target="_blank" rel="noopener noreferrer" href="https://deabankova.com/">
-					Dea Bankova
-				</a>
-				and
-				<a target="_blank" rel="noopener noreferrer" href="https://prasantakrdutta.com/">
-					Prasanta Kumar Dutta
-				</a>. We actively encourage community driven-initiatives, such as our spin-off Creative
-				Coding Bookclub, and community participation in person or on our
-				<a target="_blank" rel="noopener noreferrer" href="https://discord.gg/HGH7uEpy99">
-					Discord server
-				</a>.
-			</p>
-			<p>
-				We believe that creativity as a shared experience is something much greater than a ‘nice to
-				have’ in our lives and hope to contribute in whatever way we can to keeping that spark alive
-				in our little corner of the world.
-			</p>
-
-			<div class="shadow-bottom"></div>
-		</div>
-	</div>
+	<About />
 </div>
 
 <style lang="scss">
-	* {
-		font-family: 'Titillium Web', serif;
-		box-sizing: border-box;
-		color: var(--col-text-and-accent);
-	}
 	.wrapper-about {
 		width: 100%;
 		min-height: 100svh;
@@ -91,117 +27,5 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: flex-start;
-	}
-
-	.wrapper-instructions {
-		position: absolute;
-		left: 50%;
-		transform: translate(calc(-50% - 350px), 0px);
-	}
-
-	.wrapper-inner {
-		width: 100%;
-		max-width: 540px;
-		z-index: 999 !important;
-		margin-top: 5rem;
-		padding: 1.5rem;
-		@media (max-width: 600px) {
-			margin-top: 4rem;
-		}
-	}
-
-	.fade-in {
-		opacity: 0;
-		&.mounted-more-than-once {
-			opacity: 1;
-		}
-	}
-
-	.title {
-		margin-bottom: 20px;
-		.other {
-			font-family: 'sudo', 'lores-9-plus-wide', sans-serif;
-			font-size: 6rem;
-			color: var(--col-accent-2);
-			margin-right: 15px;
-		}
-		.abbr {
-			position: relative;
-			display: inline-block;
-		}
-		.abbr-bottom {
-			font-family: 'sudo', 'lores-9-plus-wide', sans-serif;
-			font-size: 7rem;
-			color: var(--col-accent-2);
-		}
-		.abbr-top {
-			font-family: 'sudo', 'lores-9-plus-wide', sans-serif;
-			position: absolute;
-			top: -4px;
-			left: 0;
-			font-size: 7rem;
-			color: var(--col-text-and-accent);
-		}
-		.full-name {
-			font-family: 'bitcount-grid-single-circle', sans-serif;
-			font-weight: 500;
-			font-size: 1.7rem;
-			color: var(--col-accent-2);
-		}
-
-		@media (max-width: 600px) {
-			.other {
-				font-size: 4rem;
-				margin-right: 15px;
-			}
-			.abbr-bottom {
-				font-size: 5rem;
-			}
-			.abbr-top {
-				top: -4px;
-				font-size: 5rem;
-			}
-			.full-name {
-				font-size: 1.5rem;
-			}
-		}
-	}
-
-	.wrapper-text {
-		width: 100%;
-		max-width: 500px;
-		height: 400px;
-		overflow-y: scroll;
-		position: relative;
-
-		-ms-overflow-style: none; /* Hides scrollbar in Internet Explorer and Edge */
-		scrollbar-width: none; /* Hides scrollbar in Firefox */
-
-		/* Hides scrollbar in WebKit-based browsers (Chrome, Safari, etc.) */
-		&::-webkit-scrollbar {
-			display: none;
-		}
-
-		p {
-			color: var(--col-text-and-accent);
-			margin-bottom: 20px;
-			font-weight: 100;
-			font-size: 1.2rem;
-		}
-
-		@media (max-width: 600px) {
-			height: 330px;
-		}
-	}
-
-	.shadow-bottom {
-		position: sticky;
-		bottom: -20px;
-		left: 0;
-		width: 100%;
-		height: 70px; /* Adjust thickness */
-		background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, var(--col-bg) 70%);
-		pointer-events: none; /* Prevents interference */
-		z-index: 1; /* Ensures it stays on top */
 	}
 </style>

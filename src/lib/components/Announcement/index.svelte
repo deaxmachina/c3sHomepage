@@ -9,7 +9,7 @@
 </script>
 
 <div class="wrapper">
-	<a href="https://x.com/CCCraftsSpace" class="social-link" target="_blank">
+	<a href="https://discord.gg/HGH7uEpy99" class="social-link" target="_blank">
 		<p class="vertical-text">
 			Next meetup TBA soon. Likely on 5th April at the Cave in Hackney Wick.
 			<!-- <Fa icon={faArrowRight} scale={0.8} /> -->
