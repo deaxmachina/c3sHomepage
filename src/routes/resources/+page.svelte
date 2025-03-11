@@ -3,7 +3,7 @@
 
 	import { imgUrlBuilder, processContent } from '$lib/utils/sanity';
 	import Resource from '$lib/components/Resource/index.svelte';
-	import Instructions from '$lib/components/Resource/Instructions.svelte';
+	import Instructions from '$lib/components/ScrollInstructions/Instructions.svelte';
 
 	// This data comes from what we return in the load function in +page.ts
 	const { data } = $props();

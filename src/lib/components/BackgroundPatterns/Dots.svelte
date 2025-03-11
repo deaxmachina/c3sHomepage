@@ -2,34 +2,45 @@
 	import P5 from 'p5-svelte';
 	import { stores } from '$lib/stores/stores.svelte';
 	let { colours } = stores;
+
 	const sketch = (p5) => {
 		let strokeColRgb;
-		let points = [];
+		let points = []; // Make sure this is a global variable
 		let r = 2;
 		let d = 20;
-		let mouseRadius = 70; // Area of influence
-		let repelStrength = 20; // How strongly circles move away
-		let returnSpeed = 0.05; // Speed of returning to original position
+		let mouseRadius = 70;
+		let repelStrength = 20;
+		let returnSpeed = 0.05;
 
-		p5.setup = () => {
-			p5.createCanvas(p5.windowWidth, p5.windowHeight);
-			p5.pixelDensity(2);
-			strokeColRgb = stores.isDarkMode ? stores.colours.colLight : stores.colours.colLight;
-
+		/////////////////////////////////
+		//////////// SETUP //////////////
+		/////////////////////////////////
+		const generatePoints = () => {
+			points = []; // Reset the array
 			for (let i = 0; i < p5.width; i += r + d) {
 				for (let j = 0; j < p5.height; j += r + d) {
 					points.push({
 						x: i,
 						y: j,
-						originalX: i, // Store original positions
+						originalX: i,
 						originalY: j,
-						vx: 0, // Velocity for smooth movement
+						vx: 0,
 						vy: 0
 					});
 				}
 			}
 		};
 
+		p5.setup = () => {
+			p5.createCanvas(p5.windowWidth, p5.windowHeight);
+			p5.pixelDensity(2);
+			strokeColRgb = stores.isDarkMode ? stores.colours.colLight : stores.colours.colLight;
+			generatePoints(); // Generate points initially
+		};
+
+		/////////////////////////////////
+		//////////// DRAW ///////////////
+		/////////////////////////////////
 		p5.draw = () => {
 			p5.clear();
 			p5.noStroke();
@@ -43,28 +54,32 @@
 				let distance = Math.sqrt(dx * dx + dy * dy);
 
 				if (distance < mouseRadius) {
-					// Repel effect
 					let angle = Math.atan2(dy, dx);
-					let force = (mouseRadius - distance) / mouseRadius; // Strength decreases with distance
+					let force = (mouseRadius - distance) / mouseRadius;
 					point.vx += Math.cos(angle) * force * repelStrength;
 					point.vy += Math.sin(angle) * force * repelStrength;
 				}
 
-				// Apply velocity (smooth movement)
-				point.vx *= 0.9; // Friction for easing
+				point.vx *= 0.9;
 				point.vy *= 0.9;
 				point.x += point.vx;
 				point.y += point.vy;
 
-				// Return to grid position when mouse is far away
 				if (distance > mouseRadius) {
 					point.x += (point.originalX - point.x) * returnSpeed;
 					point.y += (point.originalY - point.y) * returnSpeed;
 				}
 
-				// Draw the circle
 				p5.circle(point.x, point.y, r);
 			});
+		};
+
+		/////////////////////////////////
+		//////////// RESIZE /////////////
+		/////////////////////////////////
+		p5.windowResized = () => {
+			p5.resizeCanvas(p5.windowWidth, p5.windowHeight);
+			generatePoints(); // Regenerate the points to fit the new canvas size
 		};
 	};
 </script>
@@ -74,22 +89,6 @@
 </div>
 
 <style lang="scss">
-	// .wrapper {
-	// 	width: 100%;
-	// 	height: 100svh;
-	// 	opacity: 0.6;
-	// 	mix-blend-mode: lighten;
-	// 	&.light {
-	// 		mix-blend-mode: lighten;
-	// 	}
-	// 	&.dark {
-	// 		mix-blend-mode: luminosity;
-	// 	}
-	// 	@media (max-width: 900px) {
-	// 		// display: none;
-	// 	}
-	// }
-
 	.wrapper-p5 {
 		position: absolute;
 		top: 0;

@@ -5,7 +5,7 @@
 
 	import SectionLink from '$lib/components/SectionLink/index.svelte';
 	import ColourMode from '$lib/components/ColourMode/index.svelte';
-	import Noise from '$lib/components/Noise/index.svelte';
+	import Noise from '$lib/components/BackgroundPatterns/index.svelte';
 	import Cursor from '$lib/components/Cursor/index.svelte';
 	import ShaderSee from '$lib/components/ShaderSea/index.svelte';
 	import Fish from '$lib/components/Fish/index.svelte';
@@ -77,7 +77,6 @@
 		height: 100svh;
 		overflow-x: hidden;
 		background: transparent;
-		cursor: none;
 	}
 	.fade-in-layout {
 		opacity: 0;
@@ -86,9 +85,6 @@
 	.wrapper-element {
 		position: fixed;
 		top: 0;
-		cursor: none;
-
-		// left: 0;
 	}
 	.section-links {
 		position: absolute;
