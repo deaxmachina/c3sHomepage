@@ -91,7 +91,7 @@
 		.title {
 			margin-bottom: 20px;
 			.other {
-				font-family: var(--font-fancy) sans-serif;
+				font-family: var(--font-fancy), sans-serif;
 				font-size: 6rem;
 				color: var(--accent-col);
 				margin-right: 15px;
@@ -101,12 +101,12 @@
 				display: inline-block;
 			}
 			.abbr-bottom {
-				font-family: var(--font-fancy) sans-serif;
+				font-family: var(--font-fancy), sans-serif;
 				font-size: 7rem;
 				color: var(--accent-col);
 			}
 			.abbr-top {
-				font-family: var(--font-fancy) sans-serif;
+				font-family: var(--font-fancy), sans-serif;
 				position: absolute;
 				top: -4px;
 				left: 0;
@@ -141,7 +141,7 @@
 		.wrapper-text {
 			width: 100%;
 			max-width: 500px;
-			height: 400px;
+			height: 370px;
 			overflow-y: scroll;
 			position: relative;
 
