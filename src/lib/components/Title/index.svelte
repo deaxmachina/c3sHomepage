@@ -74,7 +74,7 @@
 		}
 	}
 	.full-name {
-		font-family: 'bitcount-grid-single-circle', sans-serif;
+		font-family: var(--font-dotted-main), sans-serif;
 		font-weight: 500;
 		font-style: normal;
 		font-size: max(22px, calc($base-font-size-title * 0.083));
@@ -112,7 +112,7 @@
 	h1 {
 		line-height: 0.7;
 		font-size: $base-font-size-title;
-		font-family: 'sudo', 'lores-9-plus-wide', sans-serif;
+		font-family: var(--font-fancy), sans-serif;
 		font-weight: 400;
 		font-style: normal;
 		.num {

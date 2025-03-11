@@ -33,7 +33,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		font-family: 'Funnel Sans', serif;
+		font-family: var(--font-main);
 		@media (max-width: 900px) {
 			left: 8px;
 			bottom: 10px;

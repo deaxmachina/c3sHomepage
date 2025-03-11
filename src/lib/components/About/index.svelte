@@ -67,7 +67,7 @@
 
 <style lang="scss">
 	* {
-		font-family: 'Titillium Web', serif;
+		font-family: var(--font-main);
 		box-sizing: border-box;
 		color: var(--col-text-and-accent);
 	}
@@ -91,7 +91,7 @@
 		.title {
 			margin-bottom: 20px;
 			.other {
-				font-family: 'sudo', 'lores-9-plus-wide', sans-serif;
+				font-family: var(--font-fancy) sans-serif;
 				font-size: 6rem;
 				color: var(--accent-col);
 				margin-right: 15px;
@@ -101,12 +101,12 @@
 				display: inline-block;
 			}
 			.abbr-bottom {
-				font-family: 'sudo', 'lores-9-plus-wide', sans-serif;
+				font-family: var(--font-fancy) sans-serif;
 				font-size: 7rem;
 				color: var(--accent-col);
 			}
 			.abbr-top {
-				font-family: 'sudo', 'lores-9-plus-wide', sans-serif;
+				font-family: var(--font-fancy) sans-serif;
 				position: absolute;
 				top: -4px;
 				left: 0;
@@ -114,7 +114,7 @@
 				color: var(--col-text-and-accent);
 			}
 			.full-name {
-				font-family: 'bitcount-grid-single-circle', sans-serif;
+				font-family: var(--font-dotted-main), sans-serif;
 				font-weight: 500;
 				font-size: 1.7rem;
 				color: var(--accent-col);

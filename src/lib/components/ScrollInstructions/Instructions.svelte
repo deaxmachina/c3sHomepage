@@ -20,8 +20,7 @@
 
 <style lang="scss">
 	* {
-		font-family: 'Funnel Sans', serif;
-		font-family: 'Titillium Web', serif;
+		font-family: var(--font-main);
 		box-sizing: border-box;
 	}
 	.wrapper {

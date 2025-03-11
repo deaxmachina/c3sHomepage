@@ -85,8 +85,7 @@
 	$spacing: 14px;
 
 	* {
-		font-family: 'Funnel Sans', serif;
-		font-family: 'Titillium Web', serif;
+		font-family: var(--font-main);
 		box-sizing: border-box;
 	}
 
@@ -133,7 +132,7 @@
 		font-size: 1.3rem;
 		margin-bottom: $spacing;
 		line-height: 1.1;
-		font-family: 'sudo', 'lores-9-plus-wide', sans-serif;
+		font-family: var(--font-fancy), sans-serif;
 	}
 
 	.main-link {

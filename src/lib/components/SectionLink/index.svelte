@@ -105,8 +105,8 @@
 	}
 
 	a {
-		color: white;
-		font-family: 'Funnel Sans', serif;
+		color: var(--col-light);
+		font-family: var(--font-main);
 		text-transform: uppercase;
 		text-decoration: none;
 		text-align: right;
@@ -114,21 +114,15 @@
 		font-size: max(0.6770833333vw, 12px);
 		line-height: 0;
 		font-weight: 400;
-		// letter-spacing: 1.5px;
 		border-radius: 8px;
 		padding: 0.1rem 0.4rem;
-
-		// background: linear-gradient(to left, #97d97c 50%, transparent 50%);
 		background-size: 200% 100%;
 		background-position: 0 0;
 		transition: background-position 0.4s ease;
 		&.active {
-			// color: var(--col-dark);
-			font-weight: 800;
-			// background: #97d97c;
+			font-weight: 700;
 		}
 		&.selected {
-			// color: var(--col-dark);
 			font-weight: 800;
 			background-position: 100% 0;
 		}

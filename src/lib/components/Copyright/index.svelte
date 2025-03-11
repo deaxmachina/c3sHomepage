@@ -5,8 +5,8 @@
 		position: absolute;
 		right: 10px;
 		bottom: 12px;
-		font-family: 'Funnel Sans', serif;
 		font-weight: 400;
+		font-family: var(--font-main);
 		color: var(--col-text-and-accent);
 		font-size: 0.75rem;
 		// writing-mode: vertical-rl;

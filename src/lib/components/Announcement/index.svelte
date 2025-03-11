@@ -48,7 +48,7 @@
 	}
 
 	.vertical-text {
-		font-family: 'Funnel Sans', serif;
+		font-family: var(--font-main);
 		font-weight: 500;
 		padding: 0 5px 0 8px;
 		width: 100%;

@@ -50,7 +50,9 @@
 		--col-accent-2-darker: {colours.colAccent2};
 		--col-accent-3: {colours.colAccent3};
 		--col-see: {colours.colSee};
-		--font-main: 'Titillium Web, serif';
+		--font-main: 'Titillium Web';
+		--font-fancy: 'sudo';
+		--font-dotted-main: 'bitcount-grid-single-circle';
   "
 >
 	<div class="layout-wrapper" style="overflow-y: {page.url.pathname === '/' ? 'hidden' : 'scroll'}">
