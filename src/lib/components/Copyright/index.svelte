@@ -24,5 +24,9 @@
 			font-size: 0.7rem;
 			writing-mode: horizontal-tb;
 		}
+
+		@media (max-width: 900px) {
+			display: none;
+		}
 	}
 </style>
