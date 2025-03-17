@@ -75,7 +75,7 @@
 						class:selected={selectedOption === option.id}
 						class:active={activeOption === option.id}
 						href={option.href}
-						class="hide-mobile"
+						class:hide-mobile={option.id === 'bookclub'}
 						target="_blank"
 						rel="noopener noreferrer"
 					>
@@ -127,7 +127,7 @@
 			background-position: 100% 0;
 		}
 		&.hide-mobile {
-			@media (max-width: 500px) {
+			@media (max-width: 450px) {
 				display: none;
 			}
 		}

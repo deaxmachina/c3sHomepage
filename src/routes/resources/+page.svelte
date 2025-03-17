@@ -42,9 +42,6 @@
 	}
 </script>
 
-<!-- {#if showFixedElement}
-	<div class="scroll-instructions">scroll</div>
-{/if} -->
 <div class="scroll-instructions {showFixedElement ? '' : 'hidden'}">
 	<Instructions />
 </div>
@@ -72,6 +69,9 @@
 		transition: opacity 0.3s ease-in-out;
 		&.hidden {
 			opacity: 0;
+		}
+		@media (max-width: 600px) {
+			display: none;
 		}
 	}
 
