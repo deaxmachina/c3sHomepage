@@ -9,11 +9,12 @@
 </script>
 
 <div class="wrapper">
-	<a href="https://discord.gg/HGH7uEpy99" class="social-link" target="_blank">
+	<a href="https://lu.ma/2bvp84e5" class="social-link" target="_blank">
 		<p class="vertical-text">
-			Next meetup TBA soon. Likely on 5th April at the Cave in Hackney Wick.
-			<!-- <Fa icon={faArrowRight} scale={0.8} /> -->
-			<!-- <Fa icon={faTicket} scale={1} /> -->
+			Next meetup is on 5th April
+			<Fa icon={faArrowRight} scale={0.8} />
+			<Fa icon={faTicket} scale={1} /> get your tickets here. Topic is "Quantum Canvas - Freeing the
+			Qubit For Art"
 		</p>
 	</a>
 </div>
