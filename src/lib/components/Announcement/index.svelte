@@ -11,10 +11,8 @@
 <div class="wrapper">
 	<a href="https://lu.ma/2bvp84e5" class="social-link" target="_blank">
 		<p class="vertical-text">
-			Next meetup is on 5th April
-			<Fa icon={faArrowRight} scale={0.8} />
-			<Fa icon={faTicket} scale={1} /> get your tickets here. Topic is "Quantum Canvas - Freeing the
-			Qubit For Art"
+			Next meetup is provisionally on 31st May - TBD! Materials from "Quantum Canvas" will be up
+			shortly.
 		</p>
 	</a>
 </div>
@@ -52,7 +50,7 @@
 		font-family: var(--font-main);
 		font-weight: 500;
 		padding: 0 5px 0 8px;
-		width: 100%;
+		width: 250%;
 		display: inline-block;
 		white-space: nowrap;
 		animation: scrollText 15s linear infinite;
