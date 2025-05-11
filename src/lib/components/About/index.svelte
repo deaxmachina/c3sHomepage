@@ -36,13 +36,7 @@
 			We meet about once a month in London, in or around Hackney Wick - an area known for its large
 			artistic community and a Creative Enterprise Zone . You can find out more about our past
 			events
-			<a
-				target="_blank"
-				rel="noopener noreferrer"
-				href="https://www.london.gov.uk/programmes-strategies/arts-and-culture/space-culture/explore-creative-enterprise-zones/about-creative-enterprise-zones"
-			>
-				here
-			</a>
+			<a target="_blank" rel="noopener noreferrer" href="https://lu.ma/c3s"> here </a>
 			and all the resources we used in those
 			<a href="/resources"> here </a>. c3s was started in 2024 by
 			<a target="_blank" rel="noopener noreferrer" href="https://deabankova.com/"> Dea Bankova </a>

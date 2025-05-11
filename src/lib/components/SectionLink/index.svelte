@@ -8,7 +8,7 @@
 		{ href: '/about', id: 'about', displayName: 'About' },
 		{ href: '/resources', id: 'resources', displayName: 'Resources' },
 		{
-			href: 'https://www.eventbrite.co.uk/o/creativecodingcrafts-space-90303892113',
+			href: 'https://lu.ma/c3s',
 			id: 'events',
 			displayName: 'Events'
 		},

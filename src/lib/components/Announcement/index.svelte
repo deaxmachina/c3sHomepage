@@ -10,10 +10,7 @@
 
 <div class="wrapper">
 	<a href="https://lu.ma/2bvp84e5" class="social-link" target="_blank">
-		<p class="vertical-text">
-			Next meetup is provisionally on 31st May - TBD! Materials from "Quantum Canvas" will be up
-			shortly.
-		</p>
+		<p class="vertical-text">Next meetup is provisionally on Sat 7th June. More details soon!</p>
 	</a>
 </div>
 
@@ -50,7 +47,7 @@
 		font-family: var(--font-main);
 		font-weight: 500;
 		padding: 0 5px 0 8px;
-		width: 250%;
+		width: 200%;
 		display: inline-block;
 		white-space: nowrap;
 		animation: scrollText 15s linear infinite;
