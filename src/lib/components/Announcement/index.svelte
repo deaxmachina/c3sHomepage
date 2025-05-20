@@ -9,8 +9,8 @@
 </script>
 
 <div class="wrapper">
-	<a href="https://lu.ma/2bvp84e5" class="social-link" target="_blank">
-		<p class="vertical-text">Next meetup is provisionally on Sat 7th June. More details soon!</p>
+	<a href="https://lu.ma/ugcoydkj" class="social-link" target="_blank">
+		<p class="vertical-text">Next meetup is on Sat 7th June. Click here to get your ticket!</p>
 	</a>
 </div>
 
