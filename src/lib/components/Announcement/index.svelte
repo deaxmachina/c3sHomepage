@@ -9,9 +9,12 @@
 </script>
 
 <div class="wrapper">
-	<a href="https://lu.ma/ugcoydkj" class="social-link" target="_blank">
-		<p class="vertical-text">Next meetup is on Sat 7th June. Click here to get your ticket!</p>
-	</a>
+	<!-- <a href="https://lu.ma/ugcoydkj" class="social-link" target="_blank"> -->
+		<p class="text">
+			Materials from last meetup are up in the 'resources' section. 
+			Next meetup is on 27th July. More details TBA!
+		</p>
+	<!-- </a> -->
 </div>
 
 <div class="loudspeaker">
@@ -43,11 +46,11 @@
 		top: 1.5rem;
 	}
 
-	.vertical-text {
+	.text {
 		font-family: var(--font-main);
 		font-weight: 500;
 		padding: 0 5px 0 8px;
-		width: 200%;
+		width: 280%;
 		display: inline-block;
 		white-space: nowrap;
 		animation: scrollText 15s linear infinite;
