@@ -9,12 +9,11 @@
 </script>
 
 <div class="wrapper">
-	<!-- <a href="https://lu.ma/ugcoydkj" class="social-link" target="_blank"> -->
+	<a href="https://www.eventbrite.co.uk/e/creative-coding-crafts-space-meetup-7-wired-connections-tickets-1473089172369?aff=oddtdtcreator" class="social-link" target="_blank">
 		<p class="text">
-			Materials from last meetup are up in the 'resources' section. 
-			Next meetup is on 27th July. More details TBA!
+			Next meetup ('Wired Connections') is on 27th July. Click here to get your tickets. 
 		</p>
-	<!-- </a> -->
+	</a>
 </div>
 
 <div class="loudspeaker">
