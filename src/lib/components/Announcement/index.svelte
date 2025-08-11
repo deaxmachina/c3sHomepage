@@ -9,10 +9,12 @@
 </script>
 
 <div class="wrapper">
-	<a href="https://www.eventbrite.co.uk/e/creative-coding-crafts-space-meetup-7-wired-connections-tickets-1473089172369?aff=oddtdtcreator" class="social-link" target="_blank">
-		<p class="text">
-			Next meetup ('Wired Connections') is on 27th July. Click here to get your tickets. 
-		</p>
+	<a
+		href="https://www.eventbrite.co.uk/e/creative-coding-crafts-space-meetup-7-wired-connections-tickets-1473089172369?aff=oddtdtcreator"
+		class="social-link"
+		target="_blank"
+	>
+		<p class="text">Next meetup is on 30th August. More details in the next couple of days!</p>
 	</a>
 </div>
 
