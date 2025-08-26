@@ -1,7 +1,13 @@
 <script lang="ts">
 	import Fa from 'svelte-fa';
 	import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-	import { faGithub, faDiscord, faBluesky, faXTwitter } from '@fortawesome/free-brands-svg-icons';
+	import {
+		faGithub,
+		faDiscord,
+		faBluesky,
+		faXTwitter,
+		faInstagram
+	} from '@fortawesome/free-brands-svg-icons';
 
 	const scale = 1.3;
 </script>
@@ -9,6 +15,10 @@
 <div class="wrapper">
 	<a href="https://discord.gg/HGH7uEpy99" class="social-link" target="_blank">
 		<Fa icon={faDiscord} {scale} />
+	</a>
+
+	<a href="https://www.instagram.com/cccraftsspace/" class="social-link" target="_blank">
+		<Fa icon={faInstagram} {scale} />
 	</a>
 
 	<a href="https://bsky.app/profile/cccraftsspace.bsky.social" class="social-link" target="_blank">

@@ -4,8 +4,6 @@ import { PUBLIC_SANITY_PROJECT_ID, PUBLIC_SANITY_DATASET } from '$env/static/pub
 
 // To get the Sanity client to work
 const config: ClientConfig = {
-	// projectId: 'gbrxde2e', // get this either from the sanity project dasjboard or the sanity project
-	// dataset: 'production',
 	projectId: PUBLIC_SANITY_PROJECT_ID,
 	dataset: PUBLIC_SANITY_DATASET,
 	useCdn: true,

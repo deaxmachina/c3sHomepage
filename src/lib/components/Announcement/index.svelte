@@ -11,8 +11,8 @@
 <div class="wrapper">
 	<a href="https://lu.ma/9kf45v58?tk=H8DEXV" class="social-link" target="_blank">
 		<p class="text">
-			Next meetup is on 30 Aug. Come learn about live coding / algoraves & Strudel and Hydra~ Click
-			here for tickets.
+			Check us out on Instragram @cccraftsspace!! Next meetup is on 30 Aug. Live coding / algoraves
+			w/ Strudel and Hydra~ Click here for tickets.
 		</p>
 	</a>
 </div>
@@ -50,10 +50,10 @@
 		font-family: var(--font-main);
 		font-weight: 500;
 		padding: 0 5px 0 8px;
-		width: 280%;
+		width: 360%;
 		display: inline-block;
 		white-space: nowrap;
-		animation: scrollText 15s linear infinite;
+		animation: scrollText 20s linear infinite;
 	}
 
 	@keyframes scrollText {
