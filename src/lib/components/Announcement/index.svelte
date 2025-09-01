@@ -9,10 +9,10 @@
 </script>
 
 <div class="wrapper">
-	<a href="https://lu.ma/9kf45v58?tk=H8DEXV" class="social-link" target="_blank">
+	<a href="https://deaxmachina.mmm.page/c3s-8" class="social-link" target="_blank">
 		<p class="text">
-			Check us out on Instragram @cccraftsspace!! Next meetup is on 30 Aug. Live coding / algoraves
-			w/ Strudel and Hydra~ Click here for tickets.
+			Check us out on Instragram @cccraftsspace!! Click here for materials from last meetup: Live
+			coding / algoraves w/ Strudel and Hydra~.
 		</p>
 	</a>
 </div>
