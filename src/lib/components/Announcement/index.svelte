@@ -9,10 +9,10 @@
 </script>
 
 <div class="wrapper">
-	<a href="https://deaxmachina.mmm.page/c3s-8" class="social-link" target="_blank">
+	<a href="https://luma.com/pbd0aa61" class="social-link" target="_blank">
 		<p class="text">
-			Check us out on Instragram @cccraftsspace!! Click here for materials from last meetup: Live
-			coding / algoraves w/ Strudel and Hydra~.
+			New workshop announcement: Interactive animations in TouchDesigner! Click to get your tickets~
+			Check us out on Instragram @cccraftsspace!!
 		</p>
 	</a>
 </div>
@@ -50,15 +50,15 @@
 		font-family: var(--font-main);
 		font-weight: 500;
 		padding: 0 5px 0 8px;
-		width: 360%;
+		width: 380%;
 		display: inline-block;
 		white-space: nowrap;
-		animation: scrollText 20s linear infinite;
+		animation: scrollText 15s linear infinite;
 	}
 
 	@keyframes scrollText {
 		0% {
-			transform: translateX(100%);
+			transform: translateX(50%);
 		}
 		50% {
 			transform: translateX(0);
